@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :food_plans
+  resources :statement_of_accounts
+  resources :deals
+  resources :applicants
   root 'pages#p1'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Deal type:</strong>
+  <%= @deal.deal_type %>
+</p>
+
+<p>
+  <strong>Amount due:</strong>
+  <%= @deal.amount_due %>
+</p>
+
+<p>
+  <strong>Amount paid:</strong>
+  <%= @deal.amount_paid %>
+</p>
+
+<p>
+  <strong>Deal timestamp:</strong>
+  <%= @deal.deal_timestamp %>
+</p>
+
+<p>
+  <strong>Payment for:</strong>
+  <%= @deal.payment_for %>
+</p>
+
+<%= link_to 'Edit', edit_deal_path(@deal) %> |
+<%= link_to 'Back', deals_path %>

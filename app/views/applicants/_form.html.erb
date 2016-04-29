@@ -1,0 +1,113 @@
+<%= form_for(@applicant) do |f| %>
+  <% if @applicant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
+
+      <ul>
+      <% @applicant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :middle_initial %><br>
+    <%= f.text_field :middle_initial %>
+  </div>
+  <div class="field">
+    <%= f.label :nickname %><br>
+    <%= f.text_field :nickname %>
+  </div>
+  <div class="field">
+    <%= f.label :image_path %><br>
+    <%= f.text_area :image_path %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :civil_status %><br>
+    <%= f.text_field :civil_status %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_number %><br>
+    <%= f.text_field :contact_number %>
+  </div>
+  <div class="field">
+    <%= f.label :landline_number %><br>
+    <%= f.text_field :landline_number %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :nationality %><br>
+    <%= f.text_field :nationality %>
+  </div>
+  <div class="field">
+    <%= f.label :religion %><br>
+    <%= f.text_field :religion %>
+  </div>
+  <div class="field">
+    <%= f.label :birthday %><br>
+    <%= f.datetime_select :birthday %>
+  </div>
+  <div class="field">
+    <%= f.label :school %><br>
+    <%= f.text_field :school %>
+  </div>
+  <div class="field">
+    <%= f.label :school_address %><br>
+    <%= f.text_area :school_address %>
+  </div>
+  <div class="field">
+    <%= f.label :major %><br>
+    <%= f.text_field :major %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :medical_information %><br>
+    <%= f.text_area :medical_information %>
+  </div>
+  <div class="field">
+    <%= f.label :personal_information %><br>
+    <%= f.text_area :personal_information %>
+  </div>
+  <div class="field">
+    <%= f.label :guardian_name %><br>
+    <%= f.text_field :guardian_name %>
+  </div>
+  <div class="field">
+    <%= f.label :guardian_contact_number %><br>
+    <%= f.text_field :guardian_contact_number %>
+  </div>
+  <div class="field">
+    <%= f.label :guardian_address %><br>
+    <%= f.text_area :guardian_address %>
+  </div>
+  <div class="field">
+    <%= f.label :guardian_email %><br>
+    <%= f.text_field :guardian_email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

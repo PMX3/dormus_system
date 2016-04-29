@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Statement Of Accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Electric due</th>
+      <th>Water due</th>
+      <th>Deposit</th>
+      <th>Room total due</th>
+      <th>Personal laundry fees</th>
+      <th>Personal other fees</th>
+      <th>Personal meal plan fees</th>
+      <th>Personal total due</th>
+      <th>Due date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @statement_of_accounts.each do |statement_of_account| %>
+      <tr>
+        <td><%= statement_of_account.electric_due %></td>
+        <td><%= statement_of_account.water_due %></td>
+        <td><%= statement_of_account.deposit %></td>
+        <td><%= statement_of_account.room_total_due %></td>
+        <td><%= statement_of_account.personal_laundry_fees %></td>
+        <td><%= statement_of_account.personal_other_fees %></td>
+        <td><%= statement_of_account.personal_meal_plan_fees %></td>
+        <td><%= statement_of_account.personal_total_due %></td>
+        <td><%= statement_of_account.due_date %></td>
+        <td><%= link_to 'Show', statement_of_account %></td>
+        <td><%= link_to 'Edit', edit_statement_of_account_path(statement_of_account) %></td>
+        <td><%= link_to 'Destroy', statement_of_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Statement of account', new_statement_of_account_path %>

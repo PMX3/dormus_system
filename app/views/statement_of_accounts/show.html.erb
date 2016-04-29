@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Electric due:</strong>
+  <%= @statement_of_account.electric_due %>
+</p>
+
+<p>
+  <strong>Water due:</strong>
+  <%= @statement_of_account.water_due %>
+</p>
+
+<p>
+  <strong>Deposit:</strong>
+  <%= @statement_of_account.deposit %>
+</p>
+
+<p>
+  <strong>Room total due:</strong>
+  <%= @statement_of_account.room_total_due %>
+</p>
+
+<p>
+  <strong>Personal laundry fees:</strong>
+  <%= @statement_of_account.personal_laundry_fees %>
+</p>
+
+<p>
+  <strong>Personal other fees:</strong>
+  <%= @statement_of_account.personal_other_fees %>
+</p>
+
+<p>
+  <strong>Personal meal plan fees:</strong>
+  <%= @statement_of_account.personal_meal_plan_fees %>
+</p>
+
+<p>
+  <strong>Personal total due:</strong>
+  <%= @statement_of_account.personal_total_due %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @statement_of_account.due_date %>
+</p>
+
+<%= link_to 'Edit', edit_statement_of_account_path(@statement_of_account) %> |
+<%= link_to 'Back', statement_of_accounts_path %>

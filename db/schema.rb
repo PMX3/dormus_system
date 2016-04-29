@@ -1,0 +1,75 @@
+# encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 20160429082442) do
+
+  create_table "applicants", force: :cascade do |t|
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "middle_initial"
+    t.string   "nickname"
+    t.text     "image_path"
+    t.string   "gender"
+    t.string   "civil_status"
+    t.text     "address"
+    t.string   "contact_number"
+    t.string   "landline_number"
+    t.string   "email"
+    t.string   "nationality"
+    t.string   "religion"
+    t.datetime "birthday"
+    t.string   "school"
+    t.text     "school_address"
+    t.string   "major"
+    t.integer  "year"
+    t.text     "medical_information"
+    t.text     "personal_information"
+    t.string   "guardian_name"
+    t.string   "guardian_contact_number"
+    t.text     "guardian_address"
+    t.string   "guardian_email"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "deals", force: :cascade do |t|
+    t.string   "deal_type"
+    t.decimal  "amount_due"
+    t.decimal  "amount_paid"
+    t.datetime "deal_timestamp"
+    t.string   "payment_for"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "food_plans", force: :cascade do |t|
+    t.date     "food_plan_date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "statement_of_accounts", force: :cascade do |t|
+    t.decimal  "electric_due"
+    t.decimal  "water_due"
+    t.decimal  "deposit"
+    t.decimal  "room_total_due"
+    t.decimal  "personal_laundry_fees"
+    t.string   "personal_other_fees"
+    t.decimal  "personal_meal_plan_fees"
+    t.decimal  "personal_total_due"
+    t.date     "due_date"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+end

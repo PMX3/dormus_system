@@ -1,0 +1,53 @@
+<%= form_for(@statement_of_account) do |f| %>
+  <% if @statement_of_account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@statement_of_account.errors.count, "error") %> prohibited this statement_of_account from being saved:</h2>
+
+      <ul>
+      <% @statement_of_account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :electric_due %><br>
+    <%= f.text_field :electric_due %>
+  </div>
+  <div class="field">
+    <%= f.label :water_due %><br>
+    <%= f.text_field :water_due %>
+  </div>
+  <div class="field">
+    <%= f.label :deposit %><br>
+    <%= f.text_field :deposit %>
+  </div>
+  <div class="field">
+    <%= f.label :room_total_due %><br>
+    <%= f.text_field :room_total_due %>
+  </div>
+  <div class="field">
+    <%= f.label :personal_laundry_fees %><br>
+    <%= f.text_field :personal_laundry_fees %>
+  </div>
+  <div class="field">
+    <%= f.label :personal_other_fees %><br>
+    <%= f.text_field :personal_other_fees %>
+  </div>
+  <div class="field">
+    <%= f.label :personal_meal_plan_fees %><br>
+    <%= f.text_field :personal_meal_plan_fees %>
+  </div>
+  <div class="field">
+    <%= f.label :personal_total_due %><br>
+    <%= f.text_field :personal_total_due %>
+  </div>
+  <div class="field">
+    <%= f.label :due_date %><br>
+    <%= f.date_select :due_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<%= form_for(@deal) do |f| %>
+  <% if @deal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@deal.errors.count, "error") %> prohibited this deal from being saved:</h2>
+
+      <ul>
+      <% @deal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :deal_type %><br>
+    <%= f.text_field :deal_type %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_due %><br>
+    <%= f.text_field :amount_due %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_paid %><br>
+    <%= f.text_field :amount_paid %>
+  </div>
+  <div class="field">
+    <%= f.label :deal_timestamp %><br>
+    <%= f.datetime_select :deal_timestamp %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_for %><br>
+    <%= f.text_field :payment_for %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
