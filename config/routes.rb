@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :dormers
   resources :food_plans
   resources :statement_of_accounts
   resources :deals
