@@ -28,10 +28,15 @@
 				<li class="active"><a href="#">Application <span class="sr-only">(current)</span></a></li>
 				<li><a href="http://mydorm.ph/">myDorm.ph</a></li>
 			</ul>
-
 			<ul class="nav navbar-nav navbar-right">
+				<% if dormer_signed_in? %>
+					<li><%= link_to "Meal Plans" %>></li>
+					<li><%= link_to "Laundry Services" %></li>
+					<li><%= link_to "Logout", destroy_dormer_session_path, method: :delete %></li>
+				<% else %>
 				<li class="p1_exi"><a class="p1_existacc" >Already have an account?</a></li>
 				<li><a href="/dormers/sign_in">Sign in</a></li>
+				<% end %>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
