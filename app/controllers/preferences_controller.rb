@@ -15,6 +15,11 @@ class PreferencesController < ApplicationController
   # GET /preferences/new
   def new
     @preference = Preference.new
+    if params[:commit] == 'A'
+         
+    elsif params[:commit] == 'B'
+        # B was pressed
+    end
   end
 
   # GET /preferences/1/edit
