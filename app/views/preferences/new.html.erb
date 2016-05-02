@@ -1,4 +1,51 @@
-<h1>New Preference</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DORMUS</title>
+  <!--<link rel="shortcut icon" href="/assets/h-logo2.ico" />-->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+</head>
+<nav class="navbar navbar-custom navbar-inverse .navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img id="dormus_logo"
+             src="/assets/dormus_logo.png"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Application <span class="sr-only">(current)</span></a></li>
+        <li><a href="http://mydorm.ph/">myDorm.ph</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="p1_exi"><a class="p1_existacc" >Already have an account?</a></li>
+        <li><a href="/dormers/sign_in">Sign in</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<body>
+<div class="default_bg container-fluid">
+
+  <div class="card">
+    <div class="card_header">
+      <center>
+      <span class="appli_title">Select a room</span>
+     </center>
+    </div>
+    <div class="container-fluid appli_abox">
+    	<div class="">
 
 <%= simple_form_for(@preference) do |f| %>
   <%= f.error_notification %>
@@ -15,4 +62,19 @@ as: :radio_buttons %>
   </div>
 <% end %>
 
-<%= link_to 'Back', preferences_path %>
+<%= link_to 'Back', root_path %>
+
+		</div>
+    </div>
+
+
+
+  </div>
+
+</div>
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.min.js"></script>
+</html>
