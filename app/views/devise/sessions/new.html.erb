@@ -1,42 +1,43 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
 <!-- Sidebar -->
 <div id="sidebar" role="navigation">
-  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-  </button>
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-  <div id="sidebar-nav">
+
+    <div id="sidebar-nav">
     <%=image_tag "dormus_logo1.png", :style => "width: 100%; margin-top:40px;"%> 
-    <ul class="nav nav-stacked">
-      <!--li of v-navbar links-->
-    </ul>
-    <div id="jumbotron-footer">
+        <ul class="nav nav-stacked">
+        <!--li of v-navbar links-->
+        </ul>
+      <div id="jumbotron-footer">
       <center>
-        <a style="color: #fff;">About Us</a> | <a style="color: #fff;">Terms and Conditions</a> | Copyright 2015
+      <a style="color: #fff;">About Us</a> | <a style="color: #fff;">Terms and Conditions</a> | Copyright 2015
       </center>
     </div>
-  </div>
-  <!-- Sidebar End -->
+    </div>
+<!-- Sidebar End -->
 </div>
 <section id="jumbotron-landing" class="container-fluid row">
   <div class="col-md-4 jumbotron-left-div" style="padding-top:7%;">
-
+    
   </div>
   <div class="col-md-8">
     <div class="col-md-1"></div>
     <center>
-      <div class="col-md-10">
-        <div class="sign_up_form-home">
+    <div class="col-md-10">
+      <div class="sign_up_form-home">
          <div class="card-home log_form">
            <div class="header-home">
-             <h2 class=" signin-text">SIGN IN</h2>
+           <h2 class=" signin-text">SIGN IN</h2>
            </div>
            <br>
            <div class="card-home-inner signin-text">
-            <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
             <p><%= f.label :email, :class=>"card-home-label signin-text" %></p>
             <p><%= f.text_field :email %></p>
 
@@ -44,15 +45,15 @@
             <p><%= f.password_field :password %></p>
 
             <% if devise_mapping.rememberable? -%>
-            <p><%= f.check_box :remember_me %> <%= f.label :remember_me, :class=>"card-home-label signin-text" %></p>
+              <p><%= f.check_box :remember_me %> <%= f.label :remember_me, :class=>"card-home-label signin-text" %></p>
             <% end -%>
 
             <p><%= f.submit "Sign in",:class=>"btn sign-in-home btncont-home signin-text" %></p>
-            <% end -%>
+          <% end -%>
           </div>
-          Don't have an account yet? <%= render "devise/shared/links" %>
+            Don't have an account yet? <%= render "devise/shared/links" %>
         </div>
       </div>
     </div>
-  </center>
-</div>
+    </center>
+  </div>
