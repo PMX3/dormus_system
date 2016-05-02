@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rooms
   resources :submissions
   devise_for :dormers
   resources :food_plans
