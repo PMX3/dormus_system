@@ -47,13 +47,21 @@
     <div class="container-fluid appli_abox">
     	<div class="">
     		<div class="col-md-6">
-    			
+    			<div class="imgholder">
+    				<img id="img-icon" src="/assets/img-icon.png"><center>
+    				<div class="img-upload">
+    					Upload Image
+    				</div></center>
+    			</div>
+    			<div class="img-base">
+    				
+    			</div>
     		</div>
 	    	<div class="col-md-6 appli_rbox">
 	    	
 			<%= render 'form' %>
 
-			<%= link_to 'Back', applicants_path %>
+			<%= link_to 'Back', root_path, :class=>"btn sendbtn1" %>
 			</div>
 		</div>
     </div>

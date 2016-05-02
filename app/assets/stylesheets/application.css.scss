@@ -626,6 +626,7 @@ body{
 .loginbtn{
   background-color: #990000;
   border-color: #990000;
+  float:right;
   border-radius: 0px;
   color:white;
   box-shadow: 0 1px 3px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.24);
@@ -633,7 +634,37 @@ body{
 }
 .loginbtn:hover {
   color:white;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.sendbtn{
+  background-color: #990000;
+  margin-right: 30%;
+  margin-top: 1.9vh;
+  border-color: #990000;
+  float:right;
+  border-radius: 0px;
+  color:white!important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.24);
+   transition: all 0.24s ease-in-out;
+}
+.sendbtn:hover {
+  color:white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.sendbtn1{
+  background-color: black;
+  margin-right: -32%;
+  margin-top: 1.9vh;
+  border-color: black;
+  float:right;
+  border-radius: 0px;
+  color:white!important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.24);
+   transition: all 0.24s ease-in-out;
+}
+.sendbtn1:hover {
+  color:white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 .flabel{
   font-family: 'Open Sans' !important;
