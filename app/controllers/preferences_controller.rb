@@ -15,10 +15,10 @@ class PreferencesController < ApplicationController
   # GET /preferences/new
   def new
     @preference = Preference.new
-    if params[:commit] == 'A'
-         
-    elsif params[:commit] == 'B'
-        # B was pressed
+    if params[:room_type] == "A"
+      @preference.update(room_type: "A")
+    else
+      @preference.update(room_type: "B")
     end
   end
 

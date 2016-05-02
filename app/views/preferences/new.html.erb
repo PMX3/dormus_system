@@ -44,23 +44,39 @@
       <span class="appli_title">Select a room</span>
      </center>
     </div>
-    <div class="container-fluid appli_abox">
+    <div class="container-fluid pref_abox">
     	<div class="">
 
-<%= simple_form_for(@preference) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    
+<form>
+<div class="row">
+	<div class="col-md-3 partition" style="background-color:black;">
+	</div>
+	<div class="col-md-4 partition">
+	<br>
+	<span class="preftitle">Two-in-a-room-premium</span>
+	<br><br>
+	<span class="preftitle">2 Beds &nbsp&nbsp&nbsp 16x20 &nbsp&nbsp&nbsp1 Bath</span>
+	</div>
+	<div class="col-md-3 partition">
+	<br><br>
+	<span class="preftitle1">Php 6,600.00/month</span>
+	</div>
+	<div class="col-md-2 partition">
+	<%= button_tag 'CHOOSE', name: "room_type", value: "A",  onclick: "this.form.submit();",:class=>"choosebtn btn" %>
+	</div>
+</div>
 
-    
-    <%= f.submit 'A' %>
-    <%= f.submit 'B' %>
-    
-  </div>
+<div class="row">
+<%= button_tag 'CHOOSE', name: "room_type", value: "B",  onclick: "this.form.submit();",:class=>"choosebtn btn" %>
+</div>
+
+<div class="row">
+<%= button_tag 'CHOOSE', name: "room_type", value: "A",  onclick: "this.form.submit();",:class=>"choosebtn btn" %>
+</div>
+</form>
 
 
-<% end %>
 
 <%= link_to 'Back', root_path %>
 
