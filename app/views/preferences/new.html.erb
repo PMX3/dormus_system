@@ -1,0 +1,18 @@
+<h1>New Preference</h1>
+
+<%= simple_form_for(@preference) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    
+    <%= f.input :room_type, 
+collection: [['Four-to-a-Room Deluxe Room', "Four-to-a-Room Deluxe Room"], ['Four-to-a-Room Premier Room', "Four-to-a-Room Premier Room"], ['Any Room', "Any"]],
+as: :radio_buttons %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', preferences_path %>
