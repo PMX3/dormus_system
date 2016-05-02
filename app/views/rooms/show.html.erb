@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Room number:</strong>
+  <%= @room.room_number %>
+</p>
+
+<p>
+  <strong>Room type:</strong>
+  <%= @room.room_type %>
+</p>
+
+<p>
+  <strong>Room capacity:</strong>
+  <%= @room.room_capacity %>
+</p>
+
+<p>
+  <strong>Room price:</strong>
+  <%= @room.room_price %>
+</p>
+
+<p>
+  <strong>Occupant count:</strong>
+  <%= @room.occupant_count %>
+</p>
+
+<p>
+  <strong>Room status:</strong>
+  <%= @room.room_status %>
+</p>
+
+<p>
+  <strong>Floor area:</strong>
+  <%= @room.floor_area %>
+</p>
+
+<p>
+  <strong>Bed count:</strong>
+  <%= @room.bed_count %>
+</p>
+
+<p>
+  <strong>Bathroom count:</strong>
+  <%= @room.bathroom_count %>
+</p>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>

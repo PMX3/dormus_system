@@ -16,7 +16,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#"><img id="dormus_logo"
-             src="assets/dormus_logo.png"></a>
+             src="/assets/dormus_logo.png"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,49 +41,30 @@
   <div class="card">
     <div class="card_header">
       <center>
-      <span class="p1_title">DORMUS Application Process</span>
+      <span class="appli_title">Select a room</span>
      </center>
     </div>
-    <div class="container-fluid p1_abox">
-      <div class="col-md-4">
-      <%= link_to new_applicant_path, :style=>"text-decoration: none;" do%>
-        <div class="p1_sbox sbox1">
-          <center>
-            <h3>Step 1</h3>
-            <div class="p1_writeup">
-            Fill in your tenant application form and information sheet
-            </div>
-            <img id="step1" src="assets/step1.png">
-          </center>
-        </div>
-        <%end%>
-      </div>
-      <div class="col-md-4">
-      <%= link_to new_preference_path, :style=>"text-decoration: none;" do%>
-        <div class="p1_sbox">
-          <center>
-            <h3>Step 2</h3>
-            <div class="p1_writeup">
-            Select a room
-            </div>
-            <img id="step2" src="assets/step2.png">
-          </center>
-        </div>
-        <%end%>
-      </div>
-      <div class="col-md-4">
-        <div class="p1_sbox">
-          <center>
-            <h3>Step 3</h3>
-            <div class="p1_writeup">
-            Wait for email confirmation!
-            <br>
-            (Within the day)
-          </div>
-          <img id="step3" src="assets/step3.png">
-          </center>
-        </div>
-      </div>
+    <div class="container-fluid appli_abox">
+    	<div class="">
+
+<%= simple_form_for(@preference) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    
+
+    
+    <%= f.submit 'A' %>
+    <%= f.submit 'B' %>
+    
+  </div>
+
+
+<% end %>
+
+<%= link_to 'Back', root_path %>
+
+		</div>
     </div>
 
 
