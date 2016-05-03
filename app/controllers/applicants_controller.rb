@@ -45,6 +45,12 @@ class ApplicantsController < ApplicationController
     end
   end
 
+def approve
+
+  @applicant = Applicant.find(params[:id])
+  @applicant.update_attribute(:stage,"Pay Deposit")
+  redirect_to applicants_path
+end
   # PATCH/PUT /applicants/1
   # PATCH/PUT /applicants/1.json
   def update

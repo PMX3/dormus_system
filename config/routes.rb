@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/applicants/:id/preference' => 'applicants#preference', as: :edit_preference
   post '/applicants/:id' => 'applicants#update_preference', as: :update_preference
   root 'submissions#new'
+  post '/applicants/:id/approve' => 'applicants#approve', as: :approve
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

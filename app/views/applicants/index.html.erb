@@ -9,34 +9,46 @@
 
     <div class="card">
       <div class="card_header">
-        <center>
-          <span class="p1_title">DORMUS Application Process</span>
-        </center>
+      <div class="row">
+        <div class="col-md-2">
+          
+        </div>
+        <div class="col-md-2">
+           Applicant
+        </div>
+        <div class="col-md-2">
+          Requested Room
+        </div>
+        <div class="col-md-2">
+          Given
+        </div>
+        <div class="col-md-2">
+          Stage
+        </div>
+        <div class="col-md-2">
+          Actions
+        </div>
+        </div>
+        
       </div>
       <div class="container-fluid p1_abox">
         
-  <table>
-  <thead>
-    <tr>
-      <th>Applicant</th>
-      <th>Requested Room</th>
-      <th>Stage</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
+      <br><br><br><br>
+      <br><br><br>
     <% @applicants.each do |applicant| %>
-      <tr>
-        <td><%= applicant.first_name %> <%= applicant.middle_initial %> <%= applicant.last_name %></td>
-        <td><%= applicant.room_type %></td>
-        <td>STAGE</td>
-        <td><%= link_to 'Show', applicant %> &nbsp&nbsp&nbsp<%= link_to 'Edit', edit_applicant_path(applicant) %> &nbsp&nbsp&nbsp<%= link_to 'Destroy', applicant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <div class="row indexappli">
+
+        <div class="col-md-2">pic</div>
+        <div class="col-md-2" ><%= applicant.first_name %> <%= applicant.middle_initial %> <%= applicant.last_name %></div>
+        <div class="col-md-2"><%= applicant.room_type %></div>
+        <div class="col-md-2">Given</div>
+        <div class="col-md-2"><%=applicant.stage%></div>
+        <div class="col-md-2"><%=link_to "Approve", approve_path(applicant.id), :controller=> "applicants",:action=>:approve, method: 'post' %><%= link_to 'Show', applicant %> &nbsp&nbsp&nbsp<%= link_to 'Edit', edit_applicant_path(applicant) %> &nbsp&nbsp&nbsp<%= link_to 'Destroy', applicant, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         
-      </tr>
+      </div>
+      <hr>
     <% end %>
-  </tbody>
-</table>
+
 
       </div>
 
