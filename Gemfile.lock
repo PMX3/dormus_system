@@ -183,6 +183,7 @@ DEPENDENCIES
   devise (~> 4.0)
   jbuilder (~> 2.0)
   jquery-rails
+  mail (~> 2.6, >= 2.6.4)
   rails (= 4.2.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

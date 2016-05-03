@@ -36,6 +36,7 @@ class ApplicantsController < ApplicationController
 
     respond_to do |format|
       if @applicant.save
+        @applicant.update_attribute(:stage,"Pending")
         format.html { redirect_to @applicant, notice: 'Applicant was successfully created.' }
         format.json { render :show, status: :created, location: @applicant }
       else
@@ -49,6 +50,13 @@ def approve
 
   @applicant = Applicant.find(params[:id])
   @applicant.update_attribute(:stage,"Pay Deposit")
+  redirect_to applicants_path
+end
+
+def create_account
+
+  @applicant = Applicant.find(params[:id])
+  @applicant.update_attribute(:stage,"Dormer")
   redirect_to applicants_path
 end
   # PATCH/PUT /applicants/1
@@ -68,11 +76,13 @@ end
   # DELETE /applicants/1
   # DELETE /applicants/1.json
   def destroy
+    #send email here
     @applicant.destroy
     respond_to do |format|
       format.html { redirect_to applicants_url, notice: 'Applicant was successfully destroyed.' }
       format.json { head :no_content }
     end
+
   end
 
   private

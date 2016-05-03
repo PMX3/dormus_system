@@ -81,5 +81,10 @@
  	margin-top: -5vh;
  	height: 7vh;
  	background-color: transparent;
- 	border-bottom:solid black 2px; 
+ 	border-bottom:solid #e2e2e2 2px; 
+ }
+ .scrollbox{
+ 	overflow-y:scroll;
+ 	height:60vh;
+ 	overflow-x:hidden; 
  }
