@@ -42,7 +42,7 @@
         <div class="col-md-1">pic</div>
         <div class="col-md-2" ><%= applicant.first_name %> <%= applicant.middle_initial %> <%= applicant.last_name %></div>
         <div class="col-md-2"><%= applicant.room_type %></div>
-        <div class="col-md-2">Given</div>
+        <div class="col-md-2"><%= select_tag(:room_number, options_for_select([['All', 1], ['Co', 2], ['Bought', 3], ['View', 4], ['Top API', 5]], :selected => params[:room_number])) %></div>
         <div class="col-md-2"><%=applicant.stage%></div>
         <div class="col-md-3">
         <%if applicant.stage=="Pending"%>

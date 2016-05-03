@@ -20,3 +20,12 @@ Applicant.create(first_name: 'Enzo', last_name:'B11', email:'lorenzobautista4@gm
 Applicant.create(first_name: 'Enzo', last_name:'B12', email:'lorenzobautista4@gmail.com',stage:'Pending')
 Applicant.create(first_name: 'Enzo', last_name:'B13', email:'lorenzobautista4@gmail.com',stage:'Pending')
 Applicant.create(first_name: 'Enzo', last_name:'B14', email:'lorenzobautista4@gmail.com',stage:'Pending')
+
+Room.create(room_number: 101,room_type:'Two-in-a-room Deluxe',room_capacity:2,room_price: 5600,occupant_count: 0,room_status:'',floor_area:'',bed_count: 2,bathroom_count: 1)
+Room.create(room_number: 102,room_type:'Two-in-a-room Deluxe',room_capacity:2,room_price: 5600,occupant_count: 0,room_status:'',floor_area:'',bed_count: 2,bathroom_count: 1)
+Room.create(room_number: 103,room_type:'Two-in-a-room Premium',room_capacity:2,room_price: 6600,occupant_count: 0,room_status:'',floor_area:'',bed_count: 2,bathroom_count: 1)
+Room.create(room_number: 104,room_type:'Two-in-a-room Premium',room_capacity:2,room_price: 6600,occupant_count: 0,room_status:'',floor_area:'',bed_count: 2,bathroom_count: 1)
+Room.create(room_number: 105,room_type:'Two-in-a-room Premium',room_capacity:2,room_price: 6600,occupant_count: 0,room_status:'',floor_area:'',bed_count: 2,bathroom_count: 1)
+Room.create(room_number: 106,room_type:'Two-in-a-room Regular',room_capacity:2,room_price: 4600,occupant_count: 0,room_status:'',floor_area:'',bed_count: 2,bathroom_count: 1)
+Room.create(room_number: 107,room_type:'Two-in-a-room Regular',room_capacity:2,room_price: 4600,occupant_count: 0,room_status:'',floor_area:'',bed_count: 2,bathroom_count: 1)
+Room.create(room_number: 108,room_type:'Two-in-a-room Regular',room_capacity:2,room_price: 4600,occupant_count: 0,room_status:'',floor_area:'',bed_count: 2,bathroom_count: 1)
