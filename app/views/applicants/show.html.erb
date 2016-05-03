@@ -25,8 +25,9 @@
                 <%= @applicant.first_name %>
                 
               </div>
-              <img id="step1" src="assets/step1.png">
+              <img id="step1" src="/assets/step1.png">
             </center>
+             <img class="check1" src="/assets/check.png">
           </div>
           <% end %>
         </div>
@@ -43,12 +44,17 @@
                   Select a room
                 <% end %>
               </div>
-              <img id="step2" src="assets/step2.png">
+              <img id="step2" src="/assets/step2.png">
             </center>
+            <% if @applicant.room_type.present? %>
+            <img class="check2" src="/assets/check.png">
+            <%end%>
           </div>
           <%end%>
         </div>
         <div class="col-md-4">
+          <% if @applicant.room_type.present? %>
+          <a href="http://mydorm.ph/" class="email-link">
           <div class="p1_sbox">
             <center>
               <h3>Step 3</h3>
@@ -57,9 +63,23 @@
                 <br>
                 (Within the day)
               </div>
-              <img id="step3" src="assets/step3.png">
+              <img id="step3" src="/assets/step3.png">
             </center>
           </div>
+          </a>
+          <%else%>
+          <div class="p1_sbox1">
+            <center>
+              <h3>Step 3</h3>
+              <div class="p1_writeup">
+                Wait for email confirmation!
+                <br>
+                (Within the day)
+              </div>
+              <img id="step3" src="/assets/step3.png">
+            </center>
+          </div>
+          <%end%>
         </div>
       </div>
 
