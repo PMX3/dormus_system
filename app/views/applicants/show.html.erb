@@ -1,124 +1,76 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DORMUS</title>
+  <!--<link rel="shortcut icon" href="/assets/h-logo2.ico" />-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="default_bg container-fluid">
 
-<p>
-  <strong>Last name:</strong>
-  <%= @applicant.last_name %>
-</p>
+    <div class="card">
+      <div class="card_header">
+        <center>
+          <span class="p1_title">DORMUS Application Process</span>
+        </center>
+      </div>
+      <div class="container-fluid p1_abox">
+        <div class="col-md-4">
+         <%= link_to edit_applicant_path(params[:id]), :style=>"text-decoration: none;" do %>
+          <div class="p1_sbox sbox1">
+            <center>
+              <h3>Step 1</h3>
+              <div class="p1_writeup">
+                EDIT UR DETAILS
+                <%= @applicant.first_name %>
+                
+              </div>
+              <img id="step1" src="assets/step1.png">
+            </center>
+          </div>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <%= link_to edit_preference_path(params[:id]), :style=>"text-decoration: none;" do%>
+          <div class="p1_sbox">
+            <center>
+              <h3>Step 2</h3>
+              <div class="p1_writeup">
+                <% if @applicant.room_type.present? %>
+                  Room type:<%= @applicant.room_type %><br>
+                  Edit room
+                <% else %>
+                  Select a room
+                <% end %>
+              </div>
+              <img id="step2" src="assets/step2.png">
+            </center>
+          </div>
+          <%end%>
+        </div>
+        <div class="col-md-4">
+          <div class="p1_sbox">
+            <center>
+              <h3>Step 3</h3>
+              <div class="p1_writeup">
+                Wait for email confirmation!
+                <br>
+                (Within the day)
+              </div>
+              <img id="step3" src="assets/step3.png">
+            </center>
+          </div>
+        </div>
+      </div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @applicant.first_name %>
-</p>
 
-<p>
-  <strong>Middle initial:</strong>
-  <%= @applicant.middle_initial %>
-</p>
 
-<p>
-  <strong>Nickname:</strong>
-  <%= @applicant.nickname %>
-</p>
+    </div>
 
-<p>
-  <strong>Image path:</strong>
-  <%= @applicant.image_path %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @applicant.gender %>
-</p>
-
-<p>
-  <strong>Civil status:</strong>
-  <%= @applicant.civil_status %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @applicant.address %>
-</p>
-
-<p>
-  <strong>Contact number:</strong>
-  <%= @applicant.contact_number %>
-</p>
-
-<p>
-  <strong>Landline number:</strong>
-  <%= @applicant.landline_number %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @applicant.email %>
-</p>
-
-<p>
-  <strong>Nationality:</strong>
-  <%= @applicant.nationality %>
-</p>
-
-<p>
-  <strong>Religion:</strong>
-  <%= @applicant.religion %>
-</p>
-
-<p>
-  <strong>Birthday:</strong>
-  <%= @applicant.birthday %>
-</p>
-
-<p>
-  <strong>School:</strong>
-  <%= @applicant.school %>
-</p>
-
-<p>
-  <strong>School address:</strong>
-  <%= @applicant.school_address %>
-</p>
-
-<p>
-  <strong>Major:</strong>
-  <%= @applicant.major %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @applicant.year %>
-</p>
-
-<p>
-  <strong>Medical information:</strong>
-  <%= @applicant.medical_information %>
-</p>
-
-<p>
-  <strong>Personal information:</strong>
-  <%= @applicant.personal_information %>
-</p>
-
-<p>
-  <strong>Guardian name:</strong>
-  <%= @applicant.guardian_name %>
-</p>
-
-<p>
-  <strong>Guardian contact number:</strong>
-  <%= @applicant.guardian_contact_number %>
-</p>
-
-<p>
-  <strong>Guardian address:</strong>
-  <%= @applicant.guardian_address %>
-</p>
-
-<p>
-  <strong>Guardian email:</strong>
-  <%= @applicant.guardian_email %>
-</p>
-
-<%= link_to 'Edit', edit_applicant_path(@applicant) %> |
-<%= link_to 'Back', applicants_path %>
+  </div>
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.min.js"></script>
+</html>

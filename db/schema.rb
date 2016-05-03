@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160502131032) do
     t.string   "guardian_contact_number"
     t.text     "guardian_address"
     t.string   "guardian_email"
+    t.string   "room_type"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

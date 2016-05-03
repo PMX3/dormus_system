@@ -25,7 +25,8 @@ class CreateApplicants < ActiveRecord::Migration
       t.string :guardian_contact_number
       t.text :guardian_address
       t.string :guardian_email
-
+      t.string :room_type
+      
       t.timestamps null: false
     end
   end

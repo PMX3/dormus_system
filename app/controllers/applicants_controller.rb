@@ -1,5 +1,5 @@
 class ApplicantsController < ApplicationController
-  before_action :set_applicant, only: [:show, :edit, :update, :destroy]
+  before_action :set_applicant, only: [:show, :edit, :update, :destroy, :preference, :update_preference]
 
   # GET /applicants
   # GET /applicants.json
@@ -10,6 +10,14 @@ class ApplicantsController < ApplicationController
   # GET /applicants/1
   # GET /applicants/1.json
   def show
+  end
+
+  def preference
+  end
+
+  def update_preference
+    @applicant.update(room_type: params[:room_type])
+    redirect_to applicant_path(@applicant)
   end
 
   # GET /applicants/new

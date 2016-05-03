@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :preferences
+  #resources :preferences
   resources :rooms
   resources :submissions
   devise_for :dormers
@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :statement_of_accounts
   resources :deals
   resources :applicants
+  get '/applicants/:id/preference' => 'applicants#preference', as: :edit_preference
+  post '/applicants/:id' => 'applicants#update_preference', as: :update_preference
   root 'submissions#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

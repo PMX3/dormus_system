@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DORMUS</title>
+  <!--<link rel="shortcut icon" href="/assets/h-logo2.ico" />-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="default_bg container-fluid">
+
+
+  <div class="card">
+    <div class="card_header">
+      <center>
+      <span class="appli_title">Select a room</span>
+     </center>
+    </div>
+    <div class="container-fluid pref_abox">
+    	<div class="">
+
+
+<%= form_tag({controller: "applicants", action: "update_preference"}, method: "post") do %>
+<div class="row">
+	<div class="col-md-3 partition" style="background-color:black;">
+	</div>
+	<div class="col-md-4 partition">
+	<br><br><br>
+	<span class="preftitle">Two-in-a-room Premium</span>
+	<br><br>
+	<span class="preftitle">2 Beds &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 16x20 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp1 Bath</span>
+	</div>
+	<div class="col-md-3 partition">
+	<br><br><br><br>
+	<span class="preftitle1">Php 6,600.00/month</span><br><span class="preftitle1">exclusive of utilities</span>
+	</div>
+	<div class="col-md-2 partition">
+	<br><br><br>
+	<%= button_tag 'CHOOSE', name: "room_type", value: "A",  onclick: "this.form.submit();",:class=>"choosebtn btn" %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3 partition" style="background-color:black;">
+	</div>
+	<div class="col-md-4 partition">
+	<br><br><br>
+	<span class="preftitle">Two-in-a-room Deluxe</span>
+	<br><br>
+	<span class="preftitle">2 Beds &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 16x20 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp1 Bath</span>
+	</div>
+	<div class="col-md-3 partition">
+	<br><br><br><br>
+	<span class="preftitle1">Php 5,600.00/month</span><br><span class="preftitle1">exclusive of utilities</span>
+	</div>
+	<div class="col-md-2 partition">
+	<br><br><br>
+	<%= button_tag 'CHOOSE', name: "room_type", value: "B",  onclick: "this.form.submit();",:class=>"choosebtn btn" %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3 partition" style="background-color:black;">
+	</div>
+	<div class="col-md-4 partition">
+	<br><br><br>
+	<span class="preftitle">Two-in-a-room Regular</span>
+	<br><br>
+	<span class="preftitle">2 Beds &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 10x20 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp1 Bath</span>
+	</div>
+	<div class="col-md-3 partition">
+	<br><br><br><br>
+	<span class="preftitle1">Php 4,600.00/month</span><br><span class="preftitle1">exclusive of utilities</span>
+	</div>
+	<div class="col-md-2 partition">
+	<br><br><br>
+	<%= button_tag 'CHOOSE', name: "room_type", value: "C",  onclick: "this.form.submit();",:class=>"choosebtn btn" %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3 partition" style="background-color:black;">
+	</div>
+	<div class="col-md-4 partition">
+	<br><br><br>
+	<span class="preftitle">Four-in-a-room Premium</span>
+	<br><br>
+	<span class="preftitle">4 Beds &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 16x20 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp2 Baths</span>
+	</div>
+	<div class="col-md-3 partition">
+	<br><br><br><br>
+	<span class="preftitle1">Php 8,600.00/month</span><br><span class="preftitle1">exclusive of utilities</span>
+	</div>
+	<div class="col-md-2 partition">
+	<br><br><br>
+	<%= button_tag 'CHOOSE', name: "room_type", value: "D",  onclick: "this.form.submit();",:class=>"choosebtn btn" %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3 partition" style="background-color:black;">
+	</div>
+	<div class="col-md-4 partition">
+	<br><br><br>
+	<span class="preftitle">Four-in-a-room Deluxe</span>
+	<br><br>
+	<span class="preftitle">4 Beds &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 16x20 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp2 Baths</span>
+	</div>
+	<div class="col-md-3 partition">
+	<br><br><br><br>
+	<span class="preftitle1">Php 7,900.00/month</span><br><span class="preftitle1">exclusive of utilities</span>
+	</div>
+	<div class="col-md-2 partition">
+	<br><br><br>
+	<%= button_tag 'CHOOSE', name: "room_type", value: "E",  onclick: "this.form.submit();",:class=>"choosebtn btn" %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3 partition" style="background-color:black;">
+	</div>
+	<div class="col-md-4 partition">
+	<br><br><br>
+	<span class="preftitle">Four-in-a-room Regular</span>
+	<br><br>
+	<span class="preftitle">4 Beds &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 16x20 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp2 Baths</span>
+	</div>
+	<div class="col-md-3 partition">
+	<br><br><br><br>
+	<span class="preftitle1">Php 6,900.00/month</span><br><span class="preftitle1">exclusive of utilities</span>
+	</div>
+	<div class="col-md-2 partition">
+	<br><br><br>
+	<%= button_tag 'CHOOSE', name: "room_type", value: "F",  onclick: "this.form.submit();",:class=>"choosebtn btn" %>
+	</div>
+</div>
+<% end %>
+
+
+
+        <%= link_to 'Back', root_path %>
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.min.js"></script>
+</html>

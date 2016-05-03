@@ -15,11 +15,6 @@ class PreferencesController < ApplicationController
   # GET /preferences/new
   def new
     @preference = Preference.new
-    if params[:room_type] == "A"
-      @preference.update(room_type: "A")
-    else
-      @preference.update(room_type: "B")
-    end
   end
 
   # GET /preferences/1/edit
@@ -29,11 +24,11 @@ class PreferencesController < ApplicationController
   # POST /preferences
   # POST /preferences.json
   def create
-    @preference = Preference.new(preference_params)
+    @preference = Preference.new(room_type: params[:room_type])
 
     respond_to do |format|
       if @preference.save
-        format.html { redirect_to @preference, notice: 'Preference was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Preference was successfully created.' }
         format.json { render :show, status: :created, location: @preference }
       else
         format.html { render :new }
