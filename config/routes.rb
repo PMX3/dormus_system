@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root 'submissions#new'
   post '/applicants/:id/approve' => 'applicants#approve', as: :approve
   post '/applicants/:id/create_account' => 'applicants#create_account', as: :create_account
+  get '/applicants/:id/room_select' => 'applicants#room_select', as: :room_select
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

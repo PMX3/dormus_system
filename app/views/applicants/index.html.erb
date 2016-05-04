@@ -8,7 +8,7 @@
   <div class="default_bg container-fluid">
 
     <div class="card">
-      <div class="card_header">
+      <div class="card_header" style="padding-left:3vw;">
       <div class="row">
         <div class="col-md-1">
           
@@ -35,7 +35,7 @@
         
       <br><br><br><br>
       <br><br><br>
-      <div class="scrollbox">
+      <div class="scrollbox"style="padding-left:3vw;">
     <% @applicants.each do |applicant| %>
       <div class="row indexappli">
 
@@ -43,12 +43,11 @@
         <div class="col-md-2" ><%= applicant.first_name %> <%= applicant.middle_initial %> <%= applicant.last_name %></div>
         <div class="col-md-2"><%= applicant.room_type %></div>
         <div class="col-md-2">
-          <select>
-            <option>---</option>
-            <% @rooms.each do |r| %>
-            <option value="<%=r.room_number%>"><%=r.room_number%></option>
-            <%end%>
-          </select>
+        <%if applicant.room_number==nil%>
+          <%=collection_select(:post, :applicant_id, Room.all, :room_number, :room_number, {prompt: '---'}, { :onchange=>"window.location='#{room_select_path(applicant.id)}?room_number=' + this.value"})%>
+        <%else%>
+          <%=collection_select(:post, :applicant_id, Room.all, :room_number, :room_number, {selected: applicant.room_number}, { :onchange=>"window.location='#{room_select_path(applicant.id)}?room_number=' + this.value"})%>
+        <%end%>
 
         </div>
         <div class="col-md-2"><%=applicant.stage%></div>
