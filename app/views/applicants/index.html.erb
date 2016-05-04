@@ -39,7 +39,7 @@
     <% @applicants.each do |applicant| %>
       <div class="row indexappli">
 
-        <div class="col-md-1"><div style="width:45px;height:45px;margin-top:-18px;background-image:url(<%=applicant.image_path.url%>);background-size:cover;"></div></div>
+        <div class="col-md-1"><div style="width:45px;height:45px;margin-top:-18px;background-image:url(<%=applicant.image_path.url%>);background-size:cover;border-radius:22.5px;"></div></div>
         <div class="col-md-2" ><%= applicant.first_name %> <%= applicant.middle_initial %> <%= applicant.last_name %></div>
         <div class="col-md-2"><%= applicant.room_type %></div>
         <div class="col-md-2">
