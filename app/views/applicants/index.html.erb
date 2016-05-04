@@ -39,7 +39,7 @@
     <% @applicants.each do |applicant| %>
       <div class="row indexappli">
 
-        <div class="col-md-1">pic</div>
+        <div class="col-md-1"><%=image_tag applicant.image_path.url,:style=>"width:45px;margin-top:-18px;"%></div>
         <div class="col-md-2" ><%= applicant.first_name %> <%= applicant.middle_initial %> <%= applicant.last_name %></div>
         <div class="col-md-2"><%= applicant.room_type %></div>
         <div class="col-md-2">
