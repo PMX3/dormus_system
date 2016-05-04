@@ -1,9 +1,14 @@
 class UserMailer < ApplicationMailer
 	 default from: 'lorenzobautista4@gmail.com'
  
-  def welcome_email(user)
+  def rejection_email(user)
     @user = user
     @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: user.email, subject: 'DORMUS Occupancy Status')
+  end
+  def approval_email(user)
+    @user = user
+    @url  = 'http://example.com/login'
+    mail(to: user.email, subject: 'DORMUS Occupancy Status')
   end
 end

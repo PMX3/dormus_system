@@ -48,8 +48,8 @@ class ApplicantsController < ApplicationController
   end
 
 def approve
-
   @applicant = Applicant.find(params[:id])
+  UserMailer.approval_email(@applicant).deliver_now
   @applicant.update_attribute(:stage,"Pay Deposit")
   redirect_to applicants_path
 end
@@ -84,6 +84,8 @@ end
   # DELETE /applicants/1.json
   def destroy
     #send email here
+    # Tell the UserMailer to send a welcome email after save
+    UserMailer.rejection_email(@applicant).deliver_now
     @applicant.destroy
     respond_to do |format|
       format.html { redirect_to applicants_url, notice: 'Applicant was successfully destroyed.' }
