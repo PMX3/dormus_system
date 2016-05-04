@@ -36,10 +36,14 @@
       <br><br><br><br>
       <br><br><br>
       <div class="scrollbox"style="padding-left:3vw;">
+      <br>
     <% @applicants.each do |applicant| %>
       <div class="row indexappli">
-
-        <div class="col-md-1"><div style="width:45px;height:45px;margin-top:-18px;background-image:url(<%=applicant.image_path.url%>);background-size:cover;border-radius:22.5px;"></div></div>
+        <%if applicant.image_path.exists?%>
+            <div class="col-md-1"><div style="width:45px;height:45px;margin-top:-18px;background-image:url(<%=applicant.image_path.url%>);background-size:cover;border-radius:22.5px;"></div></div>
+        <%else%>
+        <div class="col-md-1"><div style="width:45px;height:45px;margin-top:-18px;background-image:url(/assets/filler-img.png);background-size:cover;border-radius:22.5px;"></div></div>
+        <%end%>
         <div class="col-md-2" ><%= applicant.first_name %> <%= applicant.middle_initial %> <%= applicant.last_name %></div>
         <div class="col-md-2"><%= applicant.room_type %></div>
         <div class="col-md-2">
