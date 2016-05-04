@@ -5,6 +5,7 @@ class ApplicantsController < ApplicationController
   # GET /applicants.json
   def index
     @applicants = Applicant.all
+    @rooms=Room.all
   end
 
   # GET /applicants/1
