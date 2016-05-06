@@ -28,6 +28,7 @@ class ApplicantsController < ApplicationController
 
   def show_applicant
     @applicant = Applicant.find(params[:id])
+     
   end
   # GET /applicants/1/edit
   def edit

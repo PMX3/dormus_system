@@ -61,7 +61,7 @@
         <%else%>
         <%=link_to "Create Account", create_account_path(applicant.id), :controller=> "applicants",:action=>:create_account, method: 'post' %>
         <%end%>
-        &nbsp&nbsp&nbsp<%= link_to 'Show', applicant %> &nbsp&nbsp&nbsp<%= link_to 'Edit', edit_applicant_path(applicant) %> &nbsp&nbsp&nbsp<%= link_to 'Reject', applicant, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        &nbsp&nbsp&nbsp<%= link_to 'Show', show_applicant_path(applicant) %> &nbsp&nbsp&nbsp<%= link_to 'Edit', edit_applicant_path(applicant) %> &nbsp&nbsp&nbsp<%= link_to 'Reject', applicant, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         
       </div>
       <hr>
