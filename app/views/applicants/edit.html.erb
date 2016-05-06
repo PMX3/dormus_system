@@ -1,6 +1,161 @@
-<h1>Editing Applicant</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DORMUS</title>
+  <!--<link rel="shortcut icon" href="/assets/h-logo2.ico" />-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <%= form_for @applicant, html: { multipart: true } do |f| %>
+  <% if @applicant.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
+    <ul>
+      <% @applicant.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="default_bg container-fluid">
+    <div class="card">
+      <div class="card_header">
+        <center>
+          <span class="appli_title">Tenant Application Form and Information Sheet</span>
+        </center>
+      </div>
+      <div class="container-fluid appli_abox">
+        <div class="">
+          <div class="col-md-6">
+            <div class="imgholder" style="">
+              <img id="img-icon" src="/assets/img-icon.png"><center>
+              <div class="img-upload">
+                <%= f.label "Upload Image", style: "position: relative; z-index: 0;font-family:'Open Sans';font-weight:400;margin-top:1px;" %>
+                <%= f.file_field :image_path, style: 'position: relative; top: -30px; opacity: 0; z-index: 1;', class:'form-control', accept: 'image/*', onchange: 'previewImage()' %>
+                <script type="text/javascript">
+                function previewImage() {
+                  var preview = document.querySelector('#img-icon');
+                  var image = document.querySelector('input[type=file]').files[0];
+                  var reader  = new FileReader();
 
-<%= render 'form' %>
+                  reader.addEventListener("load", function() {
+                    preview.src = reader.result;
+                  }, false);
 
-<%= link_to 'Show', @applicant %> |
-<%= link_to 'Back', applicants_path %>
+                  reader.readAsDataURL(image);
+                }
+                </script>
+              </div></center>
+            </div>
+            <div class="img-base">
+            </div>
+          </div>
+          <div class="col-md-6 appli_rbox">
+            <div class="field">
+              <%= f.label :last_name,:class=>"flabel" %>
+              <%= f.text_field :last_name,:class=>"ffield",:required=>"true" %>
+            </div>
+            <div class="field">
+              <%= f.label :first_name,:class=>"flabel" %>
+              <%= f.text_field :first_name,:class=>"ffield",:required=>"true" %>
+            </div>
+            <div class="field">
+              <%= f.label :middle_initial,:class=>"flabel" %>
+              <%= f.text_field :middle_initial,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :nickname,:class=>"flabel" %>
+              <%= f.text_field :nickname,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :gender,:class=>"flabel" %>
+              <%= f.text_field :gender,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :civil_status,:class=>"flabel" %>
+              <%= f.text_field :civil_status,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :address,:class=>"flabel" %>
+              <%= f.text_area :address,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :contact_number,:class=>"flabel" %>
+              <%= f.text_field :contact_number,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :landline_number,:class=>"flabel" %>
+              <%= f.text_field :landline_number,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :email,:class=>"flabel" %>
+              <%= f.text_field :email,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :nationality,:class=>"flabel" %>
+              <%= f.text_field :nationality,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :religion,:class=>"flabel" %>
+              <%= f.text_field :religion,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :birthday,:class=>"fslabel" %>
+              <%= f.date_select :birthday,:class=>"fselect"  %>
+            </div>
+            <div class="field">
+              <%= f.label :school,:class=>"flabel" %>
+              <%= f.text_field :school,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :school_address,:class=>"flabel" %>
+              <%= f.text_area :school_address,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :major,:class=>"flabel" %>
+              <%= f.text_field :major,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :year,:class=>"flabel" %>
+              <%= f.number_field :year,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :medical_information,:class=>"flabel" %>
+              <%= f.text_area :medical_information,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :personal_information,:class=>"flabel" %>
+              <%= f.text_area :personal_information,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :guardian_name,:class=>"flabel" %>
+              <%= f.text_field :guardian_name,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :guardian_contact_number,:class=>"flabel" %>
+              <%= f.text_field :guardian_contact_number,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :guardian_address,:class=>"flabel" %>
+              <%= f.text_area :guardian_address,:class=>"ffield"  %>
+            </div>
+            <div class="field">
+              <%= f.label :guardian_email,:class=>"flabel" %>
+              <%= f.text_field :guardian_email,:class=>"ffield"  %>
+            </div>
+            <div class="actions">
+              <%= f.submit 'Submit Form', :class=> "btn sendbtn" %>
+            </div>
+            <%= link_to 'Back', root_path, :class=>"btn sendbtn1" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.min.js"></script>
+</html>
