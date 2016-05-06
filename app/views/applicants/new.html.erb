@@ -27,7 +27,7 @@
       <div class="container-fluid appli_abox">
         <div class="">
           <div class="col-md-6">
-            <div id="imgholder" class="imgholder" style="">
+            <div id="imgholder" class="imgholder" style="background-size:cover;background-position:center;">
               <img id="img-icon" src="/assets/img-icon.png"><center>
               <div id="thing" class="img-upload">
                 <%= f.label "Upload Image", style: "position: relative; z-index: 0;font-family:'Open Sans';font-weight:400;margin-top:1px;" %>
@@ -41,6 +41,7 @@
 
                   reader.onload = function () {
                     preview.style.backgroundImage = "url("+ reader.result +")";
+                    preview.style.backgroundSize="cover";
                   };
 
                   if (image) {
