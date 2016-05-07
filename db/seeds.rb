@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Applicant.create(first_name: 'Enzo', last_name:'Bautista', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe")
+Applicant.create(first_name: 'Lorenzo', last_name:'Bautista', middle_initial: 'A', nickname:'Enzo', gender: 'M', contact_number: '09172837458', landline_number: '555-5565', civil_status: 'Single', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe")
 Applicant.create(first_name: 'Kurt', last_name:'Chan', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe")
 Applicant.create(first_name: 'Hans', last_name:'Cristobal', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe")
 Applicant.create(first_name: 'Bryan', last_name:'Zerrudo', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe")
