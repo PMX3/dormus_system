@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160507071930) do
-=======
 ActiveRecord::Schema.define(version: 20160507072519) do
->>>>>>> origin/master
 
   create_table "applicants", force: :cascade do |t|
     t.string   "last_name"

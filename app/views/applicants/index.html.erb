@@ -47,9 +47,9 @@
         <div class="col-md-2" style="margin-top:-3px;"><%= applicant.room_type %></div>
         <div class="col-md-2" style="margin-top:-3px;">
         <%if applicant.room_number==nil%>
-          <%=collection_select(:post, :applicant_id, Room.all, :room_number, :room_number, {prompt: '---'}, { :onchange=>"window.location='#{room_select_path(applicant.id)}?room_number=' + this.value"})%>
+          <%=collection_select(:post, :applicant_id, Room.where(room_type: "#{applicant.room_type}"), :room_number, :room_number, {prompt: '---'}, { :onchange=>"window.location='#{room_select_path(applicant.id)}?room_number=' + this.value"})%>
         <%else%>
-          <%=collection_select(:post, :applicant_id, Room.all, :room_number, :room_number, {selected: applicant.room_number}, { :onchange=>"window.location='#{room_select_path(applicant.id)}?room_number=' + this.value"})%>
+          <%=collection_select(:post, :applicant_id, Room.where(room_type: "#{applicant.room_type}"), :room_number, :room_number, {selected: applicant.room_number}, { :onchange=>"window.location='#{room_select_path(applicant.id)}?room_number=' + this.value"})%>
         <%end%>
 
         </div>
