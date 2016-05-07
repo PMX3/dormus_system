@@ -10,24 +10,21 @@
     <div class="card">
       <div class="card_header" style="padding-left:3vw;">
       <div class="row">
-        <div class="col-md-1">
-          
+        <center>
+        <div class="col-md-1" style="">
+          Profile
         </div>
-        <div class="col-md-2">
-           Applicant
+        <div class="col-md-1" style="margin-top:-10px;">
+          Statement of Account
         </div>
-        <div class="col-md-2">
-          Requested Room
+        <div class="col-md-1" style="margin-top:-10px;">
+          My Child's Door Log
         </div>
-        <div class="col-md-2">
-          Given
+        <div class="col-md-1" style="">
+          Eligibility
         </div>
-        <div class="col-md-2">
-          Status
-        </div>
-        <div class="col-md-3">
-          Actions
-        </div>
+        </center>
+
         </div>
         
       </div>
@@ -38,6 +35,10 @@
       <div class="scrollbox"style="padding-left:3vw;">
       <br>
       <%=@applicant.first_name%>
+      <%=@applicant.middle_initial%>
+      <%=@applicant.last_name%>
+      <%=@applicant.nickname%>
+
       </div>
 
 
