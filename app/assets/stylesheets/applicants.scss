@@ -122,7 +122,7 @@
 }
 .choosebtn1{
   background-color: #990000;
-  margin-right: 100px;
+  margin-right: 90px;
   float:right;
   margin-top: 1.9vh;
   position:relative;
@@ -139,7 +139,7 @@
 }
 .choosebtn2{
   background-color: black;
-  margin-right: -210px;
+  margin-right: -170px;
   float:right;
   margin-top: 1.9vh;
   position:relative;
@@ -153,4 +153,7 @@
   color:white;
   background-color: black;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.csel{
+	width:50px!important;
 }

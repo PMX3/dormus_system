@@ -128,6 +128,24 @@
 	<%= button_tag 'CHOOSE', name: "room_type", value: "Four-in-a-room Regular",  onclick: "this.form.submit();",:class=>"choosebtn btn" %>
 	</div>
 </div>
+<div class="row">
+	<div class="col-md-3 partition" style="background-color:black;">
+	</div>
+	<div class="col-md-4 partition">
+	<br><br><br>
+	<span class="preftitle">Any Room</span>
+	<br><br>
+	<span class="preftitle">- Beds &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Area: N/A &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp- Baths</span>
+	</div>
+	<div class="col-md-3 partition">
+	<br><br><br><br>
+	<span class="preftitle1">Price N/A</span><br><span class="preftitle1">exclusive of utilities</span>
+	</div>
+	<div class="col-md-2 partition">
+	<br><br><br>
+	<%= button_tag 'CHOOSE', name: "room_type", value: "Any",  onclick: "this.form.submit();",:class=>"choosebtn btn" %>
+	</div>
+</div>
 <% end %>
 
 
