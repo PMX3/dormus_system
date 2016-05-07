@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers=> {
+    :sessions=> 'users/sessions',
+    :passwords=> 'users/passwords'
+  }
   #resources :preferences
   resources :rooms
   resources :submissions
-  devise_for :dormers
   resources :food_plans
   resources :statement_of_accounts
   resources :deals

@@ -1,27 +1,5 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
-<!-- Sidebar -->
-<div id="sidebar" role="navigation">
-  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-  </button>
 
-
-  <div id="sidebar-nav">
-    <%=image_tag "dormus_logo1.png", :style => "width: 100%; margin-top:40px;"%> 
-    <ul class="nav nav-stacked">
-      <!--li of v-navbar links-->
-    </ul>
-    <div id="jumbotron-footer">
-      <center>
-        <a style="color: #fff;">About Us</a> | <a style="color: #fff;">Terms and Conditions</a> | Copyright 2015
-      </center>
-    </div>
-  </div>
-  <!-- Sidebar End -->
-</div>
 <section id="jumbotron-landing" class="container-fluid row">
   <div class="col-md-4 jumbotron-left-div" style="padding-top:7%;">
     
@@ -43,7 +21,7 @@
 
             <p><%= f.submit "Reset Password",:class=>"btn sign-in-home btncont-home signin-text" %></p>
             <% end -%>
-            <p><%= link_to 'Back', '/dormers/sign_in/' %></p>
+            <p><%= link_to 'Back', new_session_path(resource_name) %></p>
           </div>
         </div>
       </div>

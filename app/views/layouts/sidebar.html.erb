@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DORMUS</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<div id="sidebar" role="navigation">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+
+
+  <div id="sidebar-nav">
+    <%=image_tag "dormus_logo1.png", :style => "width: 100%; margin-top:40px;"%> 
+    <ul class="nav nav-stacked">
+      <!--li of v-navbar links-->
+    </ul>
+    <div id="jumbotron-footer">
+      <center>
+        <a style="color: #fff;">About Us</a> | <a style="color: #fff;">Terms and Conditions</a> | Copyright 2015
+      </center>
+    </div>
+  </div>
+  <!-- Sidebar End -->
+</div>
+
+<body>
+
+  <%= yield %>
+
+</body>
+</html>

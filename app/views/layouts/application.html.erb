@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DORMUS
-	</title>
+	<title>DORMUS</title>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 	<link rel="shortcut icon" href="/assets/favicon.ico" />
 </head>
-<% unless current_page?('/dormers/sign_in') || current_page?('/dormers/password/new') %>
 <nav class="navbar navbar-custom navbar-inverse .navbar-fixed-top">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -29,19 +27,19 @@
 				<li><a href="http://mydorm.ph/">myDorm.ph</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<% if dormer_signed_in? %>
+				<% if user_signed_in? %>
 					<li><%= link_to "Meal Plans" %>></li>
 					<li><%= link_to "Laundry Services" %></li>
-					<li><%= link_to "Logout", destroy_dormer_session_path, method: :delete %></li>
+					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 				<% else %>
-				<li class="p1_exi"><a class="p1_existacc" >Already have an account?</a></li>
-				<li><a href="/dormers/sign_in">Sign in</a></li>
+					<li class="p1_exi"><a class="p1_existacc" >Already have an account?</a></li>
+					<li><a href="/users/sign_in">Sign in</a></li>
 				<% end %>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>
-<% end %>
+
 <body>
 
 	<%= yield %>
