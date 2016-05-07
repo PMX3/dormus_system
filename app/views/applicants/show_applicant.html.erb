@@ -105,11 +105,11 @@
           <hr class="hr-sh">
      
 <%if @applicant.stage=="Pending"%>
-        <%=link_to "Approve", approve_path(@applicant.id), :controller=> "applicants",:action=>:approve, method: 'post' %>
+        <%=link_to "Approve", approve_path(@applicant.id), :controller=> "applicants",:action=>:approve, method: 'post',:class=>"choosebtn1 btn" %>
         <%else%>
-        <%=link_to "Create Account", create_account_path(@applicant.id), :controller=> "applicants",:action=>:create_account, method: 'post' %>
+        <%=link_to "Create Account", create_account_path(@applicant.id),:class=>"choosebtn1 btn", :controller=> "applicants",:action=>:create_account, method: 'post' %>
         <%end%>
-        &nbsp&nbsp&nbsp<%= link_to 'Reject', @applicant, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Reject', @applicant,:class=>"choosebtn2 btn", method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
         </div>
       </div>
