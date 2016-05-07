@@ -30,7 +30,7 @@
             <span class="sb1">Status:</span>&nbsp<%=@applicant.stage%>
             <br><br>
             <span class="sb1">Assigned Room:</span>&nbsp
-                    <%if @applicant.room_number==nil%>
+      <%if @applicant.room_number==nil%>
         <%if @applicant.room_type=="Any"%>
           <%=collection_select(:post, :applicant_id, Room.all, :room_number, :room_number, {prompt: '---'}, {:class=>"csel", :onchange=>"window.location='#{room_select_path(@applicant.id)}?room_number=' + this.value"})%>
         <%else%>
