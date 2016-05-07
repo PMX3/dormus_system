@@ -93,4 +93,25 @@
  .sb1{
  	font-family: 'Open Sans';
  	font-weight: 700;
+ 	font-size: 14px;
  }
+.imgholder1{
+	height:30vh;
+	width:30vh;
+	border-radius: 20vh;
+	background-color: #d9d9d9;
+	margin-top: 2vh;
+	margin-left: 1%;
+	position: fixed;
+	z-index:10;
+}
+.img-base1{
+	height:2vh;
+	width:30vh;
+	border-radius: 150vh/10vh;
+	background-color: rgba(128, 128, 128, 0.74);
+	margin-top: 31.0vh;
+	position: fixed;
+	margin-left: 1%;
+	z-index:9;
+}
