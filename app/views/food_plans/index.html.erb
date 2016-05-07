@@ -1,11 +1,61 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<head>
+<% @date1 = Date.today  %> 
+  <title>DORMUS</title>
+  <!--<link rel="shortcut icon" href="/assets/h-logo2.ico" />-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="default_bg container-fluid">
 
-<h1>Listing Food Plans</h1>
-<%= week_calendar number_of_weeks: 2 do |date| %>
-  <%= date %>
-<% end %>
+    <div class="card">
+      <div class="card_header">
+        <center>
+          <span class="p1_title"><%= @date1.strftime("%B")%></span>
+        </center>
+      </div>
+      <div class="container-fluid p1_abox">
+        <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+        <%= week_calendar number_of_weeks: 4, events: @food_plans do |date, food_plans| %>
+          <%= date.day %> 
+          <% food_plans.each do |food_plan| %>
+          <div>
+          <%= food_plan.food_plan_date %>
+          </div>
+          <%end%>
+        <% end %>
+        </div>
+        </div>
+      </div>
 
-<table>
+
+
+    </div>
+
+  </div>
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.min.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <table>
   <thead>
     <tr>
       <th>Food plan date</th>
