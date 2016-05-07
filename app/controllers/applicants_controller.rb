@@ -73,7 +73,6 @@ def room_select
   redirect_to applicants_path
 end
 
-
   # PATCH/PUT /applicants/1
   # PATCH/PUT /applicants/1.json
   def update
