@@ -30,27 +30,33 @@
       </div>
 <div class="container-fluid appli_abox">
         <div class="">
-          <div class="col-md-6">
-            <div id="imgholder" class="imgholder" style="background-size:cover;background-position:center;background-image:url(<%=@applicant.image_path.url%>);background-size:cover;">
+          <div class="col-md-4">
+            <div id="imgholder" class="imgholder1" style="background-size:cover;background-position:center;background-image:url(<%=@applicant.image_path.url%>);background-size:cover;">
 
             </div>
-            <div class="img-base">
+            <div class="img-base1">
+            <br><br><center>
+            <span class="sb1">Nickname:</span>&nbsp<%=@applicant.nickname%>
+              <br><br>
+            <span class="sb1">Room no:</span>&nbsp<%=@applicant.room_number%>
+            <br><br>
+            <span class="sb1">Violations:</span>&nbsp
+            </center>
             </div>
           </div>
-          <div class="col-md-6 appli_rbox">
+
+          <div class="col-md-8 appli_rbox">
       <br><br>
       <span class="sb1">Name:</span>&nbsp<%=@applicant.first_name%>
       <%=@applicant.middle_initial%>
       <%=@applicant.last_name%>
       <br><br>
-      <span class="sb1">Nick Name:</span>&nbsp<%=@applicant.nickname%>
-      <br><br>
-      <span class="sb1">Room no:</span>&nbsp<%=@applicant.room_number%>
-      <br><br>
       <span class="sb1">Gender:</span>&nbsp<%=@applicant.gender%>
       <br><br>
       <span class="sb1">Civil Status:</span>&nbsp<%=@applicant.civil_status%>
-      <br><br>  
+      <br>
+      <hr>
+      <br>
       <span class="sb1">Address:</span>&nbsp<%=@applicant.address%>
       <br><br>
       <span class="sb1">Contact no:</span>&nbsp<%=@applicant.contact_number%>
