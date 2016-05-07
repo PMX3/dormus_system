@@ -16,19 +16,21 @@
            <br>
            <div class="card-home-inner signin-text">
             <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-            <p><%= f.label :email, :class=>"card-home-label signin-text" %></p>
-            <p><%= f.text_field :email %></p>
+              <p><%= f.label :email, :class=>"card-home-label signin-text" %></p>
+              <p><%= f.text_field :email %></p>
 
-            <p><%= f.label :password, :class=>"card-home-label signin-text" %></p>
-            <p><%= f.password_field :password %></p>
-
-            <% if devise_mapping.rememberable? -%>
-            <p><%= f.check_box :remember_me %> <%= f.label :remember_me, :class=>"card-home-label signin-text" %></p>
-            <% end -%>
-
-            <p><%= f.submit "Sign in",:class=>"btn sign-in-home btncont-home signin-text" %></p>
+              <p><%= f.label :password, :class=>"card-home-label signin-text" %></p>
+              <p><%= f.password_field :password %></p>
+  <!-- 
+              <% if devise_mapping.rememberable? -%>
+              <p><%= f.check_box :remember_me %> <%= f.label :remember_me, :class=>"card-home-label signin-text" %></p>
+              <% end -%>
+   -->
+              <br>
+              <p><%= f.submit "Sign in",:class=>"btn sign-in-home btncont-home signin-text" %></p>
             <% end -%>
           </div>
+          <br>
           Don't have an account yet?
           <%= link_to "Sign up", root_path %><br />
           <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
