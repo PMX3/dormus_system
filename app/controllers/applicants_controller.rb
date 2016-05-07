@@ -72,6 +72,8 @@ def room_select
   @applicant.update_attribute(:room_number,params[:room_number])
   redirect_to applicants_path
 end
+
+
   # PATCH/PUT /applicants/1
   # PATCH/PUT /applicants/1.json
   def update
