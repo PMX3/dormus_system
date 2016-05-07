@@ -8,24 +8,10 @@
   <div class="default_bg container-fluid">
 
     <div class="card">
-      <div class="card_header" style="padding-left:3vw;">
-      <div class="row">
-        <center>
-        <div class="col-md-1" style="">
-          Profile
-        </div>
-        <div class="col-md-1" style="margin-top:-10px;">
-          Statement of Account
-        </div>
-        <div class="col-md-1" style="margin-top:-10px;">
-          My Child's Door Log
-        </div>
-        <div class="col-md-1" style="">
-          Eligibility
-        </div>
-        </center>
-
-        </div>
+      <div class="card_header" style="">
+      <center>
+      <span style="font-size:18px;">Applicant Profile</span>
+      </center>
         
       </div>
 <div class="container-fluid appli_abox">
@@ -37,16 +23,26 @@
             <div class="img-base1">
             <br><br><center>
             <span class="sb1">Nickname:</span>&nbsp<%=@applicant.nickname%>
-              <br><br>
-            <span class="sb1">Room no:</span>&nbsp<%=@applicant.room_number%>
+              
             <br><br>
-            <span class="sb1">Violations:</span>&nbsp
+            <span class="sb1">Preferred Room:</span>&nbsp<%=@applicant.room_type%>
+                        <br><br>
+            <span class="sb1">Status:</span>&nbsp<%=@applicant.stage%>
+            <br><br>
+            <span class="sb1">Assigned Room:</span>&nbsp
+            <%if @applicant.room_number==nil%>
+          <%=collection_select(:post, :applicant_id, Room.all, :room_number, :room_number, {prompt: '---'}, { :onchange=>"window.location='#{room_select_path(@applicant.id)}?room_number=' + this.value"})%>
+        <%else%>
+          <%=collection_select(:post, :applicant_id, Room.all, :room_number, :room_number, {selected: @applicant.room_number}, { :onchange=>"window.location='#{room_select_path(@applicant.id)}?room_number=' + this.value"})%>
+        <%end%>
             </center>
             </div>
           </div>
 
           <div class="col-md-8 appli_rbox">
-      <br><br>
+          <div class="row">
+            <div class="col-md-6">
+               <br><br>
       <span class="sb1">Name:</span>&nbsp<%=@applicant.first_name%>
       <%=@applicant.middle_initial%>
       <%=@applicant.last_name%>
@@ -54,45 +50,66 @@
       <span class="sb1">Gender:</span>&nbsp<%=@applicant.gender%>
       <br><br>
       <span class="sb1">Civil Status:</span>&nbsp<%=@applicant.civil_status%>
-      <br>
-      <hr>
-      <br>
-      <span class="sb1">Address:</span>&nbsp<%=@applicant.address%>
+      <br><br>
+      <span class="sb1">email:</span>&nbsp<%=@applicant.email%>
+      <br><br>
+      <span class="sb1">Nationality:</span>&nbsp<%=@applicant.nationality%>
+            </div>
+            <div class="col-md-6">
+              <br><br>      <span class="sb1">Address:</span>&nbsp<%=@applicant.address%>
       <br><br>
       <span class="sb1">Contact no:</span>&nbsp<%=@applicant.contact_number%>
       <br><br>
       <span class="sb1">Landline no:</span>&nbsp<%=@applicant.landline_number%>
       <br><br>
-      <span class="sb1">email:</span>&nbsp<%=@applicant.email%>
-      <br><br>
-      <span class="sb1">Nationality:</span>&nbsp<%=@applicant.nationality%>
-      <br><br>
       <span class="sb1">Religion:</span>&nbsp<%=@applicant.religion%>
       <br><br>
       <span class="sb1">Birthday:</span>&nbsp<%=@applicant.birthday%>
-      <br><br>
+            </div>
+          </div>
+          <hr class="hr-sh">
+          <div class="row">
+            <div class="col-md-6">
       <span class="sb1">School:</span>&nbsp<%=@applicant.school%>
       <br><br>
       <span class="sb1">School Address:</span>&nbsp<%=@applicant.school_address%>
-      <br><br>
-      <span class="sb1">Major:</span>&nbsp<%=@applicant.major%>
+            </div>
+            <div class="col-md-6">
+            <span class="sb1">Major:</span>&nbsp<%=@applicant.major%>
       <br><br>
       <span class="sb1">Year Level:</span>&nbsp<%=@applicant.year%>
-      <br><br>
-      <span class="sb1">Medical Information:</span>&nbsp<%=@applicant.medical_information%>
-      <br><br>
-      <span class="sb1">Personal Information:</span>&nbsp<%=@applicant.personal_information%>
-      <br><br>
-      <span class="sb1">Guardian:</span>&nbsp<%=@applicant.guardian_name%>
+            </div>
+          </div>
+          <hr class="hr-sh">
+                    <div class="row">
+            <div class="col-md-6">
+              <span class="sb1">Medical Information:</span>&nbsp<%=@applicant.medical_information%>
+            </div>
+            <div class="col-md-6">
+              <span class="sb1">Personal Information:</span>&nbsp<%=@applicant.personal_information%>
+            </div>
+          </div>
+          <hr class="hr-sh">
+           <div class="row">
+            <div class="col-md-6">
+              <span class="sb1">Guardian:</span>&nbsp<%=@applicant.guardian_name%>
       <br><br>
       <span class="sb1">Guardian Contact no:</span>&nbsp<%=@applicant.guardian_contact_number%>
-      <br><br>
-      <span class="sb1">Guardian Address:</span>&nbsp<%=@applicant.guardian_address%>
+            </div>
+            <div class="col-md-6">
+              <span class="sb1">Guardian Address:</span>&nbsp<%=@applicant.guardian_address%>
       <br><br>
       <span class="sb1">Guardian email:</span>&nbsp<%=@applicant.guardian_email%>
-      <br><br>
-
-
+            </div>
+          </div>
+          <hr class="hr-sh">
+     
+<%if @applicant.stage=="Pending"%>
+        <%=link_to "Approve", approve_path(@applicant.id), :controller=> "applicants",:action=>:approve, method: 'post' %>
+        <%else%>
+        <%=link_to "Create Account", create_account_path(@applicant.id), :controller=> "applicants",:action=>:create_account, method: 'post' %>
+        <%end%>
+        &nbsp&nbsp&nbsp<%= link_to 'Reject', @applicant, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
         </div>
       </div>

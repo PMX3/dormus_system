@@ -56,12 +56,7 @@
         </div>
         <div class="col-md-2" style="margin-top:-3px;"><%=applicant.stage%></div>
         <div class="col-md-3" style="margin-top:-3px;">
-        <%if applicant.stage=="Pending"%>
-        <%=link_to "Approve", approve_path(applicant.id), :controller=> "applicants",:action=>:approve, method: 'post' %>
-        <%else%>
-        <%=link_to "Create Account", create_account_path(applicant.id), :controller=> "applicants",:action=>:create_account, method: 'post' %>
-        <%end%>
-        &nbsp&nbsp&nbsp<%= link_to 'Show', show_applicant_path(applicant) %> &nbsp&nbsp&nbsp<%= link_to 'Edit', edit_applicant_path(applicant) %> &nbsp&nbsp&nbsp<%= link_to 'Reject', applicant, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+<%= link_to 'View Application', show_applicant_path(applicant) %> &nbsp&nbsp&nbsp<%= link_to 'Edit', edit_applicant_path(applicant) %> </div>
         
       </div>
       <hr>
