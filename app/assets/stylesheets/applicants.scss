@@ -137,6 +137,23 @@
   background-color: #990000;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+.choosebtn3{
+  background-color: #990000;
+  margin-right: 95px;
+  float:right;
+  margin-top: 1.9vh;
+  position:relative;
+  border-color: #990000;
+  border-radius: 0px!important;
+  color:white!important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.24);
+   transition: all 0.24s ease-in-out;
+}
+.choosebtn3:hover {
+  color:white;
+  background-color: #990000;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
 .choosebtn2{
   background-color: black;
   margin-right: -170px;
@@ -150,6 +167,24 @@
    transition: all 0.24s ease-in-out;
 }
 .choosebtn2:hover {
+  color:white;
+  background-color: black;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.choosebtn4{
+  background-color: black;
+  margin-right: -220px;
+  float:right;
+  margin-top: 1.9vh;
+  position:relative;
+  border-color: black;
+  border-radius: 0px!important;
+  color:white!important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.24);
+   transition: all 0.24s ease-in-out;
+}
+.choosebtn4:hover {
   color:white;
   background-color: black;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);

@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Food Plans</h1>
+<%= week_calendar number_of_weeks: 2 do |date| %>
+  <%= date %>
+<% end %>
 
 <table>
   <thead>
