@@ -3,7 +3,7 @@
   Week <%= start_date.strftime("%U").to_i %>
   <%= link_to "Next", calendar.url_for_next_view %>
 
-  <table class="table table-striped">
+  <table class="table">
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
