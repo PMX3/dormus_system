@@ -51,7 +51,9 @@
             <p><%= f.submit "Sign in",:class=>"btn sign-in-home btncont-home signin-text" %></p>
             <% end -%>
           </div>
-          Don't have an account yet? <%= render "devise/shared/links" %>
+          Don't have an account yet?
+          <%= link_to "Sign up", root_path %><br />
+          <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
         </div>
       </div>
     </div>

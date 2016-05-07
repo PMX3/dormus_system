@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DormerTest < ActiveSupport::TestCase
+class ParentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

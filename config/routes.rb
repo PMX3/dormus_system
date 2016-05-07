@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   #resources :preferences
   resources :rooms
   resources :submissions
-  devise_for :dormers
   resources :food_plans
   resources :statement_of_accounts
   resources :deals
