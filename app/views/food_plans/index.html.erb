@@ -4,6 +4,7 @@
 <% @date1 = Date.today  %> 
   <title>DORMUS</title>
   <!--<link rel="shortcut icon" href="/assets/h-logo2.ico" />-->
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -17,13 +18,22 @@
       </div>
       <div class="container-fluid p1_abox">
         <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-9">
+        <div class="col-md-3">
+          <div class="fp-tab">
+            <center>
+            <br>
+            Today
+            <br>
+            <%= @date1.strftime("%B %e, %A")%>
+            </center>
+          </div>
+        </div>
+        <div class="col-md-9" style="padding-top:7px;">
         <%= week_calendar number_of_weeks: 4, events: @food_plans do |date, food_plans| %>
           <%= date.day %> 
           <% food_plans.each do |food_plan| %>
-          <div>
-          <%= food_plan.food_plan_date %>
+          <div style="text-align:center;margin-top:7px;font-family: 'Pacifico', cursive!important;font-size:16px;">
+          <%= "Vegetarian I" %>
           </div>
           <%end%>
         <% end %>

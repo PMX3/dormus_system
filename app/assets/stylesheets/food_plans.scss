@@ -33,7 +33,23 @@
 .simple-calendar table th{
 	border-color:#9e9e9e!important;
 	text-align: center;
+	color:black!important;
 }
 .simple-calendar table tbody{
 	border-color:#9e9e9e!important;
+}
+//to remove btns
+.simple-calendar {
+	color:transparent;
+}
+.simple-calendar a {
+	visibility: hidden;
+}
+.fp-tab{
+	margin-top: 3vh;
+	margin-left: 7%;
+	height:62vh;
+	width:90%;
+	border: solid 1px #9e9e9e;
+	color: black;
 }
