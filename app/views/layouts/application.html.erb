@@ -26,7 +26,7 @@
 				<% if current_user.isParent == true %>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><font style="font-size: 10px;">Parent of </font><%=  current_user.user_type.applicant.first_name + " " + current_user.user_type.applicant.last_name %><span class="caret"></span></a>
 							<ul class="dropdown-menu" style="background-color:white">
 								<li><center><%= link_to "Logout", destroy_user_session_path, method: :delete %></center></li>
 								<li></li>
@@ -44,9 +44,9 @@
 							<a href="">Laundry Services</a>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.user_type.first_name + " " + current_user.user_type.last_name %><span class="caret"></span></a>
 							<ul class="dropdown-menu" style="background-color:white">
-								<li><center><%= link_to "Edit Profile" %></center></li>
+								<li><center><%= link_to "Edit Profile", edit_applicant_path(current_user.user_type) %></center></li>
 								<li><center><%= link_to "Logout", destroy_user_session_path, method: :delete %></center></li>
 								<li></li>
 							</ul>
