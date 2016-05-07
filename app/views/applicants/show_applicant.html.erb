@@ -28,20 +28,42 @@
         </div>
         
       </div>
-      <div class="container-fluid p1_abox">
-        
-      <br><br><br><br>
-      <br><br><br>
-      <div class="scrollbox"style="padding-left:3vw;">
-      <br>
-      <%=@applicant.first_name%>
+<div class="container-fluid appli_abox">
+        <div class="">
+          <div class="col-md-6">
+            <div id="imgholder" class="imgholder" style="background-size:cover;background-position:center;background-image:url(<%=@applicant.image_path.url%>);background-size:cover;">
+
+            </div>
+            <div class="img-base">
+            </div>
+          </div>
+          <div class="col-md-6 appli_rbox">
+      <br><br>
+      <span class="sb1">Name:</span>&nbsp<%=@applicant.first_name%>
       <%=@applicant.middle_initial%>
       <%=@applicant.last_name%>
+      <br><br>
+      <span class="sb1">Address:</span><%=@applicant.address%>
+      <br><br>
+      <span class="sb1">Religion:</span><%=@applicant.religion%>
+      <br><br>
+      <span class="sb1">Civil Status:</span><%=@applicant.civil_status%>
+      <br>
       <%=@applicant.nickname%>
-
-      </div>
-
-
+      <br>
+      <%=@applicant.gender%>
+      <br>
+      <%=@applicant.civil_status%>
+      <br>
+      <%=@applicant.contact_number%>
+      <br>
+      <%=@applicant.landline_number%>
+      <br>
+      <%=@applicant.email%>
+      <br>
+      <%=@applicant.nationality%>
+          </div>
+        </div>
       </div>
 
 
