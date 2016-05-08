@@ -11,7 +11,7 @@
         <div class="sign_up_form-home">
          <div class="card-home log_form">
            <div class="header-home">
-             <h2 class=" signin-text">FORGOT YOUR PASSWORD?</h2>
+             <h2 class=" signin-text" style="font-size:3vh; font-weight:bold;">FORGOT YOUR PASSWORD?</h2>
            </div>
            <br>
            <div class="card-home-inner signin-text">
@@ -20,9 +20,8 @@
               <p><%= f.email_field :email, autofocus: true %></p>
               <br>
               <p><%= f.submit "Reset Password",:class=>"btn sign-in-home btncont-home signin-text" %></p>
-            <% end -%>
-            <br>
-            <p><%= link_to 'Back', new_session_path(resource_name) %></p>
+            <% end -%>            
+            <p><%= link_to 'Back', new_session_path(resource_name), {:style=>'color:white;', :class=>'css_class'} %></p>
           </div>
         </div>
       </div>

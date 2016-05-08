@@ -11,16 +11,16 @@
         <div class="sign_up_form-home">
          <div class="card-home log_form">
            <div class="header-home">
-             <h2 class=" signin-text">SIGN IN</h2>
+             <h2 class=" signin-text" style="font-size:5vh; font-weight:bold;">SIGN IN</h2>
            </div>
            <br>
            <div class="card-home-inner signin-text">
             <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
               <p><%= f.label :email, :class=>"card-home-label signin-text" %></p>
-              <p><%= f.text_field :email %></p>
+              <p><%= f.text_field :email, :placeholder=>"email@example.com" %></p>
 
               <p><%= f.label :password, :class=>"card-home-label signin-text" %></p>
-              <p><%= f.password_field :password %></p>
+              <p><%= f.password_field :password, :placeholder=>"********" %></p>
   <!-- 
               <% if devise_mapping.rememberable? -%>
               <p><%= f.check_box :remember_me %> <%= f.label :remember_me, :class=>"card-home-label signin-text" %></p>
@@ -31,9 +31,8 @@
             <% end -%>
           </div>
           <br>
-          Not yet a dormer?
-          <%= link_to "Apply now", root_path %><br />
-          <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+          <%= link_to "Not yet a dormer?", root_path, {:style=>'color:white;', :class=>'css_class'} %><br />
+          <%= link_to "Forgot your password?", new_password_path(resource_name), {:style=>'color:white;', :class=>'css_class'}  %><br />
         </div>
       </div>
     </div>
