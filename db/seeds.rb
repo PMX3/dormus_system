@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Applicant.create(first_name: 'Lorenzo', last_name:'Bautista', middle_initial: 'A', nickname:'Enzo', gender: 'M', contact_number: '09172837458', landline_number: '555-5565', civil_status: 'Single', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe",address:"lt 5 something st something address city",religion:"Roman Catholic")
+Applicant.create(first_name: 'Lorenzo', last_name:'Bautista', middle_initial: 'A', nickname:'Enzo', gender: 'M', contact_number: '09172837458', landline_number: '555-5565', civil_status: 'Single', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe",address:"lt 5 something st something address city",religion:"Roman Catholic",guardian_email:"lorenzobautista4@gmail.com")
 Applicant.create(first_name: 'Kurt', last_name:'Chan', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe")
 Applicant.create(first_name: 'Hans', last_name:'Cristobal', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe")
 Applicant.create(first_name: 'Bryan', last_name:'Zerrudo', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe")
@@ -38,3 +38,6 @@ Room.create(room_number: 206,room_type:'Two-in-a-room Regular',room_capacity:2,r
 Room.create(room_number: 207,room_type:'Two-in-a-room Regular',room_capacity:2,room_price: 4600,occupant_count: 0,room_status:'',floor_area:'',bed_count: 2,bathroom_count: 1)
 Room.create(room_number: 208,room_type:'Two-in-a-room Regular',room_capacity:2,room_price: 4600,occupant_count: 0,room_status:'',floor_area:'',bed_count: 2,bathroom_count: 1)
 Room.create(room_number: 208,room_type:'Four-in-a-room Regular',room_capacity:2,room_price: 4600,occupant_count: 0,room_status:'',floor_area:'',bed_count: 2,bathroom_count: 1)
+
+Meal.create(name:'Vegetarian I',breakfast_meal:'Tapsilog',breakfast_drink:'Orange juice',lunch_meal:'Sisig ricebowl',lunch_drink:'Coke Classic',dinner_meal:'KFC 2 pc chicken', dinner_drink:'Iced tea')
+Meal.create(name:'Vegetarian II',breakfast_meal:'English breakfast',breakfast_drink:'Orange juice',lunch_meal:'Pork chop',lunch_drink:'Coke Classic',dinner_meal:'Sinangag na sinigang', dinner_drink:'Iced tea')

@@ -16,6 +16,9 @@
   .today {
   	background-color: #ea9999!important;
   }
+  .past a{
+  	visibility: hidden!important;
+  }
   .past {background-color: #bfbfbf!important; color:#808080;}
   .future {}
 
@@ -45,6 +48,10 @@
 }
 .simple-calendar a {
 	visibility: hidden;
+}
+.simple-calendar a:hover {
+	text-decoration: none;
+	background-color: transparent;
 }
 .fp-tab{
 	margin-top: 3vh;

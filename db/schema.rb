@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507101106) do
+ActiveRecord::Schema.define(version: 20160508152436) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "last_name"
@@ -83,6 +83,32 @@ ActiveRecord::Schema.define(version: 20160507101106) do
     t.date     "food_plan_date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "meal_plans", force: :cascade do |t|
+    t.string   "name"
+    t.string   "breakfast_meal"
+    t.string   "breakfast_drink"
+    t.string   "lunch_meal"
+    t.string   "lunch_drink"
+    t.string   "dinner_meal"
+    t.string   "dinner_drink"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "price"
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.string   "name"
+    t.string   "breakfast_meal"
+    t.string   "breakfast_drink"
+    t.string   "lunch_meal"
+    t.string   "lunch_drink"
+    t.string   "dinner_meal"
+    t.string   "dinner_drink"
+    t.decimal  "price"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "parents", force: :cascade do |t|

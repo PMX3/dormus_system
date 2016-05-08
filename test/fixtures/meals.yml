@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  breakfast_meal: MyString
+  breakfast_drink: MyString
+  lunch_meal: MyString
+  lunch_drink: MyString
+  dinner_meal: MyString
+  dinner_drink: MyString
+  price: 9.99
+
+two:
+  name: MyString
+  breakfast_meal: MyString
+  breakfast_drink: MyString
+  lunch_meal: MyString
+  lunch_drink: MyString
+  dinner_meal: MyString
+  dinner_drink: MyString
+  price: 9.99

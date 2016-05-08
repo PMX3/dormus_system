@@ -25,21 +25,20 @@
             Today
             <br>
             <%= @date1.strftime("%B %e, %A")%><br>
-            <%= link_to 'New Food plan', new_food_plan_path %>
             </center>
           </div>
         </div>
         <div class="col-md-9" style="padding-top:7px;">
         <%= week_calendar number_of_weeks: 4, events: @food_plans do |date, food_plans| %>
-          <%= date.day %> 
+          <%= date.day %><%= link_to '+', new_food_plan_path,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;" %> 
           <% food_plans.each do |food_plan| %>
           <div >
           <select id="fsel"style="text-align:center;margin-top:7px;font-family: 'Pacifico', cursive!important;font-size:14px;" >
-  <option value="">Please select</option>
-  <option value="1" selected="selected">Vegetarian I</option>
-  <option value="2">Vegetarian II</option>
-  <option value="3">Vegetarian III</option>
-</select>
+            <option value="">Please select</option>
+            <option value="1" selected="selected">Vegetarian I</option>
+            <option value="2">Vegetarian II</option>
+            <option value="3">Vegetarian III</option>
+          </select>
           </div>
           <%end%>
         <% end %>
