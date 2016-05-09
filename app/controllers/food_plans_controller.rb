@@ -23,6 +23,12 @@ class FoodPlansController < ApplicationController
   def edit
   end
 
+  def meal_select
+  @food_plan = FoodPlan.find(params[:id])
+  @food_plan.update_attribute(:meal,params[:meal])
+  redirect_to food_plans_path
+  end
+
   # POST /food_plans
   # POST /food_plans.json
   def create

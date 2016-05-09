@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   post '/applicants/:id/create_account' => 'applicants#create_account', as: :create_account
   get '/applicants/:id/room_select' => 'applicants#room_select', as: :room_select
   get '/applicants/:id/show_applicant'=> 'applicants#show_applicant', as: :show_applicant
+  get '/food_plans/:id/meal_select' => 'food_plans#meal_select', as: :meal_select
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
