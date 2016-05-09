@@ -71,39 +71,49 @@
 }
 
 .tabs-menu li {
-    height: 30px;
+	min-width: 80px;
+	text-align: center;
+    height: 53px;
+    margin-top: -5px;
+    padding-top: 5px;
     line-height: 30px;
     float: left;
     margin-right: 10px;
-    background-color: #ccc;
-    border-top: 1px solid #d4d4d1;
-    border-right: 1px solid #d4d4d1;
-    border-left: 1px solid #d4d4d1;
-     list-style-type: none;
+    background-color: black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    list-style-type: none;
+    color:white;
 }
 
 .tabs-menu li.current {
     position: relative;
-    background-color: #fff;
-    border-bottom: 1px solid #fff;
+    background-color: #f3f3f3;
+    color:black;
+    border-top: 4px solid #cc0000;
     z-index: 5;
 }
+.tabs-menu li a:hover {
+    background-color: transparent;
+}
+
 
 .tabs-menu li a {
     padding: 10px;
     /*text-transform: uppercase;*/
-    color: #fff;
+    color: white;
     text-decoration: none; 
 
 }
 
 .tabs-menu .current a {
-    color: #2e7da3;
+    color: black;
 }
 
 .tab {
     border: 1px solid #d4d4d1;
-    background-color: #fff;
+    background-color: #f3f3f3;
     float: left;
     margin-bottom: 20px;
     width: auto;
@@ -114,5 +124,35 @@
 }
 
 #tab-1 {
-   
+   display:block;
+}
+.fp-row{
+	margin-top: 1vh;
+	margin-left: 0.2%;
+	width: 99.6%;
+	height:65vh;
+	overflow-y:auto; 
+}
+.fp-card{
+	padding-top: 25px;
+	text-align: center;
+	margin-top: 3vh;
+	margin-bottom: 1vh;
+	height:58vh;
+	
+	border: solid 1px #b7b7b7;
+	background-color: #efefef;
+	color: black;
+	  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.2s ease-in-out;
+}
+.fp-card:hover{
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.fpmeal{
+	font-family: 'Pacifico'!important;
+	font-size: 18px;
+}
+.fp-header{
+	text-decoration: underline;
 }
