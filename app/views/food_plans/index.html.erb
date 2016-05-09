@@ -14,8 +14,8 @@
 
       <div class="card_header">
        <ul class="tabs-menu">
-        <li class="current"><a href="#tab-1">Menu</a></li>
-        <li><a href="#tab-2">My Meal Plan</a></li>
+        <li class="current"><a href="#tab-1">My Meal Plan</a></li>
+        <li><a href="#tab-2">Menu</a></li>
         
     </ul>
         <center>
@@ -24,7 +24,7 @@
       </div>
   
     <div class="container-fluid p1_abox">
-        <div id="tab-2" class="row tab-content">
+        <div id="tab-1" class="row tab-content">
 
         <div class="col-md-3">
           <div class="fp-tab">
@@ -38,7 +38,9 @@
         </div>
         <div class="col-md-9" style="padding-top:7px;">
         <%= week_calendar number_of_weeks: 4, events: @food_plans do |date, food_plans| %>
-          <%= date.day %><%= link_to '+', new_food_plan_path,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;" %> 
+          <%= date.day %>
+          <%= link_to '+', food_plans_path(abc: date),:method=> :post,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;" %>
+
           <% food_plans.each do |food_plan| %>
           <div >
           <select id="fsel"style="text-align:center;margin-top:7px;font-family: 'Pacifico', cursive!important;font-size:14px;" >
@@ -53,7 +55,7 @@
         </div>
 
         </div>
-        <div id="tab-1" class="tab-content row fp-row">
+        <div id="tab-2" class="tab-content row fp-row">
           <% @meals.each do |meal| %>
           <div class="col-md-3">
               <div class="fp-card">
