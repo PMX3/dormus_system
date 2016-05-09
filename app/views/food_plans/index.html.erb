@@ -13,6 +13,7 @@
     <div class="card">
 
       <div class="card_header">
+      <!-- Tab for switching between views-->
        <ul class="tabs-menu">
         <li class="current"><a href="#tab-1">My Meal Plan</a></li>
         <li><a href="#tab-2">Menu</a></li>
@@ -24,6 +25,7 @@
       </div>
   
     <div class="container-fluid p1_abox">
+    <!-- Display of today's meal-->
         <div id="tab-1" class="row tab-content">
 
         <div class="col-md-3">
@@ -32,17 +34,49 @@
             <br>
             Today
             <br>
-            <%= @date1.strftime("%B %e, %A")%><br>
+            <%= @date1.strftime("%B %e, %A")%><br><br>
+            <%@food_plans.each do |f|%>
+            <%if f.food_plan_date==Date.today%>
+              <%currentmeal=f.meal%>
+            <%end%>
+
+             <% @meals.each do |meal| %>
+             <%if currentmeal==meal.name%>
+              <span class="fpmeal"><%= meal.name %></span>
+              <br><br>
+              <span class="fp-header">Breakfast</span><br><br>
+              <span><%= meal.breakfast_meal %></span><br>
+              <span><%= meal.breakfast_drink %></span><br>
+              <br>
+              <span class="fp-header">Lunch</span><br>
+              <br>
+              <span><%= meal.lunch_meal %></span><br>
+              <span><%= meal.lunch_drink %></span><br>
+              <br>
+              <span class="fp-header">Dinner</span><br>
+              <br>
+              <span><%= meal.dinner_meal %></span><br>
+              <span><%= meal.dinner_drink %></span><br>
+              <br>
+              <span><%= meal.price %></span>
+              <br>
+
+              <%end%>
+            <% end %>
+            <%end%>            
             </center>
           </div>
         </div>
         <div class="col-md-9" style="padding-top:7px;">
         <%= week_calendar number_of_weeks: 4, events: @food_plans do |date, food_plans| %>
           <%= date.day %>
-          <%= link_to '+', food_plans_path(abc: date),:method=> :post,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;" %>
-
+          <%= link_to '+', food_plans_path(abc: date),:method=> :post,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;",:class=>"linkplus"%>
           <% food_plans.each do |food_plan| %>
+          <%if food_plan!=nil%>
+          <%= link_to 'x', food_plan,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:14px;",:class=>"linkx", method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%end%>
           <div >
+          <!-- Displays proper collection select-->
           <%if food_plan.meal==nil%>
           <%=collection_select(:post, :food_plan_id, Meal.all, :name, :name, {prompt: '---'}, {:id=>"fsel", :onchange=>"window.location='#{meal_select_path(food_plan.id)}?meal=' + this.value"})%>
           <%else%>
@@ -61,7 +95,7 @@
               <div class="fp-card">
               <span class="fpmeal"><%= meal.name %></span>
               <br><br>
-              <span class="fp-header">Breakfast</span><br>
+              <span class="fp-header">Breakfast</span><br><br>
               <span><%= meal.breakfast_meal %></span><br>
               <span><%= meal.breakfast_drink %></span><br>
               <br>
@@ -77,9 +111,7 @@
               <br><br>
               <span><%= meal.price %></span>
               <br>
-              <span><%= link_to 'Show', meal %></span>
-              <span><%= link_to 'Edit', edit_meal_path(meal) %></span>
-              <span><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+
               </div>
           </div>
       
@@ -103,6 +135,7 @@
 <script src="bootstrap.min.js"></script>
 <script>
   $(document).ready(function() {
+
     $(".tabs-menu a").click(function(event) {
         event.preventDefault();
         $(this).parent().addClass("current");
@@ -112,7 +145,21 @@
         $(tab).fadeIn();
     });
 });
+
 </script>
+<!--
+<script type="text/javascript">
+    $(document).ready(function(){
+        if ($('.linkx').length) {
+    $('.linkplus').hide();
+}
+    });   
+</script>-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.linkx').prev().remove();
+        });
+    </script>
 </html>
 
 
