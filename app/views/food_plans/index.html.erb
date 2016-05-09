@@ -11,13 +11,21 @@
   <div class="default_bg container-fluid">
 
     <div class="card">
+
       <div class="card_header">
+       <ul class="tabs-menu">
+        <li class="current"><a href="#tab-1">Menu</a></li>
+        <li><a href="#tab-2">My Meal Plan</a></li>
+        
+    </ul>
         <center>
           <span class="p1_title"><%= @date1.strftime("%B")%></span>
         </center>
       </div>
-      <div class="container-fluid p1_abox">
-        <div class="row">
+  
+    <div class="container-fluid p1_abox">
+        <div id="tab-2" class="row tab-content">
+
         <div class="col-md-3">
           <div class="fp-tab">
             <center>
@@ -43,8 +51,14 @@
           <%end%>
         <% end %>
         </div>
+
         </div>
-      </div>
+        <div id="tab-1" class="tab-content">
+            <p>Donec semper dictum sem, quis pretium sem malesuada non. Proin venenatis orci vel nisl porta sollicitudin. Pellentesque sit amet massa et orci malesuada facilisis vel vel lectus. Etiam tristique volutpat auctor. Morbi nec massa eget sem ultricies fermentum id ut ligula. Praesent aliquet adipiscing dictum. Suspendisse dignissim dui tortor. Integer faucibus interdum justo, mattis commodo elit tempor id. Quisque ut orci orci, sit amet mattis nulla. Suspendisse quam diam, feugiat at ullamcorper eget, sagittis sed eros. Proin tortor tellus, pulvinar at imperdiet in, egestas sed nisl. Aenean tempor neque ut felis dignissim ac congue felis viverra. </p>
+        
+        </div>
+        
+    </div>
 
 
 
@@ -57,6 +71,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $(".tabs-menu a").click(function(event) {
+        event.preventDefault();
+        $(this).parent().addClass("current");
+        $(this).parent().siblings().removeClass("current");
+        var tab = $(this).attr("href");
+        $(".tab-content").not(tab).css("display", "none");
+        $(tab).fadeIn();
+    });
+});
+</script>
 </html>
 
 
