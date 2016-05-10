@@ -12,10 +12,12 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-  	if resource.isAdmin == true
-	  	root_path #redirect to admin home page
-	  else
-	  	show_dormer_path(resource.user_type) #redirect to dormer home page (both for parents and dormers)
+  	if resource.isAdmin
+	  	root_path
+	  elsif resource.isParent
+	  	show_dormer_path(resource.user_type.applicant)
+    else
+      show_dormer_path(resource.user_type)
 	  end
 	end
 end

@@ -20,6 +20,8 @@
 			<% if user_signed_in? %>
 				<% if current_user.isAdmin %>
 					<a class="navbar-brand" href=""><%= link_to image_tag("/assets/dormus_logo.png", :class=> "dormus_logo"), applicants_path %></a>
+				<% elsif current_user.isParent %>
+					<a class="navbar-brand" href=""><%= link_to image_tag("/assets/dormus_logo.png", :class=> "dormus_logo"), show_dormer_path(current_user.user_type.applicant) %></a>
 				<% else %>
 					<a class="navbar-brand" href=""><%= link_to image_tag("/assets/dormus_logo.png", :class=> "dormus_logo"), show_dormer_path(current_user.user_type) %></a>
 				<% end %>
