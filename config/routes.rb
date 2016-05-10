@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :meals
   devise_for :users, :controllers=> {
     :sessions=> 'users/sessions',
     :passwords=> 'users/passwords'
@@ -7,19 +6,20 @@ Rails.application.routes.draw do
   #resources :preferences
   resources :rooms
   resources :submissions
-  resources :food_plans
   resources :statement_of_accounts
   resources :deals
+  resources :meals
+  resources :food_plans
   resources :applicants
+  get '/applicants/:id/room_select' => 'applicants#room_select', as: :room_select
   get '/applicants/:id/preference' => 'applicants#preference', as: :edit_preference
+  get '/applicants/:id/show_applicant'=> 'applicants#show_applicant', as: :show_applicant
+  get '/applicants/:id/show_dormer'=> 'applicants#show_dormer', as: :show_dormer
   post '/applicants/:id' => 'applicants#update_preference', as: :update_preference
-  root 'submissions#new'
   post '/applicants/:id/approve' => 'applicants#approve', as: :approve
   post '/applicants/:id/create_account' => 'applicants#create_account', as: :create_account
-  get '/applicants/:id/room_select' => 'applicants#room_select', as: :room_select
-  get '/applicants/:id/show_applicant'=> 'applicants#show_applicant', as: :show_applicant
   get '/food_plans/:id/meal_select' => 'food_plans#meal_select', as: :meal_select
-
+  root 'submissions#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

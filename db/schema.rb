@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20160509081940) do
     t.integer  "image_path_file_size"
     t.datetime "image_path_updated_at"
     t.integer  "violation"
-    t.integer  "bed_number"
   end
 
   create_table "deals", force: :cascade do |t|
@@ -61,42 +60,11 @@ ActiveRecord::Schema.define(version: 20160509081940) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "dormers", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-  end
-
-  add_index "dormers", ["email"], name: "index_dormers_on_email", unique: true
-  add_index "dormers", ["reset_password_token"], name: "index_dormers_on_reset_password_token", unique: true
-
   create_table "food_plans", force: :cascade do |t|
     t.date     "food_plan_date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "meal"
-  end
-
-  create_table "meal_plans", force: :cascade do |t|
-    t.string   "name"
-    t.string   "breakfast_meal"
-    t.string   "breakfast_drink"
-    t.string   "lunch_meal"
-    t.string   "lunch_drink"
-    t.string   "dinner_meal"
-    t.string   "dinner_drink"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "price"
   end
 
   create_table "meals", force: :cascade do |t|
