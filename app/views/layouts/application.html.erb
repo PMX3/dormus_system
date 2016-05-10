@@ -17,13 +17,21 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/"><img id="dormus_logo" src="/assets/dormus_logo.png"></a>
+			<% if user_signed_in? %>
+				<% if current_user.isAdmin %>
+					<a class="navbar-brand" href=""><%= link_to image_tag("/assets/dormus_logo.png", :class=> "dormus_logo"), applicants_path %></a>
+				<% else %>
+					<a class="navbar-brand" href=""><%= link_to image_tag("/assets/dormus_logo.png", :class=> "dormus_logo"), show_dormer_path(current_user.user_type) %></a>
+				<% end %>
+			<% else %>
+				<a class="navbar-brand" href="/"><img id="dormus_logo" src="/assets/dormus_logo.png"></a>
+			<% end %>		
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<% if user_signed_in? %>
-				<% if current_user.isParent == true %>
+				<% if current_user.isParent %>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><font style="font-size: 10px;">Parent of </font><%=  current_user.user_type.applicant.first_name + " " + current_user.user_type.applicant.last_name %><span class="caret"></span></a>
@@ -33,8 +41,40 @@
 							</ul>
 						</li>
 					</ul>
-				<% elsif current_user.isAdmin == true %>
-					<!-- Do Admin Stuff -->
+				<% elsif current_user.isAdmin %>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dormers<span class="caret"></span></a>
+							<ul class="dropdown-menu" style="background-color:white">
+								<li><center><%= link_to "Applications", applicants_path %></center></li>
+								<li></li>
+							</ul>
+						</li>
+						<li>
+							<a href=""><%= link_to "Rooms", rooms_path %></a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
+							<ul class="dropdown-menu" style="background-color:white">
+								<li><center><%= link_to "Meal Plans", new_food_plan_path %></center></li>
+								<li><center><%= link_to "Laundry" %></center></li>
+								<li><center><%= link_to "Door Log" %></center></li>
+								<li></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Finances<span class="caret"></span></a>
+							<ul class="dropdown-menu" style="background-color:white">
+								<li><center><%= link_to "View Transactions" %></center></li>
+								<li><center><%= link_to "Add Transactions" %></center></li>
+								<li><center><%= link_to "Utility" %></center></li>
+								<li></li>
+							</ul>
+						</li>
+						<li>
+							<a href=""><%= link_to "Logout", destroy_user_session_path, method: :delete %></a>
+						</li>
+					</ul>
 				<% else %>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
@@ -51,7 +91,7 @@
 								<li></li>
 							</ul>
 						</li>
-					</ul
+					</ul>
 				<% end %>
 			<% else %>
 				<ul class="nav navbar-nav">
