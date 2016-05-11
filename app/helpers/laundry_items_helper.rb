@@ -1,0 +1,2 @@
+module LaundryItemsHelper
+end

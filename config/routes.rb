@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :laundry_orders
+  resources :laundry_order_items
+  resources :laundry_items
   devise_for :users, :controllers=> {
     :sessions=> 'users/sessions',
     :passwords=> 'users/passwords'
@@ -20,6 +23,12 @@ Rails.application.routes.draw do
   post '/applicants/:id/create_account' => 'applicants#create_account', as: :create_account
   get '/food_plans/:id/meal_select' => 'food_plans#meal_select', as: :meal_select
   root 'submissions#new'
+  namespace :api do 
+    namespace :v1 do
+      get '/applicants'=> 'applicants#index'
+      get '/applicants/update'=>'applicants#update'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

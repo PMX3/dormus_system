@@ -67,16 +67,20 @@
         <div class="col-md-9" style="padding-top:7px;">
         <%= week_calendar number_of_weeks: 4, events: @food_plans do |date, food_plans| %>
           <%= date.day %>
+          <%if date>Date.today%>
           <%= link_to '+', food_plans_path(abc: date),:method=> :post,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;",:class=>"linkplus"%>
+          <%end%>
+
+
           <% food_plans.each do |food_plan| %>
           <%if food_plan.food_plan_date<=Date.today%>
               <p class="linkx"></p>
                <!-- Displays proper collection select-->
-          <%if food_plan.meal==nil%>
-          <%=collection_select(:post, :food_plan_id, Meal.all, :name, :name, {prompt: '---'}, {:id=>"fsel", :onchange=>"window.location='#{meal_select_path(food_plan.id)}?meal=' + this.value"})%>
-          <%else%>
-          <%=collection_select(:post, :food_plan_id, Meal.all, :name, :name, {selected: food_plan.meal}, {:id=>"fsel",:style=>"border-color:transparent!important;box-shadow:none!important;margin-top:-2px;", :onchange=>"window.location='#{meal_select_path(food_plan.id)}?meal=' + this.value",:disabled=>true})%>
-          <%end%>
+                <%if food_plan.meal==nil%>
+                <%=collection_select(:post, :food_plan_id, Meal.all, :name, :name, {prompt: '---'}, {:id=>"fsel", :onchange=>"window.location='#{meal_select_path(food_plan.id)}?meal=' + this.value"})%>
+                <%else%>
+                <%=collection_select(:post, :food_plan_id, Meal.all, :name, :name, {selected: food_plan.meal}, {:id=>"fsel",:style=>"border-color:transparent!important;box-shadow:none!important;margin-top:-2px;", :onchange=>"window.location='#{meal_select_path(food_plan.id)}?meal=' + this.value",:disabled=>true})%>
+                <%end%>
             <%else%>
           <%if food_plan!=nil%>
           <%= link_to 'x', food_plan,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:14px;",:class=>"linkx", method: :delete, data: { confirm: 'Are you sure?' } %>

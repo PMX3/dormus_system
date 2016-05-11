@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Payment due:</strong>
+  <%= @laundry_order.payment_due %>
+</p>
+
+<%= link_to 'Edit', edit_laundry_order_path(@laundry_order) %> |
+<%= link_to 'Back', laundry_orders_path %>

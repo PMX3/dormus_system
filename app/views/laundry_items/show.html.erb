@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @laundry_item.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @laundry_item.price %>
+</p>
+
+<%= link_to 'Edit', edit_laundry_item_path(@laundry_item) %> |
+<%= link_to 'Back', laundry_items_path %>

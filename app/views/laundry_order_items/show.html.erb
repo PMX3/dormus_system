@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Time ordered:</strong>
+  <%= @laundry_order_item.time_ordered %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @laundry_order_item.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_laundry_order_item_path(@laundry_order_item) %> |
+<%= link_to 'Back', laundry_order_items_path %>
