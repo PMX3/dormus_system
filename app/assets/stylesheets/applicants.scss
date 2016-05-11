@@ -192,3 +192,66 @@
 .csel{
 	width:50px!important;
 }
+
+.tabs-menu {
+    height: 30px;
+    float: left;
+    clear: both;
+}
+
+.tabs-menu li {
+  min-width: 80px;
+  text-align: center;
+    height: 53px;
+    margin-top: -5px;
+    padding-top: 5px;
+    line-height: 30px;
+    float: left;
+    margin-right: 10px;
+    background-color: black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    list-style-type: none;
+    color:white;
+}
+
+.tabs-menu li.current {
+    position: relative;
+    background-color: #f3f3f3;
+    color:black;
+    border-top: 4px solid #cc0000;
+    z-index: 5;
+}
+.tabs-menu li a:hover {
+    background-color: transparent;
+}
+
+
+.tabs-menu li a {
+    padding: 10px;
+    /*text-transform: uppercase;*/
+    color: white;
+    text-decoration: none; 
+
+}
+
+.tabs-menu .current a {
+    color: black;
+}
+
+.tab {
+    border: 1px solid #d4d4d1;
+    background-color: #f3f3f3;
+    float: left;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.tab-content {
+  display:none;
+}
+
+#tab-1 {
+   display:block;
+}
