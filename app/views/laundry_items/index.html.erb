@@ -1,29 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="default_bg container-fluid">
+  <div class="card">
+    <div class="card_header">
+      <center class="title">
+        LAUNDRY
+      </center>
 
-<h1>Listing Laundry Items</h1>
+      <div class="col-md-6">
+        <div class="laundry-tab-left">
+          <div class="container-fluid">
+            <br>
+            <center class="tab-header">MALE</center>
+            <% @laundry_items.each do |laundry_item| %>
+              <% if laundry_item.laundry_item_type == "Male" %>
+                <p class="item_left"><%= laundry_item.description %></p>
+                <p class="item_right"><%= laundry_item.price %></p>
+                <br><br>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <div class="col-md-6">
+        <div class="laundry-tab-right">
+          <div class="container-fluid">
+            <br>
+            <center class="tab-header">FEMALE</center>
+            <% @laundry_items.each do |laundry_item| %>
+              <% if laundry_item.laundry_item_type == "Female" %>
+                <p class="item_left"><%= laundry_item.description %></p>
+                <p class="item_right"><%= laundry_item.price %></p>
+                <br><br>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-  <tbody>
-    <% @laundry_items.each do |laundry_item| %>
-      <tr>
-        <td><%= laundry_item.description %></td>
-        <td><%= laundry_item.price %></td>
-        <td><%= link_to 'Show', laundry_item %></td>
-        <td><%= link_to 'Edit', edit_laundry_item_path(laundry_item) %></td>
-        <td><%= link_to 'Destroy', laundry_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Laundry item', new_laundry_item_path %>
+    </div>
+  </div>
+</div>

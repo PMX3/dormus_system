@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
   	if resource.isAdmin
-	  	root_path
+	  	applicants_path
 	  elsif resource.isParent
 	  	show_dormer_path(resource.user_type.applicant)
     else
