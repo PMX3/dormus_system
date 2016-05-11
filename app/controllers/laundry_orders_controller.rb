@@ -14,6 +14,7 @@ class LaundryOrdersController < ApplicationController
 
   # GET /laundry_orders/new
   def new
+    @laundry_items = LaundryItem.all
     @laundry_order = LaundryOrder.new
   end
 

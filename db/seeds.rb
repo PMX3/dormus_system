@@ -53,7 +53,7 @@ LaundryItem.create(laundry_item_type: 'Male', description: 'Trousers', price: 10
 LaundryItem.create(laundry_item_type: 'Male', description: 'Jeans/Maong', price: 10)
 LaundryItem.create(laundry_item_type: 'Male', description: 'T-Shirt with Collar', price: 10)
 LaundryItem.create(laundry_item_type: 'Male', description: 'Shirt Cotton, Polo L/S', price: 10)
-LaundryItem.create(laundry_item_type: 'Male', description: 'Shirt, Silk Nylos S/S', price: 10)
+LaundryItem.create(laundry_item_type: 'Male', description: 'Shirt, Silk Nylon S/S', price: 10)
 LaundryItem.create(laundry_item_type: 'Male', description: 'Undershirt', price: 10)
 LaundryItem.create(laundry_item_type: 'Male', description: 'Sock', price: 10)
 LaundryItem.create(laundry_item_type: 'Male', description: 'Handkerchief', price: 10)

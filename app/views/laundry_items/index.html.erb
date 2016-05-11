@@ -12,8 +12,8 @@
             <center class="tab-header">MALE</center>
             <% @laundry_items.each do |laundry_item| %>
               <% if laundry_item.laundry_item_type == "Male" %>
-                <p class="item_left"><%= laundry_item.description %></p>
-                <p class="item_right"><%= laundry_item.price %></p>
+                <p class="item-left"><%= laundry_item.description %></p>
+                <p class="item-right"><%= laundry_item.price %></p>
                 <br><br>
               <% end %>
             <% end %>
@@ -28,8 +28,8 @@
             <center class="tab-header">FEMALE</center>
             <% @laundry_items.each do |laundry_item| %>
               <% if laundry_item.laundry_item_type == "Female" %>
-                <p class="item_left"><%= laundry_item.description %></p>
-                <p class="item_right"><%= laundry_item.price %></p>
+                <p class="item-left"><%= laundry_item.description %></p>
+                <p class="item-right"><%= laundry_item.price %></p>
                 <br><br>
               <% end %>
             <% end %>

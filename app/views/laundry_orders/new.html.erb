@@ -1,5 +1,62 @@
-<h1>New Laundry Order</h1>
+<div class="default_bg container-fluid">
+	<div class="card">
+		<div class="card_header">
+			<ul class="tabs-menu">
+				<li class="current">Avail Laundry Service</li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<p class="laundry-item-type-header">MALE</p>
+			<p class="laundry-item-type-quantity-left">QTY</p>
+			<div class="tab-left">
+				<div class="container-fluid">
+				<br>
+				<% @laundry_items.each do |laundry_item| %>
+	              <% if laundry_item.laundry_item_type == "Male" %>
+	                <p class="item-left"><%= laundry_item.description %></p>
+	                <p class="item-right"><input type="text" class="textbox" onchange="totalSummary()" name="quantity"></p>
+	                <p class="item-right">P<%= laundry_item.price %>&nbsp&nbsp&nbsp</p>
+	                <%= hidden_field_tag "price", laundry_item.price %>
+	                <br><br>
+	              <% end %>
+	            <% end %>
+	            </div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<p class="laundry-item-type-header">FEMALE</p>
+			<p class="laundry-item-type-quantity-right">QTY</p>
+			<div class="tab-right">
+				<div class="container-fluid">
+				<br>
+				<% @laundry_items.each do |laundry_item| %>
+	              <% if laundry_item.laundry_item_type == "Female" %>
+	                <p class="item-left"><%= laundry_item.description %></p>
+	                <p class="item-right"><input type="text" class="textbox" onchange="totalSummary()" name="quantity"></p>
+	                <p class="item-right">P<%= laundry_item.price %>&nbsp&nbsp&nbsp</p>
+	                <%= hidden_field_tag "price", laundry_item.price %>
+	                <br><br>
+	              <% end %>
+	            <% end %>
+	            </div>
+			</div>
+		</div>
+		<%= button_tag "Avail", class: "btn submit" %>
+		<p class="total" id="total">Php 0</p>
+		<p class="total">Payment Due:</p>
+	</div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', laundry_orders_path %>
+<script type="text/javascript">
+function totalSummary(){
+	var quantityArray = document.getElementsByName("quantity");
+	var quantityPrice = document.getElementsByName("price");
+	var total = 0;
+	for (var i = 0; i < quantityArray.length; i++) {
+		if (parseInt(quantityArray[i].value)) {
+			total += parseInt(quantityPrice[i].value) * parseInt(quantityArray[i].value);
+		};
+	};
+	document.getElementById("total").innerHTML = "Php " + total;
+}
+</script>
