@@ -41,18 +41,7 @@ class ApplicantsController < ApplicationController
   # POST /applicants
   # POST /applicants.json
   def create
-    @applicant = Applicant.new(applicant_params)
-
-    respond_to do |format|
-      if @applicant.save
-        @applicant.update_attribute(:stage,"Pending")
-        format.html { redirect_to @applicant, notice: 'Applicant was successfully created.' }
-        format.json { render :show, status: :created, location: @applicant }
-      else
-        format.html { render :new }
-        format.json { render json: @applicant.errors, status: :unprocessable_entity }
-      end
-    end
+    #refer to registrations controller, create action for creation of applicant
   end
 
 def approve
@@ -64,10 +53,8 @@ end
 
 def create_account
   @applicant = Applicant.find(params[:id])
-  @applicant.update_attribute(:stage,"Dormer")
-  @parent = Parent.create!(:name=>@applicant.guardian_name, :email=>@applicant.guardian_email, :address=>@applicant.guardian_address, :contact_number=>@applicant.guardian_contact_number, :applicant=>@applicant)
-  User.create!(:email=>@applicant.email, :password=>"123"+:room_number, :password_confirmation=>"123456", :user_type=>@applicant)
-  User.create!(:email=>@applicant.guardian_email, :password=>"123"+:room_number, :password_confirmation=>"123456", :isParent=>true, :user_type=>@parent)
+  @applicant.update(:stage=>"Dormer", :password=>"123"+@applicant.room_number.to_s, :password_confirmation=>"123"+@applicant.room_number.to_s)
+  @parent = Parent.create!(:name=>@applicant.guardian_name, :email=>@applicant.guardian_email, :address=>@applicant.guardian_address, :contact_number=>@applicant.guardian_contact_number, :applicant_id=>@applicant.id,:password=>"123"+@applicant.room_number.to_s, :password_confirmation=>"123"+@applicant.room_number.to_s)
   redirect_to applicants_path
 end
 
@@ -113,6 +100,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def applicant_params
-      params.require(:applicant).permit(:last_name, :first_name, :middle_initial, :nickname, :image_path, :gender, :civil_status, :address, :contact_number, :landline_number, :email, :nationality, :religion, :birthday, :school, :school_address, :major, :year, :medical_information, :personal_information, :guardian_name, :guardian_contact_number, :guardian_address, :guardian_email)
+      params.require(:applicant).permit(:email, :last_name, :first_name, :middle_initial, :nickname, :image_path, :gender, :civil_status, :address, :contact_number, :landline_number, :nationality, :religion, :birthday, :school, :school_address, :major, :year, :medical_information, :personal_information, :guardian_name, :guardian_contact_number, :guardian_address, :guardian_email)
     end
+
 end

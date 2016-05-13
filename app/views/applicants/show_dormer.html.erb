@@ -12,7 +12,7 @@
         <ul class="tabs-menu">
           <li class="current"><a href="#tab-1">Profile</a></li>
           <li><a href="#tab-2">Statement of Account</a></li>
-          <% if current_user.isParent == true %>
+          <% if parent_signed_in? %>
             <li><a href="#tab-3">My Child's Door Log</a></li>
           <% else %>
             <li><a href="#tab-3">My Door Log</a></li>

@@ -17,84 +17,81 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<% if user_signed_in? %>
-				<% if current_user.isAdmin %>
+
+				<% if admin_signed_in? %>
 					<a class="navbar-brand" href=""><%= link_to image_tag("/assets/dormus_logo.png", :class=> "dormus_logo"), applicants_path %></a>
-				<% elsif current_user.isParent %>
-					<a class="navbar-brand" href=""><%= link_to image_tag("/assets/dormus_logo.png", :class=> "dormus_logo"), show_dormer_path(current_user.user_type.applicant) %></a>
+				<% elsif parent_signed_in? %>
+					<a class="navbar-brand" href=""><%= link_to image_tag("/assets/dormus_logo.png", :class=> "dormus_logo"), show_dormer_path(current_parent.applicant) %></a>
+				<% elsif  applicant_signed_in?  %>
+					<a class="navbar-brand" href=""><%= link_to image_tag("/assets/dormus_logo.png", :class=> "dormus_logo"), show_dormer_path(current_applicant) %></a>
 				<% else %>
-					<a class="navbar-brand" href=""><%= link_to image_tag("/assets/dormus_logo.png", :class=> "dormus_logo"), show_dormer_path(current_user.user_type) %></a>
-				<% end %>
-			<% else %>
-				<a class="navbar-brand" href="/"><img id="dormus_logo" src="/assets/dormus_logo.png"></a>
-			<% end %>		
+					<a class="navbar-brand" href="/"><img id="dormus_logo" src="/assets/dormus_logo.png"></a>
+				<% end %>		
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<% if user_signed_in? %>
-				<% if current_user.isParent %>
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><font style="font-size: 10px;">Parent of </font><%=  current_user.user_type.applicant.first_name + " " + current_user.user_type.applicant.last_name %><span class="caret"></span></a>
-							<ul class="dropdown-menu" style="background-color:white">
-								<li><center><%= link_to "Logout", destroy_user_session_path, method: :delete %></center></li>
-								<li></li>
-							</ul>
-						</li>
-					</ul>
-				<% elsif current_user.isAdmin %>
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dormers<span class="caret"></span></a>
-							<ul class="dropdown-menu" style="background-color:white">
-								<li><center><%= link_to "Applications", applicants_path %></center></li>
-								<li></li>
-							</ul>
-						</li>
-						<li>
-							<a href=""><%= link_to "Rooms", rooms_path %></a>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
-							<ul class="dropdown-menu" style="background-color:white">
-								<li><center><%= link_to "Meal Plans", new_food_plan_path %></center></li>
-								<li><center><%= link_to "Laundry" %></center></li>
-								<li><center><%= link_to "Door Log" %></center></li>
-								<li></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Finances<span class="caret"></span></a>
-							<ul class="dropdown-menu" style="background-color:white">
-								<li><center><%= link_to "View Transactions" %></center></li>
-								<li><center><%= link_to "Add Transactions" %></center></li>
-								<li><center><%= link_to "Utility" %></center></li>
-								<li></li>
-							</ul>
-						</li>
-						<li>
-							<a href=""><%= link_to "Logout", destroy_user_session_path, method: :delete %></a>
-						</li>
-					</ul>
-				<% else %>
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="">Meal Plans</a>
-						</li>
-						<li>
-							<a href="">Laundry Services</a>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.user_type.first_name + " " + current_user.user_type.last_name %><span class="caret"></span></a>
-							<ul class="dropdown-menu" style="background-color:white">
-								<li><center><%= link_to "Edit Profile", edit_applicant_path(current_user.user_type) %></center></li>
-								<li><center><%= link_to "Logout", destroy_user_session_path, method: :delete %></center></li>
-								<li></li>
-							</ul>
-						</li>
-					</ul>
-				<% end %>
+			<% if parent_signed_in? %>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><font style="font-size: 10px;">Parent of </font><%=  current_parent.applicant.first_name %> <%= current_parent.applicant.last_name %><span class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color:white">
+							<li><center><%= link_to "Logout", destroy_parent_session_path, method: :delete %></center></li>
+							<li></li>
+						</ul>
+					</li>
+				</ul>
+			<% elsif admin_signed_in? %>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dormers<span class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color:white">
+							<li><center><%= link_to "Applications", applicants_path %></center></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<a href=""><%= link_to "Rooms", rooms_path %></a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color:white">
+							<li><center><%= link_to "Meal Plans", new_food_plan_path %></center></li>
+							<li><center><%= link_to "Laundry" %></center></li>
+							<li><center><%= link_to "Door Log" %></center></li>
+							<li></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Finances<span class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color:white">
+							<li><center><%= link_to "View Transactions" %></center></li>
+							<li><center><%= link_to "Add Transactions" %></center></li>
+							<li><center><%= link_to "Utility" %></center></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<a href=""><%= link_to "Logout", destroy_admin_session_path, method: :delete %></a>
+					</li>
+				</ul>
+			<% elsif applicant_signed_in? %>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="">Meal Plans</a>
+					</li>
+					<li>
+						<a href="">Laundry Services</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_applicant.first_name %> <%= current_applicant.last_name %><span class="caret"></span></a>
+						<ul class="dropdown-menu" style="background-color:white">
+							<li><center><%= link_to "Edit Profile", edit_applicant_path(current_applicant) %></center></li>
+							<li><center><%= link_to "Logout", destroy_applicant_session_path, method: :delete %></center></li>
+							<li></li>
+						</ul>
+					</li>
+				</ul>
 			<% else %>
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Application <span class="sr-only">(current)</span></a></li>
@@ -102,7 +99,17 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="p1_exi"><a class="p1_existacc" >Already have an account?</a></li>
-					<li><a href="/users/sign_in">Sign in</a></li>
+					<li class="dropdown">
+
+						  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sign in as
+						  <span class="caret"></span></button>
+						  <ul class="dropdown-menu">
+						  	<li><%= link_to "Applicant", new_applicant_session_path %></li>
+						  	<li><%= link_to "Parent", new_parent_session_path %></li>
+						    <li><%= link_to "Admin", new_admin_session_path %></li>
+						  </ul>
+
+					</li>
 				</ul>
 			<% end %>
 		</div><!-- /.navbar-collapse -->

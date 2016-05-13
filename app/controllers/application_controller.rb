@@ -3,21 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :check_admin #, :authenticate_user!
-
-  def check_admin
-  	if !User.exists?(:isAdmin=>true)
-  		User.create!(:email=>"dormus@gmail.com", :password=>"123456", :password_confirmation=>"123456", :isAdmin=>true)
-  	end
+  def after_sign_in_path_for(resource)
+    if resource.class == Admin
+      applicants_path
+    elsif resource.class == Parent
+      show_dormer_path(resource.applicant_id)
+    elsif resource.class == Applicant
+      show_dormer_path(resource)
+    end
   end
 
-  def after_sign_in_path_for(resource)
-  	if resource.isAdmin
-	  	applicants_path
-	  elsif resource.isParent
-	  	show_dormer_path(resource.user_type.applicant)
-    else
-      show_dormer_path(resource.user_type)
-	  end
-	end
 end

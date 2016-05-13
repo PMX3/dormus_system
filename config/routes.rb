@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  devise_for :applicants, controllers: { registrations: 'registrations' }
+  devise_for :parents
+
   resources :laundry_orders
   resources :laundry_order_items
   resources :laundry_items
-  devise_for :users, :controllers=> {
-    :sessions=> 'users/sessions',
-    :passwords=> 'users/passwords'
-  }
-  #resources :preferences
   resources :rooms
   resources :submissions
   resources :statement_of_accounts

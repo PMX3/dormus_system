@@ -1,4 +1,7 @@
 class Parent < ActiveRecord::Base
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 	belongs_to :applicant
-	has_one :user, :as=> :user_type
+  validates :email, uniqueness: true
+  validates_format_of :email,:with => Devise::email_regexp
 end

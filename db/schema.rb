@@ -11,58 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511115026) do
+ActiveRecord::Schema.define(version: 20160513180445) do
 
-  create_table "applicants", force: :cascade do |t|
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "middle_initial"
-    t.string   "nickname"
-    t.text     "image_path"
-    t.string   "gender"
-    t.string   "civil_status"
-    t.text     "address"
-    t.string   "contact_number"
-    t.string   "landline_number"
-    t.string   "email"
-    t.string   "nationality"
-    t.string   "religion"
-    t.date     "birthday"
-    t.string   "school"
-    t.text     "school_address"
-    t.string   "major"
-    t.integer  "year"
-    t.text     "medical_information"
-    t.text     "personal_information"
-    t.string   "guardian_name"
-    t.string   "guardian_contact_number"
-    t.text     "guardian_address"
-    t.string   "guardian_email"
-    t.string   "room_type"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "stage"
-    t.integer  "room_number"
-    t.string   "image_path_file_name"
-    t.string   "image_path_content_type"
-    t.integer  "image_path_file_size"
-    t.datetime "image_path_updated_at"
-    t.integer  "violation"
-    t.integer  "bed_number"
-    t.boolean  "door_log"
-  end
-
-  create_table "deals", force: :cascade do |t|
-    t.string   "deal_type"
-    t.decimal  "amount_due"
-    t.decimal  "amount_paid"
-    t.datetime "deal_timestamp"
-    t.string   "payment_for"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  create_table "dormers", force: :cascade do |t|
+  create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -77,22 +28,82 @@ ActiveRecord::Schema.define(version: 20160511115026) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "dormers", ["email"], name: "index_dormers_on_email", unique: true
-  add_index "dormers", ["reset_password_token"], name: "index_dormers_on_reset_password_token", unique: true
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+
+  create_table "applicants", force: :cascade do |t|
+    t.string   "email",                   default: "", null: false
+    t.string   "encrypted_password",      default: "", null: false
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "middle_initial"
+    t.string   "nickname"
+    t.text     "image_path"
+    t.string   "gender"
+    t.string   "civil_status"
+    t.text     "address"
+    t.string   "contact_number"
+    t.string   "landline_number"
+    t.string   "nationality"
+    t.string   "religion"
+    t.date     "birthday"
+    t.string   "school"
+    t.text     "school_address"
+    t.string   "major"
+    t.integer  "year"
+    t.text     "medical_information"
+    t.text     "personal_information"
+    t.string   "guardian_name"
+    t.string   "guardian_contact_number"
+    t.text     "guardian_address"
+    t.string   "guardian_email"
+    t.string   "room_type"
+    t.string   "stage"
+    t.integer  "room_number"
+    t.integer  "violation"
+    t.boolean  "door_log"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",           default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "image_path_file_name"
+    t.string   "image_path_content_type"
+    t.integer  "image_path_file_size"
+    t.datetime "image_path_updated_at"
+  end
+
+  add_index "applicants", ["email"], name: "index_applicants_on_email", unique: true
+  add_index "applicants", ["reset_password_token"], name: "index_applicants_on_reset_password_token", unique: true
+
+  create_table "deals", force: :cascade do |t|
+    t.string   "deal_type"
+    t.decimal  "amount_due"
+    t.decimal  "amount_paid"
+    t.datetime "deal_timestamp"
+    t.string   "payment_for"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "food_plans", force: :cascade do |t|
     t.date     "food_plan_date"
+    t.string   "meal"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.string   "meal"
   end
 
   create_table "laundry_items", force: :cascade do |t|
     t.string   "description"
     t.decimal  "price"
+    t.string   "laundry_item_type"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.string   "laundry_item_type"
   end
 
   create_table "laundry_order_items", force: :cascade do |t|
@@ -106,19 +117,6 @@ ActiveRecord::Schema.define(version: 20160511115026) do
     t.decimal  "payment_due"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "meal_plans", force: :cascade do |t|
-    t.string   "name"
-    t.string   "breakfast_meal"
-    t.string   "breakfast_drink"
-    t.string   "lunch_meal"
-    t.string   "lunch_drink"
-    t.string   "dinner_meal"
-    t.string   "dinner_drink"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "price"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -135,14 +133,26 @@ ActiveRecord::Schema.define(version: 20160511115026) do
   end
 
   create_table "parents", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "name"
     t.string   "contact_number"
     t.text     "address"
-    t.string   "email"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
     t.integer  "applicant_id"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
+
+  add_index "parents", ["email"], name: "index_parents_on_email", unique: true
+  add_index "parents", ["reset_password_token"], name: "index_parents_on_reset_password_token", unique: true
 
   create_table "preferences", force: :cascade do |t|
     t.string   "room_type"
@@ -183,28 +193,5 @@ ActiveRecord::Schema.define(version: 20160511115026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.boolean  "isAdmin",                default: false
-    t.boolean  "isParent",               default: false
-    t.integer  "user_type_id"
-    t.string   "user_type_type"
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["user_type_type", "user_type_id"], name: "index_users_on_user_type_type_and_user_type_id"
 
 end

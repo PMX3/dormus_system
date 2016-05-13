@@ -52,7 +52,7 @@
   </div>
   <div class="field">
     <%= f.label :email,:class=>"flabel" %>
-    <%= f.text_field :email,:class=>"ffield"  %>
+    <%= f.text_field :email,:class=>"ffield",:required=>"true" %>
   </div>
   <div class="field">
     <%= f.label :nationality,:class=>"flabel" %>
@@ -104,7 +104,7 @@
   </div>
   <div class="field">
     <%= f.label :guardian_email,:class=>"flabel" %>
-    <%= f.text_field :guardian_email,:class=>"ffield"  %>
+    <%= f.text_field :guardian_email,:class=>"ffield",:required=>"true"  %>
   </div>
   <div class="actions">
     <%= f.submit 'Submit Form', class: "btn sendbtn" %>
