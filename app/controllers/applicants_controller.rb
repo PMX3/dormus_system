@@ -66,8 +66,8 @@ def create_account
   @applicant = Applicant.find(params[:id])
   @applicant.update_attribute(:stage,"Dormer")
   @parent = Parent.create!(:name=>@applicant.guardian_name, :email=>@applicant.guardian_email, :address=>@applicant.guardian_address, :contact_number=>@applicant.guardian_contact_number, :applicant=>@applicant)
-  User.create!(:email=>@applicant.email, :password=>"123456", :password_confirmation=>"123456", :user_type=>@applicant)
-  User.create!(:email=>@applicant.guardian_email, :password=>"123456", :password_confirmation=>"123456", :isParent=>true, :user_type=>@parent)
+  User.create!(:email=>@applicant.email, :password=>"123"+:room_number, :password_confirmation=>"123456", :user_type=>@applicant)
+  User.create!(:email=>@applicant.guardian_email, :password=>"123"+:room_number, :password_confirmation=>"123456", :isParent=>true, :user_type=>@parent)
   redirect_to applicants_path
 end
 
