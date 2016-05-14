@@ -1,35 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Deals</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Deal type</th>
-      <th>Amount due</th>
-      <th>Amount paid</th>
-      <th>Deal timestamp</th>
-      <th>Payment for</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @deals.each do |deal| %>
-      <tr>
-        <td><%= deal.deal_type %></td>
-        <td><%= deal.amount_due %></td>
-        <td><%= deal.amount_paid %></td>
-        <td><%= deal.deal_timestamp %></td>
-        <td><%= deal.payment_for %></td>
-        <td><%= link_to 'Show', deal %></td>
-        <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
-        <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Deal', new_deal_path %>
+<div class="default_bg container-fluid">
+  <div class="card">
+    <div class="card_header">
+        <div class="col-md-2">Transaction #</div>
+        <div class="col-md-3">Payment For</div>
+        <div class="col-md-3">Transaction Type</div>
+        <div class="col-md-1">Amount Due</div>
+        <div class="col-md-1">Amount Paid</div>
+        <div class="col-md-2">Date of Billing</div>
+    </div>
+    <div class="container-fluid">
+      <br><br><br><br><br>
+        <% @deals.each do |deal| %>
+          <div class="col-md-2"><%= deal.id %></div>
+          <div class="col-md-3"><%= deal.payment_for %></div>
+          <div class="col-md-3"><%= deal.deal_type %></div>
+          <div class="col-md-1"><%= deal.amount_due %></div>
+          <div class="col-md-1"><%= deal.amount_paid %></div>
+          <div class="col-md-2"><%= deal.deal_timestamp %></div>
+        <% end %>
+      </div>
+  </div>
+</div>

@@ -28,6 +28,7 @@ class DealsController < ApplicationController
 
     respond_to do |format|
       if @deal.save
+        if @deal.deal_type == "Others"
           @deal.update(deal_type: params[:others]) 
         end
         format.html { redirect_to @deal, notice: 'Deal was successfully created.' }
