@@ -8,6 +8,10 @@ class ApplicantsController < ApplicationController
     @rooms=Room.all
   end
 
+  def dormer_list
+    @applicants = Applicant.where(stage: "Dormer")
+
+  end
   # GET /applicants/1
   # GET /applicants/1.json
   def show
