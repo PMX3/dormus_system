@@ -9,37 +9,48 @@
     <div class="card">
       <div class="card_header" style="padding-left:3vw;">
       <div class="row">
-        <div class="col-md-1">
+        <div class="col-md-5">
           
         </div>
         <div class="col-md-2">
-           Applicant
+        <center>
+           Meal Plans for <%=Date.today%>
+          </center>
         </div>
-        <div class="col-md-2">
-          Requested Room
+        <div class="col-md-5">
+        
         </div>
-        <div class="col-md-2">
-          Given
-        </div>
-        <div class="col-md-2">
-          Status
-        </div>
-        <div class="col-md-3">
-          Actions
-        </div>
+
         </div>
         
       </div>
       <div class="container-fluid p1_abox">
         
-      <br><br><br><br>
-      <br><br><br>
-      <div class="scrollbox"style="padding-left:3vw;">
+      <br><br><br><br><br><br>
+      <div class="row">
+      <div class="col-md-5">
+        <div class="meal-sum">
+          <% @meals.each do |m| %>
+          <div class="col-md-3 mealbox"><center><%=m.name%></center>
+          </div>
+
+          <%end%>
+        </div>
+      </div>
+      <br>
+      <div class="scrollbox col-md-7"style="padding-left:4vw;padding-right:4vw;">
       <% @food_plans.each do |food_plan| %>
-        <%=food_plan.meal%>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <%=food_plan.meal%> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <%=food_plan.applicant.first_name%>
+        <%=food_plan.applicant.last_name%>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <%=food_plan.applicant.room_number%>
+        <hr class="hr-sh">
+        
       <%end%>
     </div>
-
+    </div>
 
       </div>
 

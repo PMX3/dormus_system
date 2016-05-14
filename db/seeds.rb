@@ -84,3 +84,8 @@ LaundryItem.create(laundry_item_type: 'Female', description: 'T-Shirt', price: 1
 LaundryItem.create(laundry_item_type: 'Female', description: 'Slacks', price: 10)
 LaundryItem.create(laundry_item_type: 'Female', description: 'Panty Hose', price: 10)
 LaundryItem.create(laundry_item_type: 'Female', description: 'Hand Towel', price: 10)
+
+FoodPlan.create(food_plan_date: '2016-05-15',meal: 'Vegetarian I',applicant_id:1)
+FoodPlan.create(food_plan_date: '2016-05-15',meal: 'Vegetarian III',applicant_id:2)
+FoodPlan.create(food_plan_date: '2016-05-15',meal: 'Vegetarian II',applicant_id:3)
+FoodPlan.create(food_plan_date: '2016-05-15',meal: 'Vegetarian I',applicant_id:4)

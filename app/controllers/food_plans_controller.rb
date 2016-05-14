@@ -30,7 +30,8 @@ class FoodPlansController < ApplicationController
   end
 
   def today_food
-    @food_plans = FoodPlan.where(food_plan_date: Date.today)
+    @food_plans = FoodPlan.where(food_plan_date: Date.today).order('meal ASC')
+    @meals=Meal.all
   end
 
   # POST /food_plans
