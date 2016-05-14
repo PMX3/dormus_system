@@ -18,7 +18,8 @@ Rails.application.routes.draw do
 
   get '/applicants/:id/room_select' => 'applicants#room_select', as: :room_select
   get '/applicants/:id/preference' => 'applicants#preference', as: :edit_preference
-  get '/applicants/:id/show_applicant'=> 'applicants#show_applicant', as: :show_applicant
+  get '/dormer_list'=> 'applicants#dormer_list', as: :dormer_list
+    get '/applicants/:id/show_applicant'=> 'applicants#show_applicant', as: :show_applicant
   get '/applicants/:id/show_dormer'=> 'applicants#show_dormer', as: :show_dormer
   post '/applicants/:id' => 'applicants#update_preference', as: :update_preference
   post '/applicants/:id/approve' => 'applicants#approve', as: :approve
