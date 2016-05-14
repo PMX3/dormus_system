@@ -87,8 +87,9 @@ ActiveRecord::Schema.define(version: 20160514100843) do
     t.decimal  "amount_paid"
     t.datetime "deal_timestamp"
     t.string   "payment_for"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "statement_of_account_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "door_logs", force: :cascade do |t|

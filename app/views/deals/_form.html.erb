@@ -13,8 +13,10 @@
 
   <div class="field">
     <%= f.label :deal_type %><br>
-    <%= f.text_field :deal_type %>
+    <%= f.select :deal_type, options_for_select(["Water Utility Billing", "Electricity Utility Billing", "Food Plan Payment", "Laundry Service Payment", "Others"]), {}, {:onchange=>"checkIfOthers()", :id=>"deal-type"}%>
+    <%= text_field_tag :others, "", :id=>'deal-type-others',:style=>"display:none;"%>
   </div>
+
   <div class="field">
     <%= f.label :amount_due %><br>
     <%= f.text_field :amount_due %>
@@ -29,9 +31,23 @@
   </div>
   <div class="field">
     <%= f.label :payment_for %><br>
-    <%= f.text_field :payment_for %>
+    <%= f.collection_select :payment_for, Applicant.order(:last_name), :full_name, :full_name %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  function checkIfOthers() {
+    var check = document.querySelector('#deal-type');
+    var result = document.querySelector('#deal-type-others');
+
+    if (check.value == "Others") {
+      result.style.display = "inline";
+    }
+    else{
+      result.style.display = "none";
+    };
+  }
+</script>
