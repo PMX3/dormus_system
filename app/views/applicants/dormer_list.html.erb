@@ -36,7 +36,11 @@
       <br><br><br>
       <div class="scrollbox"style="padding-left:3vw;">
       <% @applicants.each do |applicant| %>
-      <%=applicant.first_name%> | <%=applicant.door_log%> <br>
+      <%if applicant.door_log==true%>
+      <%= image_tag('/assets/in.png',:style=>"height:100px;") %>
+      <%else%>
+      <%= image_tag('/assets/out.png',:style=>"height:100px;") %>
+      <%end%> | <%=applicant.first_name%> <%=applicant.last_name%><br>
 
       <%end%>
 
