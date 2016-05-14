@@ -9,12 +9,20 @@ module Api
 					applicants = applicants.where("first_name LIKE ?", "%#{params[:q]}%")
 				end
 				render json: {data: applicants}
+
 			end
 			def update
 				applicant=Applicant.find(params[:id])
+				
 				door_log = params[:door] == "true" ? true : false
 				applicant.update(:door_log=>door_log)
-
+				if door_log==true
+					dir="in"
+				else
+					dir="out"
+				end
+				entertime=params[:time]
+				DoorLog.create(:time_enter=>DateTime.parse(entertime),:direction=>dir,:dormer_id=>params[:id])
 				render json: {applicant: applicant}
 			end
 		end

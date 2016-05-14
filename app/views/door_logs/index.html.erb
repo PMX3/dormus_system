@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Door Logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time enter</th>
+      <th>Direction</th>
+      <th>Dormer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @door_logs.each do |door_log| %>
+      <tr>
+        <td><%= door_log.time_enter.strftime("%a %b %d, %R %G") %></td>
+        <td><%= door_log.direction %></td>
+        <td><%= door_log.dormer_id %></td>
+        <td><%= link_to 'Show', door_log %></td>
+        <td><%= link_to 'Edit', edit_door_log_path(door_log) %></td>
+        <td><%= link_to 'Destroy', door_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Door log', new_door_log_path %>

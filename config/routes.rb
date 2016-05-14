@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :door_logs
   devise_for :admins
   devise_for :applicants, controllers: { registrations: 'registrations' }
   devise_for :parents
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   get '/applicants/:id/room_select' => 'applicants#room_select', as: :room_select
+  get '/food_plans/today_food' => "food_plans#today_food", as: :today_food
   get '/applicants/:id/preference' => 'applicants#preference', as: :edit_preference
   get '/dormer_list'=> 'applicants#dormer_list', as: :dormer_list
     get '/applicants/:id/show_applicant'=> 'applicants#show_applicant', as: :show_applicant

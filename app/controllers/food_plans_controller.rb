@@ -1,6 +1,6 @@
 class FoodPlansController < ApplicationController
   before_action :set_food_plan, only: [:show, :edit, :update, :destroy]
-  before_action :set_applicant
+  before_action :set_applicant,except: [:today_food]
 
   # GET /food_plans
   # GET /food_plans.json
@@ -27,6 +27,10 @@ class FoodPlansController < ApplicationController
   @food_plan = FoodPlan.find(params[:id])
   @food_plan.update_attribute(:meal,params[:meal])
   redirect_to applicant_food_plans_path(@applicant.id)
+  end
+
+  def today_food
+    @food_plans = FoodPlan.where(food_plan_date: Date.today)
   end
 
   # POST /food_plans

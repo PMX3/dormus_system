@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time_enter: 2016-05-14 18:08:43
+  direction: MyString
+  dormer_id: 1
+
+two:
+  time_enter: 2016-05-14 18:08:43
+  direction: MyString
+  dormer_id: 1
