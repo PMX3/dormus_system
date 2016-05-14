@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160513180445) do
   create_table "food_plans", force: :cascade do |t|
     t.date     "food_plan_date"
     t.string   "meal"
+    t.integer  "applicant_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

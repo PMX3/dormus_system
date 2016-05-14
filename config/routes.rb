@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   resources :statement_of_accounts
   resources :deals
   resources :meals
-  resources :food_plans
-  resources :applicants
+
+  resources :applicants do
+    resources :food_plans
+  end
+
   get '/applicants/:id/room_select' => 'applicants#room_select', as: :room_select
   get '/applicants/:id/preference' => 'applicants#preference', as: :edit_preference
   get '/applicants/:id/show_applicant'=> 'applicants#show_applicant', as: :show_applicant
@@ -20,7 +23,7 @@ Rails.application.routes.draw do
   post '/applicants/:id' => 'applicants#update_preference', as: :update_preference
   post '/applicants/:id/approve' => 'applicants#approve', as: :approve
   post '/applicants/:id/create_account' => 'applicants#create_account', as: :create_account
-  get '/food_plans/:id/meal_select' => 'food_plans#meal_select', as: :meal_select
+  get '/applicants/:applicant_id/food_plans/:id/meal_select' => 'food_plans#meal_select', as: :meal_select
   root 'submissions#new'
   namespace :api do 
     namespace :v1 do
