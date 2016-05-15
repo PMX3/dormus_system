@@ -89,3 +89,6 @@ FoodPlan.create(food_plan_date: '2016-05-15',meal: 'Vegetarian I',applicant_id:1
 FoodPlan.create(food_plan_date: '2016-05-15',meal: 'Vegetarian III',applicant_id:2)
 FoodPlan.create(food_plan_date: '2016-05-15',meal: 'Vegetarian II',applicant_id:3)
 FoodPlan.create(food_plan_date: '2016-05-15',meal: 'Vegetarian I',applicant_id:4)
+FoodPlan.create(food_plan_date: '2016-05-15',meal: 'European Dish',applicant_id:5)
+FoodPlan.create(food_plan_date: '2016-05-15',meal: 'European Dish',applicant_id:6)
+FoodPlan.create(food_plan_date: '2016-05-15',meal: 'Vegetarian I',applicant_id:7)

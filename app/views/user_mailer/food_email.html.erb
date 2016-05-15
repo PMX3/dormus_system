@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+</head>
+  <body>
+    <h1>DORMUS</h1>
+    <p>
+      Good morning, Dormus Catering!
+      <br><br>
+      Meal Plans for <%=Date.today%>:
+      <br><br>
+      <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Meal Plan</th>
+      <th>Ordered by</th>
+      <th>Room Number</th>
+      <th>Received by</th>
+      <th>Signature</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%countint=1%>
+    <% @food_plans.each do |food_plan| %>
+      <tr>
+        <td><%=countint%></td>
+        <td><%= food_plan.meal %></td>
+        <td><%=food_plan.applicant.first_name%>
+        <%=food_plan.applicant.last_name%></td>
+        <td><%=food_plan.applicant.room_number%></td>
+        <%countint+=1%>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+
+
+  </tbody>
+</table>
+      <br>
+      <br>
+      Setup your account by logging in then changing your password. Using this account you may view your child's Dormus account.
+      <br>
+      <br>
+      If you have any concerns, don't hesitate to call us at 576-5790.
+      
+      <br>
+      <br>
+      Thanks, <br>Dormus staff
+    </p>
+  </body>
+</html>

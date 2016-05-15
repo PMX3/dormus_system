@@ -21,4 +21,9 @@ class UserMailer < ApplicationMailer
     @url  = 'http://example.com/login'
     mail(to: user.email, subject: 'DORMUS Parent Account')
   end
+  def food_email (food)
+    @food_plans = food
+    
+    mail(to: 'dormcaterer@yahoo.com', subject: 'DORMUS Food Orders for #{Date.today}')
+  end
 end

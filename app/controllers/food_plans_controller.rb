@@ -34,6 +34,11 @@ class FoodPlansController < ApplicationController
     @meals=Meal.all
   end
 
+  def self.food_email
+    @food_plans = FoodPlan.where(food_plan_date: Date.today).order('meal ASC')
+
+    UserMailer.food_email(@food_plans).deliver_now
+  end
   # POST /food_plans
   # POST /food_plans.json
   def create

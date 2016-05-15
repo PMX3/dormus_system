@@ -22,6 +22,8 @@
                           <form>
 
 <button class="choosebtnprint"  onclick="printDiv('printableArea')" value="print a div!">Print Form</button>
+
+
 </form>
         </div>
 
@@ -54,7 +56,8 @@
       <div class="row">
       <div class="col-md-5">
         <div class="row">
-          <center> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Order Summary:</center>
+          <center> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Order Summary:</b></center>
+          <br style="line-height:12px;">
         </div>
         <div class="meal-sum row">
           <%num=0%>
@@ -71,17 +74,32 @@
         </div>
       </div>
       <br>
-      <div class="scrollbox col-md-7"style="padding-left:4vw;padding-right:4vw;">
+      <div class="col-md-7" >
+        <div class="row"style="padding-left:4vw;padding-right:4vw;margin-top:-2vh;">
+        <center>
+          <div class="col-md-4"><b>Meal</b></div>
+          <div class="col-md-4"><b>Ordered by</b></div>
+          <div class="col-md-4"><b>Room Number</b></div>
+          </center>
+        </div>
+        <br style="line-height:25px;">
+      <div class="scrollboxf col-md-12"style="padding-left:4vw;padding-right:4vw;">
       <% @food_plans.each do |food_plan| %>
-      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <%=food_plan.meal%> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <%=food_plan.applicant.first_name%>
-        <%=food_plan.applicant.last_name%>
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <%=food_plan.applicant.room_number%>
+        <div class="row">
+        <center>
+        <div class="col-md-4"><%=food_plan.meal%> </div>
+
+        <div class="col-md-4"><%=food_plan.applicant.first_name%>
+        <%=food_plan.applicant.last_name%></div>
+
+        <div class="col-md-4"><%=food_plan.applicant.room_number%></div>
+        </center>
+        </div>
         <hr class="hr-sh">
         
       <%end%>
+    </div>
+
     </div>
     </div>
 
@@ -117,8 +135,10 @@
     <tr>
       <th>#</th>
       <th>Meal Plan</th>
-      <th>Deliver To</th>
+      <th>Ordered by</th>
       <th>Room Number</th>
+      <th>Received by</th>
+      <th>Signature</th>
     </tr>
   </thead>
 
@@ -132,6 +152,8 @@
         <%=food_plan.applicant.last_name%></td>
         <td><%=food_plan.applicant.room_number%></td>
         <%countint+=1%>
+        <td></td>
+        <td></td>
       </tr>
     <% end %>
 
