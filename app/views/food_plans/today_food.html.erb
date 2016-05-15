@@ -16,9 +16,13 @@
         <center>
            Meal Plans for <%=Date.today%>
           </center>
+
         </div>
         <div class="col-md-5">
-        
+                          <form>
+
+<button class="choosebtnprint"  onclick="printDiv('printableArea')" value="print a div!">Print Form</button>
+</form>
         </div>
 
         </div>
@@ -49,7 +53,10 @@
       <br><br><br><br><br><br>
       <div class="row">
       <div class="col-md-5">
-        <div class="meal-sum">
+        <div class="row">
+          <center> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Order Summary:</center>
+        </div>
+        <div class="meal-sum row">
           <%num=0%>
           <% @meals.each do |m| %>
           <div class="col-md-3 mealbox"><center>
@@ -86,8 +93,68 @@
 
   </div>
 </body>
+<div id="printableArea">
+<br><br>
+      <center><h1><b>Meal Plans for <%=Date.today%></b></h1>
+
+      <br>
+                <%nm=0%>
+          <% @meals.each do |m| %>
+          <%=m.name%>: 
+          <%=count[nm]%>
+
+          <%nm=nm+1%>
+
+          <%if nm % 3 == 0%>
+            <br>
+          <%end%>
+
+          
+          <%end%>
+          <br><br>
+        <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Meal Plan</th>
+      <th>Deliver To</th>
+      <th>Room Number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%countint=1%>
+    <% @food_plans.each do |food_plan| %>
+      <tr>
+        <td><%=countint%></td>
+        <td><%= food_plan.meal %></td>
+        <td><%=food_plan.applicant.first_name%>
+        <%=food_plan.applicant.last_name%></td>
+        <td><%=food_plan.applicant.room_number%></td>
+        <%countint+=1%>
+      </tr>
+    <% end %>
+
+
+  </tbody>
+</table>
+      </center>
+</div>
+
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap.min.js"></script>
+<script language="JavaScript"> 
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}</script>
 </html>

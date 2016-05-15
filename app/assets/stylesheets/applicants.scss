@@ -154,6 +154,25 @@
   background-color: #990000;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+.choosebtnprint{
+  background-color: #990000;
+  margin-right: 95px;
+  float:right;
+  margin-top: -1.3vh;
+  position:relative;
+  border-color: #990000;
+  border-radius: 0px!important;
+  color:white!important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.24);
+   transition: all 0.24s ease-in-out;
+   border:0;
+   padding:10px;
+}
+.choosebtnprint:hover {
+  color:white;
+  background-color: #990000;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
 .choosebtn2{
   background-color: black;
   margin-right: -170px;
@@ -255,3 +274,4 @@
 #tab-1 {
    display:block;
 }
+
