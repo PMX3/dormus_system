@@ -24,16 +24,40 @@
         </div>
         
       </div>
+      <%boom=[]%>
+      <%count=[]%>
+      <%ilan=0%>
       <div class="container-fluid p1_mbox">
-        <% @food_plans.each do |food_plan| %>
-        <!-- array here to count per plan-->
+      <% @meals.each do |m| %>
+        <%ilan=ilan+1%>
+        <%boom.push(m.name)%>
+        <%count.push(0)%>
+      <%end%>
+
+      <% @food_plans.each do |food_plan| %>
+      <!-- array here to count per plan-->
+        <%bcount=0%>
+        <%for i in 0..ilan%>
+          <%if food_plan.meal==boom[i]%>
+            <%count[i]=count[i]+1%>
+            <%break%>
+          <%end%>
+       
         <%end%>
+
+      <%end%>
       <br><br><br><br><br><br>
       <div class="row">
       <div class="col-md-5">
         <div class="meal-sum">
+          <%num=0%>
           <% @meals.each do |m| %>
-          <div class="col-md-3 mealbox"><center><%=m.name%></center>
+          <div class="col-md-3 mealbox"><center>
+          <br>
+          <%=m.name%><br>
+          <%=count[num]%>
+          <%num=num+1%>
+          </center>
           </div>
 
           <%end%>
