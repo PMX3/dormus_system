@@ -8,7 +8,7 @@
 
 Admin.create!(:email=>"dormusph@gmail.com", :password=>"123456", :password_confirmation=>"123456")
 
-Applicant.create(first_name: 'Lorenzo', last_name:'Bautista', middle_initial: 'A', nickname:'Enzo', gender: 'M', contact_number: '09172837458', landline_number: '555-5565', civil_status: 'Single', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe",address:"lt 5 something st something address city",religion:"Roman Catholic",guardian_email:"lorenzobautista4@gmail.com")
+Applicant.create(first_name: 'Lorenzo', last_name:'Bautista', middle_initial: 'A', nickname:'Enzo', gender: 'M', contact_number: '09172837458', landline_number: '555-5565', civil_status: 'Single', email:'lorenzobautista4@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe",address:"lt 5 something st something address city",religion:"Roman Catholic",guardian_email:"jpfelizco4@yahoo.com")
 Applicant.create(first_name: 'Kurt', last_name:'Chan', email:'kurtchan@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe", guardian_email: 'kurtchan@gmail.com')
 Applicant.create(first_name: 'Hans', last_name:'Cristobal', email:'hanscristobal@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe", guardian_email: 'hanscristobal@gmail.com')
 Applicant.create(first_name: 'Bryan', last_name:'Zerrudo', email:'bryanzerrudo@gmail.com',stage:'Pending',room_type: "Two-in-a-room Deluxe", guardian_email: 'bryanzerrudo@gmail.com')
