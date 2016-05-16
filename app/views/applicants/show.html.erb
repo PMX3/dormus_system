@@ -14,19 +14,22 @@
           <span class="p1_title">DORMUS Application Process</span>
         </center>
       </div>
-      <div class="container-fluid p1_abox">
+      <div class="container-fluid p1_abox" style="">
         <div class="col-md-4">
          <%= link_to edit_applicant_path(params[:id]), :style=>"text-decoration: none;" do %>
           <div class="p1_sbox sbox1">
             <center>
               <h3>Step 1</h3>
               <div class="p1_writeup">
-                EDIT UR DETAILS
-                <%= @applicant.first_name %>
+                Edit your tenant application form and information sheet
+                
               </div>
+
               <img id="step1" src="/assets/step1.png">
             </center>
-             <img class="check1" src="/assets/check.png">
+<center><%= @applicant.first_name %> <%=@applicant.last_name%></center>
+             <img class="check3" src="/assets/check.png">
+
           </div>
           <% end %>
         </div>
@@ -37,7 +40,7 @@
               <h3>Step 2</h3>
               <div class="p1_writeup">
                 <% if @applicant.room_type.present? %>
-                  Room type:<%= @applicant.room_type %> 
+                   
                   Edit room
                 <% else %>
                   Select a room
@@ -46,7 +49,10 @@
               <img id="step2" src="/assets/step2.png">
             </center>
             <% if @applicant.room_type.present? %>
-            <img class="check2" src="/assets/check.png">
+            <br>
+            <center><%= @applicant.room_type %></center>
+            <img class="check4" src="/assets/check.png">
+
             <%end%>
           </div>
           <%end%>

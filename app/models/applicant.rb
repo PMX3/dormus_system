@@ -6,6 +6,7 @@ class Applicant < ActiveRecord::Base
   validates :email, uniqueness: true
   validates_format_of :email,:with => Devise::email_regexp
 	belongs_to :submission
+  belongs_to :room
   has_one :parent
 	has_one :statement_of_account
   has_many :food_plans
