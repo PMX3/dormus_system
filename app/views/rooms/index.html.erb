@@ -9,36 +9,60 @@
     <div class="card">
       <div class="card_header" style="padding-left:3vw;">
       <div class="row">
-        <div class="col-md-1">
-          
-        </div>
         <div class="col-md-2">
-           Applicant
+          <center>
+          </center>
         </div>
         <div class="col-md-3">
-          Requested Room
+           <center>Dormers
+           </center>
         </div>
         <div class="col-md-2">
-          Given
+          <center>Status
+          </center>
         </div>
         <div class="col-md-2">
-          Status
+          <center>Room Utility Balance
+          </center>
         </div>
-        <div class="col-md-2">
-          Actions
+        <div class="col-md-3">
+          <center>Actions
+          </center>
         </div>
+
         </div>
         
       </div>
       <div class="container-fluid p1_abox">
         
       <br><br><br><br>
-      <br><br><br>
-      <div class="scrollbox"style="padding-left:3vw;">
-      <br>
+      
+      <div class="scrollbox"style="padding-left:3vw;margin-top:15px;">
+      
     <% @rooms.each do |room| %>
-
-      <hr>
+      <div class="row">
+        <div class="col-md-2">
+          <center><b><%= room.room_number %></b>
+          <br>
+          <%= room.room_type %>
+          </center>
+        </div>
+        <div class="col-md-3">
+          
+        </div>
+        <div class="col-md-2">
+          <center>/<%= room.room_capacity %>
+          <br>
+          select here</center>
+        </div>
+        <div class="col-md-2">
+          
+        </div>
+        <div class="col-md-3">
+          
+        </div>
+      </div>
+      <hr class="hr-rooms">
     <% end %>
     </div>
 
@@ -56,3 +80,20 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap.min.js"></script>
 </html>
+
+<% @rooms.each do |room| %>
+      <tr>
+        <td><%= room.room_number %></td>
+        <td><%= room.room_type %></td>
+        <td><%= room.room_capacity %></td>
+        <td><%= room.room_price %></td>
+        <td><%= room.occupant_count %></td>
+        <td><%= room.room_status %></td>
+        <td><%= room.floor_area %></td>
+        <td><%= room.bed_count %></td>
+        <td><%= room.bathroom_count %></td>
+        <td><%= link_to 'Show', room %></td>
+        <td><%= link_to 'Edit', edit_room_path(room) %></td>
+        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
