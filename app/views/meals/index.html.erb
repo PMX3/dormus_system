@@ -67,15 +67,15 @@
 
 
   </div>
-    <div id="myModal" class="modal fade" role="dialog">
+    <div id="myModal" class="modal fade" role="dialog" style="">
   <div class="modal-dialog modal-lg" style="margin-top:22vh;">
 
     <!-- Modal content-->
     <div class="modal-content"style="background-color:#efefef;">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" data-dismiss="modal" style="color:white;opacity: 1;">&times;</button>
         <center>
-        <b style="font-size:18px;">Add New Meal</b>
+        Add New Meal
         </center>
       </div>
       <div class="modal-body">
@@ -89,38 +89,49 @@
       <%= f.input :name,:style=>"display: block;" %>
       </div>
     </div>
-    <br>
+        <br>
+    <hr class="hr-meals">
+    
     <div class="row">
       <div class="col-md-4">
       <b>Breakfast</b>
-        <%= f.input_field :breakfast_meal,:style=>"display: block;" %><br>
-      <%= f.input_field :breakfast_drink,:style=>"display: block;" %>
+        <%= f.input_field :breakfast_meal,:style=>"display: block;padding-left:5px;",:placeholder => "Dish" %><br>
+      <%= f.input_field :breakfast_drink,:style=>"display: block;padding-left:5px;",:placeholder => "Drink" %>
       </div>
       <div class="col-md-4">
       <b>Lunch</b>
-        <%= f.input_field :lunch_meal,:style=>"display: block;" %><br>
-      <%= f.input_field :lunch_drink,:style=>"display: block;" %>
+        <%= f.input_field :lunch_meal,:style=>"display: block;padding-left:5px;",:placeholder => "Dish" %><br>
+      <%= f.input_field :lunch_drink,:style=>"display: block;padding-left:5px;",:placeholder => "Drink" %>
       </div>
       <div class="col-md-4">
       <b>Dinner</b>
-      <%= f.input_field :dinner_meal,:style=>"display: block;" %><br>
-      <%= f.input_field :dinner_drink,:style=>"display: block;" %>
-      </div>
-      <br>
-      <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-      <br>
-      <%= f.input :price, :style=>"display:block;" %>
-      </div>
+      <%= f.input_field :dinner_meal,:style=>"display: block;padding-left:5px;",:placeholder => "Dish" %><br>
+      <%= f.input_field :dinner_drink,:style=>"display: block;padding-left:5px;",:placeholder => "Drink" %>
       </div>
     </div>
     </center>
   </div>
+  <br>
+  <br>
+<hr class="hr-meals">
+      
+      <div class="row">
+       
+      <div class="col-md-4" style=>
+      </div>
+      <div class="col-md-4">
+      <center>
+      <%= f.input :price, :style=>"display:block;" %>
+      </center>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+      <div class="col-md-4">
+              <div class="form-actions">
+    <%= f.button :submit,:style=>"position:absolute;right:58px;bottom:-50px;",:class=>"choosebtnaddm" %>
+      </div>
+      </div>
+
+      </div>
 <% end %>
       </div>
 
