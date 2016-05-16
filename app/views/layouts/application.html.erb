@@ -47,6 +47,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dormers<span class="caret"></span></a>
 						<ul class="dropdown-menu" style="background-color:white">
 							<li><center><%= link_to "Applications", applicants_path %></center></li>
+							<li><center><%= link_to "Current", dormer_list_path %></center></li>
 							<li></li>
 						</ul>
 					</li>
@@ -65,8 +66,8 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Finances<span class="caret"></span></a>
 						<ul class="dropdown-menu" style="background-color:white">
-							<li><center><%= link_to "View Transactions" %></center></li>
-							<li><center><%= link_to "Add Transactions" %></center></li>
+							<li><center><%= link_to "View Transactions", deals_path %></center></li>
+							<li><center><%= link_to "Add Transactions", new_deal_path %></center></li>
 							<li><center><%= link_to "Utility" %></center></li>
 							<li></li>
 						</ul>
