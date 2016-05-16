@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160516174933) do
     t.integer  "violation"
     t.boolean  "door_log"
     t.integer  "room_id"
+    t.integer  "statement_of_account_id"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -92,6 +93,8 @@ ActiveRecord::Schema.define(version: 20160516174933) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
+
+  add_index "deals", ["statement_of_account_id"], name: "index_deals_on_statement_of_account_id"
 
   create_table "door_logs", force: :cascade do |t|
     t.datetime "time_enter"
@@ -209,6 +212,7 @@ ActiveRecord::Schema.define(version: 20160516174933) do
     t.decimal  "personal_meal_plan_fees"
     t.decimal  "personal_total_due"
     t.date     "due_date"
+    t.integer  "applicant_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

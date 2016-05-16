@@ -63,6 +63,9 @@ def create_account
   @parent = Parent.create!(:name=>@applicant.guardian_name, :email=>@applicant.guardian_email, :address=>@applicant.guardian_address, :contact_number=>@applicant.guardian_contact_number, :applicant_id=>@applicant.id,:password=>"123456"+@applicant.room_number.to_s, :password_confirmation=>"123456"+@applicant.room_number.to_s)
   UserMailer.account_email(@applicant).deliver_now
   UserMailer.parent_email(@parent).deliver_now
+  @statement_of_account = StatementOfAccount.new
+  @applicant.statement_of_account = @statement_of_account
+  @statement_of_account.update(:applicant_id=>@applicant.id)
   redirect_to applicants_path
 end
 
