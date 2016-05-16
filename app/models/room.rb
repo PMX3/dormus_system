@@ -1,3 +1,3 @@
 class Room < ActiveRecord::Base
-	has_many :applicant
+	has_many :applicants
 end

@@ -48,10 +48,12 @@
           </center>
         </div>
         <div class="col-md-3">
-          
+          <% room.applicants.each do |a| %>
+            <%= a.first_name %> <%= a.last_name %><br>
+          <% end %>
         </div>
         <div class="col-md-2">
-          <center>/<%= room.room_capacity %>
+          <center><%= room.applicants.count %>/<%= room.room_capacity %>
           <br>
           select here</center>
         </div>
@@ -59,10 +61,33 @@
           
         </div>
         <div class="col-md-3">
-          
+          <div>
+            <%= form_tag '/rooms/update_dormers' do %>
+              <%= autocomplete_field_tag 'applicant', '', autocomplete_applicant_first_name_rooms_path, :size => 75, :class=>"form-control", :id_element => "#add_applicant_id#{room.id}", :placeholder => "Add Dormer to Room #{room.room_number}" %>
+              <%= hidden_field_tag 'applicant_id', '',:id => "add_applicant_id#{room.id}" %>
+              <%= hidden_field_tag 'category', '',:value => "add" %>
+              <%= hidden_field_tag 'room', '',:value =>"#{room.id}" %>
+              <%= submit_tag "", style: "display:none"; %>
+            <% end %>
+          </div>
+          <div>
+            <%= form_tag '/rooms/update_dormers' do %>
+              <%= autocomplete_field_tag 'applicant', '', autocomplete_applicant_first_name_rooms_path, :size => 75, :class=>"form-control", :id_element => '#delete_applicant_id#{room.id}', :placeholder => "Delete Dormer from Room #{room.room_number}" %>
+              <%= hidden_field_tag 'applicant_id', '',:id => "delete_applicant_id#{room.id}" %>
+              <%= hidden_field_tag 'category', '',:value => "delete" %>
+              <%= hidden_field_tag 'room', '',:value =>"#{room.id}" %>
+              <%= submit_tag "", style: "display:none"; %>
+            <% end %>
+          </div>
+      
+
+
+
+
         </div>
       </div>
       <hr class="hr-rooms">
+
     <% end %>
     </div>
 
@@ -74,11 +99,14 @@
     </div>
 
   </div>
+
 </body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap.min.js"></script>
+
+
 </html>
 
 <% @rooms.each do |room| %>

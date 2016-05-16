@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :laundry_orders
   resources :laundry_order_items
   resources :laundry_items
-  resources :rooms
+  resources :rooms do
+    get :autocomplete_applicant_first_name, :on => :collection
+  end
+
+  post '/rooms/update_dormers' => "rooms#update_dormers"
   resources :submissions
   resources :statement_of_accounts
   resources :deals
