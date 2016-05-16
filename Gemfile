@@ -28,7 +28,7 @@ gem 'twitter-bootstrap-rails'
 gem 'tzinfo-data'
 gem 'paperclip'
 gem "simple_calendar", "~> 2.0"
-gem 'whenever', :require => false
+# gem 'whenever', :require => false
 gem 'jquery-ui-rails'
 gem 'rails4-autocomplete'
 # Use ActiveModel has_secure_password

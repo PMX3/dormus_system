@@ -12,11 +12,13 @@
         <ul class="tabs-menu">
           <li class="current"><a href="#tab-1">Profile</a></li>
           <li><a href="#tab-2">Statement of Account</a></li>
-          <% if parent_signed_in? %>
-            <li><a href="#tab-3">My Child's Door Log</a></li>
-          <% else %>
-            <li><a href="#tab-3">My Door Log</a></li>
-          <% end %>
+        <% if parent_signed_in? %>
+          <li><a href="#tab-3">My Child's Door Log</a></li>
+        <% elsif admin_signed_in? %>
+          <li><a href="#tab-3"><%= @applicant.first_name %> <%= @applicant.last_name %>'s Door Log</a></li>
+        <% else %>
+          <li><a href="#tab-3">My Door Log</a></li>
+        <% end %>
           <li><a href="#tab-4">Eligibility</a></li>
         </ul>
       </div>
@@ -99,7 +101,32 @@
        </div>
 
        <div id="tab-4" class="tab-content">
-
+        <% if admin_signed_in? %>
+        <div class="col-md-6">
+          <div class="container-fluid">
+            <br><br>
+            <p class="violations-header">Personal:</p>
+            <br>
+            <p class="violations-content">Violations: <%= @applicant.violation %>/6 </p>
+            <br>
+            <%= link_to button_tag("Add Major Violation", :class=>'btn vsendbtn1'), add_violation_path(v: 2) %>
+            <%= link_to button_tag("Add Minor Violation", :class=>'btn vsendbtn2'), add_violation_path(v: 1) %>
+            <%= link_to button_tag("Subtract Violation", :class=>'btn vsendbtn3'), add_violation_path(v: -1) %>
+            <br><br><br><br><br><br><br><br><br>
+            <p class="violations-content">Balance Due:</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="container-fluid">
+            <br><br>
+            <p class="violations-header">Room:</p>
+            <br>
+            <p class="violations-content">Water Bills Due:</p>
+            <p class="violations-content">Electricity Bills Due:</p>
+          </div>
+        </div>
+        <% else %>
+        <% end %>
        </div>
      </div>
    </div>
