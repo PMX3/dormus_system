@@ -57,7 +57,18 @@
         <div class="col-md-2">
           <center><%= room.applicants.count %>/<%= room.room_capacity %>
           <br>
-          select here</center>
+          <%if room.applicants.count>=1%>
+          <%= select_tag :room_status, options_for_select(["Available", "Not Available"]),  {:onchange=>"window.location='#{room_status_path(room.id)}?room_status=' + this.value",:disabled=>true}%><br>
+            <span style="color:grey;">*remove dormers first</span>
+          <%else%>
+          <%if room.room_status!="Not Available"%>
+          <%= select_tag :room_status, options_for_select(["Available", "Not Available"]),  {:onchange=>"window.location='#{room_status_path(room.id)}?room_status=' + this.value"}%>
+          <%else%>
+           <%= select_tag :room_status, options_for_select(["Not Available", "Available"]),  {:onchange=>"window.location='#{room_status_path(room.id)}?room_status=' + this.value"}%>
+          <%end%>
+          <%end%>
+
+          </center>
         </div>
         <div class="col-md-2">
           

@@ -16,7 +16,50 @@
       </div>
       <div class="container-fluid dbox">
 
-        <%= render 'form' %>
+        <%= form_for(@deal) do |f| %>
+  <% if @deal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@deal.errors.count, "error") %> prohibited this deal from being saved:</h2>
+
+      <ul>
+      <% @deal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :deal_type %>
+    <%= f.select :deal_type, options_for_select(["Water Utility Billing", "Electricity Utility Billing", "Food Plan Payment", "Laundry Service Payment", "Others"]), {}, {:onchange=>"checkIfOthers()", :id=>"deal-type", :class=>"ffield"}%>
+    <%= text_field_tag :others, "", :id=>'deal-type-others',:style=>"display:none;", :class=>"ffield"%>
+  </div>
+  <div class="field">
+    <%= f.label :amount_due %>
+    <%= f.text_field :amount_due, :class=>"ffield" %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_paid %>
+    <%= f.text_field :amount_paid, :class=>"ffield" %>
+  </div>
+  <div class="field" style="display:none;">
+    <%= f.label :deal_timestamp, :style=>"margin-right: 130px;" %>
+    <%= f.datetime_select :deal_timestamp %>
+  </div>
+  <div class="field">
+  <%= f.label :deal_timestamp, :style=>"margin-right: 130px;" %>
+  <%=DateTime.now.strftime('%m/%d/%Y at %I:%M%p')%>
+  </div>
+  <div class="field">
+    <%= f.label :payment_for %>
+    <%= f.collection_select :payment_for, Applicant.order(:last_name), :id, :full_name, {}, :class=>"ffield" %>
+  </div>
+  <br><br><br>
+  <div class="aactions">
+    <%= f.submit "Create Transaction", class: "btn dsendbtn" %>
+  </div>
+<% end %>
+
 
       </div>
     </div>
@@ -28,3 +71,16 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap.min.js"></script>
 
+<script type="text/javascript">
+  function checkIfOthers() {
+    var check = document.querySelector('#deal-type');
+    var result = document.querySelector('#deal-type-others');
+
+    if (check.value == "Others") {
+      result.style.display = "inline";
+    }
+    else{
+      result.style.display = "none";
+    };
+  }
+</script>

@@ -55,6 +55,13 @@ class RoomsController < ApplicationController
     end
   end
 
+  def room_status
+    @room = Room.find(params[:id])
+    @room.update_attribute(:room_status,params[:room_status])
+    redirect_to rooms_path
+  end
+
+
   # PATCH/PUT /rooms/1
   # PATCH/PUT /rooms/1.json
   def update

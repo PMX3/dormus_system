@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   post '/applicants/:id' => 'applicants#update_preference', as: :update_preference
   post '/applicants/:id/approve' => 'applicants#approve', as: :approve
   get '/food_plans/today_food' => "food_plans#today_food", as: :today_food
+  get '/rooms/:id/room_status'=>"rooms#room_status", as: :room_status
   post '/food_plans/food_email' => 'food_plans#food_email', as: :food_email
   root 'submissions#new'
   namespace :api do 
