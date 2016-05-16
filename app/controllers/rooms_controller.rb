@@ -10,15 +10,19 @@ class RoomsController < ApplicationController
   end
 
   def update_dormers
-    @applicant = Applicant.find(params[:applicant_id])
-    if params[:category] == "add"
-      @applicant.update(room_id: params[:room].to_i,room_number: Room.find(params[:room].to_i))
+    if !params[:applicant_id].present?
+      redirect_to rooms_path
     else
-      if @applicant.room_id == params[:room].to_i
-        @applicant.update(room_id: nil, room_number: nil)       
+      @applicant = Applicant.find(params[:applicant_id])
+      if params[:category] == "add"
+        @applicant.update(room_id: params[:room].to_i,room_number: Room.find(params[:room].to_i))
+      else
+        if @applicant.room_id == params[:room].to_i
+          @applicant.update(room_id: nil, room_number: nil)       
+        end
       end
+      redirect_to rooms_path
     end
-    redirect_to rooms_path
   end
 
   # GET /rooms/1
