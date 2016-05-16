@@ -119,7 +119,7 @@
         <%=link_to "Create Account", create_account_path(@applicant.id),:class=>"choosebtn3 btn", :controller=> "applicants",:action=>:create_account, method: 'post' %>
          <%= link_to 'Reject', @applicant,:class=>"choosebtn4 btn", method: :delete, data: { confirm: 'Are you sure?' } %>
          <%else%>
-         <%= link_to 'Reject', @applicant,:class=>"choosebtn4 btn", method: :delete, data: { confirm: 'Are you sure?' } %>
+         <%= link_to 'Reject', @applicant,:class=>"choosebtn5 btn", method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end%>
        
           </div>

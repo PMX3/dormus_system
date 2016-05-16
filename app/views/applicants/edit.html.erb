@@ -21,7 +21,12 @@
     <div class="card">
       <div class="card_header">
         <center>
-          <span class="appli_title">Tenant Application Form and Information Sheet</span>
+          <span class="appli_title"><%if @applicant.stage=="Dormer"%>
+          Dormer Information Sheet
+          <%else%>
+          Tenant Application Form and Information Sheet
+          <%end%>
+            </span>
         </center>
       </div>
       <div class="container-fluid appli_abox">

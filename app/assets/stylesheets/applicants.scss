@@ -209,6 +209,26 @@
   background-color: black;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+
+.choosebtn5{
+  background-color: black;
+  margin-right: 10px;
+  float:right;
+  margin-top: 1.9vh;
+  position:relative;
+  border-color: black;
+  border-radius: 0px!important;
+  color:white!important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.24);
+   transition: all 0.24s ease-in-out;
+}
+.choosebtn5:hover {
+  color:white;
+  background-color: black;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
 .csel{
 	width:50px!important;
 }
