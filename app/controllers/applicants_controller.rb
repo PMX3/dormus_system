@@ -36,6 +36,7 @@ class ApplicantsController < ApplicationController
 
   def show_dormer
     @applicant = Applicant.find(params[:id])
+    @door_logs = DoorLog.where(dormer_id: params[:id] )
   end
   
   # GET /applicants/1/edit

@@ -97,7 +97,38 @@
        </div>
 
        <div id="tab-3" class="tab-content">
+       <br><br>
+       <!--door logs here-->
+      <% @door_logs.each do |door_log| %>
+      <div class="row" style="padding-left:6vw;padding-right:0vw;height:60px;">
+        <div class="col-md-1">
+        <%if door_log.direction=="in"%>
+        <%= image_tag('/assets/in.png',:style=>"height:55px;") %>
+        <%else%>
+        <%= image_tag('/assets/out.png',:style=>"height:55px;") %>
+        <%end%>
+        
+        </div>
+        <div class="col-md-1 doorlog-col"><center>
+          <%= door_log.direction.upcase %></center>
+        </div>
+        <div class="col-md-3 doorlog-col">
+        <center>
+        
+        <% dormer = Applicant.find(door_log.dormer_id) %>
+<%= dormer.first_name %> <%= dormer.last_name %>
+        </center>
+        </div>
+        <div class="col-md-3 doorlog-col">
+<%adjusted_datetime = (door_log.time_enter - 8.hours).to_datetime%>
 
+
+        <center><%= adjusted_datetime.strftime("%l:%M %P") %></center></div>
+        <div class="col-md-3 doorlog-col"><center><%= door_log.time_enter.strftime("%-d - %m - %Y") %></center></div>
+
+      </div>
+      <hr class="hr-doorlog">
+    <% end %>
        </div>
 
        <div id="tab-4" class="tab-content">
