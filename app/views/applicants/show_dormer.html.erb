@@ -6,7 +6,176 @@
 </head>
 <body>
   <div class="default_bg container-fluid">
-    <div class="card">
+    <%if applicant_signed_in?%>
+    <div class="row">
+    <div class="card-c">
+      <div class="card_header">
+        <center>Notifications</center>
+      </div>
+
+
+    </div>
+    <div class="card-d">
+      <div class="card_header">
+        <!-- Tab for switching between views-->
+        <ul class="tabs-menu">
+          <li class="current"><a href="#tab-1">Profile</a></li>
+          <li><a href="#tab-2">Statement of Account</a></li>
+        <% if parent_signed_in? %>
+          <li><a href="#tab-3">My Child's Door Log</a></li>
+        <% elsif admin_signed_in? %>
+          <li><a href="#tab-3"><%= @applicant.first_name %> <%= @applicant.last_name %>'s Door Log</a></li>
+        <% else %>
+          <li><a href="#tab-3">My Door Log</a></li>
+        <% end %>
+          <li><a href="#tab-4">Eligibility</a></li>
+        </ul>
+      </div>
+
+      <div class="container-fluid appli_abox">
+      <!-- 1st partition-->
+        <div id="tab-1" class="row tab-content">
+          <div class="col-md-4">
+            <div id="imgholder" class="imgholder2" style="background-size:cover;background-position:center;background-image:url(<%=@applicant.image_path.url%>);background-size:cover;">
+            </div>
+            <div class="img-base2">
+              <br><br>
+              <center>
+                <span class="sb1">Nickname:</span>&nbsp<%=@applicant.nickname%>
+                <br><br>
+                <span class="sb1">Room no:</span>&nbsp<%=@applicant.room_number%>
+                <br><br>
+                <span class="sb1">Bed no:</span>&nbsp
+                <br><br>
+                <span class="sb1">Violations:</span>&nbsp
+              </center>
+            </div>
+          </div>
+
+          <div class="col-md-8 appli_rbox">
+           <br><br>
+           <span class="sb1">Name:</span>&nbsp<%=@applicant.first_name%>
+           <%=@applicant.middle_initial%>
+           <%=@applicant.last_name%>
+           <br><br>
+           <span class="sb1">Address:</span>&nbsp<%=@applicant.address%>
+           <br><br>
+           <span class="sb1">Birthday:</span>&nbsp<%=@applicant.birthday%>
+           <br><br>
+           <span class="sb1">Religion:</span>&nbsp<%=@applicant.religion%>
+           <br><br>
+           <span class="sb1">Civil Status:</span>&nbsp<%=@applicant.civil_status%>
+           <br><br>
+           <span class="sb1">Gender:</span>&nbsp<%=@applicant.gender%>
+           <br><br>
+           <span class="sb1">Nationality:</span>&nbsp<%=@applicant.nationality%>
+           <br>
+           <hr class="hr-sh">
+           <span class="sb1">Contact no:</span>&nbsp<%=@applicant.contact_number%>
+           <br><br>
+           <span class="sb1">Landline no:</span>&nbsp<%=@applicant.landline_number%>
+           <br><br>
+           <span class="sb1">Email:</span>&nbsp<%=@applicant.email%>
+           <br>
+           <hr class="hr-sh">
+           <span class="sb1">School:</span>&nbsp<%=@applicant.school%>
+           <br><br>
+           <span class="sb1">School Address:</span>&nbsp<%=@applicant.school_address%>
+           <br><br>
+           <span class="sb1">Major:</span>&nbsp<%=@applicant.major%>
+           <br><br>
+           <span class="sb1">Year Level:</span>&nbsp<%=@applicant.year%>
+           <br>
+           <hr class="hr-sh">
+           <span class="sb1">Medical Information:</span>&nbsp<%=@applicant.medical_information%>
+           <br><br>
+           <span class="sb1">Personal Information:</span>&nbsp<%=@applicant.personal_information%>
+           <br>
+           <hr class="hr-sh">
+           <span class="sb1">Guardian:</span>&nbsp<%=@applicant.guardian_name%>
+           <br><br>
+           <span class="sb1">Guardian Contact no:</span>&nbsp<%=@applicant.guardian_contact_number%>
+           <br><br>
+           <span class="sb1">Guardian Address:</span>&nbsp<%=@applicant.guardian_address%>
+           <br><br>
+           <span class="sb1">Guardian Email:</span>&nbsp<%=@applicant.guardian_email%>
+         </div>
+       </div>
+       <div id="tab-2" class="tab-content">
+
+       </div>
+
+       <div id="tab-3" class="tab-content">
+       <br><br>
+       <!--door logs here-->
+      <% @door_logs.each do |door_log| %>
+      <div class="row" style="padding-left:6vw;padding-right:0vw;height:60px;">
+        <div class="col-md-1">
+        <%if door_log.direction=="in"%>
+        <%= image_tag('/assets/in.png',:style=>"height:55px;") %>
+        <%else%>
+        <%= image_tag('/assets/out.png',:style=>"height:55px;") %>
+        <%end%>
+        
+        </div>
+        <div class="col-md-1 doorlog-col"><center>
+          <%= door_log.direction.upcase %></center>
+        </div>
+        <div class="col-md-3 doorlog-col">
+        <center>
+        
+        <% dormer = Applicant.find(door_log.dormer_id) %>
+<%= dormer.first_name %> <%= dormer.last_name %>
+        </center>
+        </div>
+        <div class="col-md-3 doorlog-col">
+<%adjusted_datetime = (door_log.time_enter - 8.hours).to_datetime%>
+
+
+        <center><%= adjusted_datetime.strftime("%l:%M %P") %></center></div>
+        <div class="col-md-3 doorlog-col"><center><%= door_log.time_enter.strftime("%-d - %m - %Y") %></center></div>
+
+      </div>
+      <hr class="hr-doorlog">
+    <% end %>
+       </div>
+
+       <div id="tab-4" class="tab-content">
+        <% if admin_signed_in? %>
+        <div class="col-md-6">
+          <div class="container-fluid">
+            <br><br>
+            <p class="violations-header">Personal:</p>
+            <br>
+            <p class="violations-content">Violations: <%= @applicant.violation %>/6 </p>
+            <br>
+            <%= link_to button_tag("Add Major Violation", :class=>'btn vsendbtn1'), add_violation_path(v: 2) %>
+            <%= link_to button_tag("Add Minor Violation", :class=>'btn vsendbtn2'), add_violation_path(v: 1) %>
+            <%= link_to button_tag("Subtract Violation", :class=>'btn vsendbtn3'), add_violation_path(v: -1) %>
+            <br><br><br><br><br><br><br><br><br>
+            <p class="violations-content">Balance Due:</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="container-fluid">
+            <br><br>
+            <p class="violations-header">Room:</p>
+            <br>
+            <p class="violations-content">Water Bills Due:</p>
+            <p class="violations-content">Electricity Bills Due:</p>
+          </div>
+        </div>
+        <% else %>
+        <% end %>
+       </div>
+     </div>
+   </div>
+   </div>
+
+
+   <!--NOT DORMER -->
+   <%else%>
+       <div class="card">
       <div class="card_header">
         <!-- Tab for switching between views-->
         <ul class="tabs-menu">
@@ -161,6 +330,16 @@
        </div>
      </div>
    </div>
+
+
+
+
+
+
+
+   <%end%>
+
+
  </div>
 </body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

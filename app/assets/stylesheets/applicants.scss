@@ -126,6 +126,26 @@
 	margin-left: 5.5%;
 	z-index:9;
 }
+.imgholder2{
+  height:30vh;
+  width:30vh;
+  border-radius: 20vh;
+  background-color: #d9d9d9;
+  margin-top: 4vh;
+  margin-left: 2.5%;
+  position: fixed;
+  z-index:10;
+}
+.img-base2{
+  height:2vh;
+  width:30vh;
+  border-radius: 150vh/10vh;
+  background-color: rgba(128, 128, 128, 0.74);
+  margin-top: 33.0vh;
+  position: fixed;
+  margin-left: 2.5%;
+  z-index:9;
+}
 .hr-sh{
 	  border: 0;
     height: 1px!important;
