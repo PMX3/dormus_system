@@ -9,10 +9,10 @@
     <div class="card">
       <div class="card_header" style="padding-left:3vw;padding-right:3vw;">
       <div class="row">
-        <div class="col-md-1">
-          
+        <div class="col-md-2">
+          <%= autocomplete_field_tag 'applicant', '', autocomplete_applicant_first_name_rooms_path, :class=>"appsearch",:style=>"border-radius:0px;padding:2px;color:black;", :placeholder => "(Dormer Name)" %>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
            <center>Dormer</center>
         </div>
         <div class="col-md-2">
@@ -39,10 +39,11 @@
       <br><br><br>
       <div class="scrollbox"style="padding-left:3vw;padding-right:3vw;">
       <% @applicants.each do |applicant| %>
-      <div class="row">
+      <%name=applicant.first_name%> <%name+=" "+applicant.last_name%>
+      <div class="row <%=name%>">
         <%if applicant.image_path.exists?%>
 
-          <div class="col-md-1"><div style="width:45px;height:45px;margin-top:0px;background-image:url(<%=applicant.image_path.url%>);background-size:cover;border-radius:22.5px;margin-left:15px;"></div>
+          <div class="col-md-2"><div style="width:45px;height:45px;margin-top:0px;background-image:url(<%=applicant.image_path.url%>);background-size:cover;border-radius:22.5px;margin-left:15px;"></div>
       <%if applicant.door_log==true%>
       <%= image_tag('/assets/in.png',:style=>"height:22px;margin-left:62px;margin-top:-39px;") %>
       <%else%>
@@ -50,7 +51,7 @@
       <%end%> 
           </div>
         <%else%>
-        <div class="col-md-1"><div style="width:45px;height:45px;margin-top:0px;background-image:url(/assets/filler-img.png);background-size:cover;border-radius:22.5px;margin-left:15px;"></div>
+        <div class="col-md-2"><div style="width:45px;height:45px;margin-top:0px;background-image:url(/assets/filler-img.png);background-size:cover;border-radius:22.5px;margin-left:15px;"></div>
               <%if applicant.door_log==true%>
       <%= image_tag('/assets/in.png',:style=>"height:22px;margin-left:62px;margin-top:-39px;") %>
       <%else%>
@@ -59,9 +60,14 @@
         </div>
         <%end%>
 
-      <div class="col-md-3" style="padding-top:15px;"> <center><%=applicant.first_name%> <%=applicant.last_name%></center></div>
+      <div class="col-md-2" style="padding-top:15px;"> <center><%=link_to "#{name}",show_dormer_path(applicant.id)%></center></div>
 
-         <div class="col-md-2" style="padding-top:15px;"> <center><%=applicant.room_number%></center></div>
+         <div class="col-md-2" style="padding-top:15px;"> <center><%if applicant.room_id==nil%>
+
+         <%else%>
+         <%=applicant.room.room_number%>
+         <%end%>
+         </center></div>
           <div class="col-md-3" style="padding-top:15px;"> <center>Balance Due</center></div>
           <div class="col-md-3" style="padding-top:15px;"> <center><%=applicant.room_number%></center></div>
 

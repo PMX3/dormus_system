@@ -74,7 +74,7 @@
           </div>
           <div>
             <%= form_tag '/rooms/update_dormers' do %>
-              <%= autocomplete_field_tag 'applicant', '', autocomplete_applicant_first_name_rooms_path, :size => 75, :class=>"form-control", :id_element => '#delete_applicant_id#{room.id}', :placeholder => "Delete Dormer from Room #{room.room_number}" %>
+              <%= autocomplete_field_tag 'applicant', '', autocomplete_applicant_first_name_rooms_path, :size => 75, :class=>"form-control", :id_element => "#delete_applicant_id#{room.id}", :placeholder => "Delete Dormer from Room #{room.room_number}" %>
               <%= hidden_field_tag 'applicant_id', '',:id => "delete_applicant_id#{room.id}" %>
               <%= hidden_field_tag 'category', '',:value => "delete" %>
               <%= hidden_field_tag 'room', '',:value =>"#{room.id}" %>
