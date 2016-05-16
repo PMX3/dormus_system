@@ -153,12 +153,20 @@
             </div>
             <div class="field">
               <%= f.label :guardian_email,:class=>"flabel" %>
+              <%if @applicant.stage=="Dormer"%>
+              <%= f.text_field :guardian_email,:class=>"ffield", :disabled => true  %>
+              <%else%>
               <%= f.text_field :guardian_email,:class=>"ffield"  %>
+              <%end%>
             </div>
             <div class="actions">
               <%= f.submit 'Submit Form', :class=> "btn sendbtn" %>
             </div>
-            <%= link_to 'Back', root_path, :class=>"btn sendbtn1" %>
+            <%if @applicant.stage=="Dormer"%>
+            <%= link_to 'Back', show_dormer_path, :class=>"btn sendbtn1" %>
+            <%else%>
+            <%= link_to 'Back ', root_path, :class=>"btn sendbtn1" %>
+            <%end%>
           </div>
         </div>
       </div>

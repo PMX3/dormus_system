@@ -1,43 +1,58 @@
-<p id="notice"><%= notice %></p>
+<html>
+<head>
+  <!--<link rel="shortcut icon" href="/assets/h-logo2.ico" />-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="default_bg container-fluid">
 
-<h1>Listing Rooms</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Room number</th>
-      <th>Room type</th>
-      <th>Room capacity</th>
-      <th>Room price</th>
-      <th>Occupant count</th>
-      <th>Room status</th>
-      <th>Floor area</th>
-      <th>Bed count</th>
-      <th>Bathroom count</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+    <div class="card">
+      <div class="card_header" style="padding-left:3vw;">
+      <div class="row">
+        <div class="col-md-1">
+          
+        </div>
+        <div class="col-md-2">
+           Applicant
+        </div>
+        <div class="col-md-3">
+          Requested Room
+        </div>
+        <div class="col-md-2">
+          Given
+        </div>
+        <div class="col-md-2">
+          Status
+        </div>
+        <div class="col-md-2">
+          Actions
+        </div>
+        </div>
+        
+      </div>
+      <div class="container-fluid p1_abox">
+        
+      <br><br><br><br>
+      <br><br><br>
+      <div class="scrollbox"style="padding-left:3vw;">
+      <br>
     <% @rooms.each do |room| %>
-      <tr>
-        <td><%= room.room_number %></td>
-        <td><%= room.room_type %></td>
-        <td><%= room.room_capacity %></td>
-        <td><%= room.room_price %></td>
-        <td><%= room.occupant_count %></td>
-        <td><%= room.room_status %></td>
-        <td><%= room.floor_area %></td>
-        <td><%= room.bed_count %></td>
-        <td><%= room.bathroom_count %></td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+      <hr>
     <% end %>
-  </tbody>
-</table>
+    </div>
 
-<br>
 
-<%= link_to 'New Room', new_room_path %>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.min.js"></script>
+</html>
