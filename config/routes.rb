@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dormer_notifications
   resources :notifications
   resources :door_logs
   devise_for :admins

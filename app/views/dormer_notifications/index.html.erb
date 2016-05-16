@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Dormer Notifications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dormer_notifications.each do |dormer_notification| %>
+      <tr>
+        <td><%= link_to 'Show', dormer_notification %></td>
+        <td><%= link_to 'Edit', edit_dormer_notification_path(dormer_notification) %></td>
+        <td><%= link_to 'Destroy', dormer_notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dormer notification', new_dormer_notification_path %>
