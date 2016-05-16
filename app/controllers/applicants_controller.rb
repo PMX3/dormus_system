@@ -72,8 +72,12 @@ def room_select
 end
 
 def add_violation
-  @applicant = Applicant.ind
+  @applicant = Applicant.find(params[:id])
+  @applicant.violation += Integer(params[:v])
+  @applicant.save  
+  redirect_to show_dormer_path
 end
+
   # PATCH/PUT /applicants/1
   # PATCH/PUT /applicants/1.json
   def update

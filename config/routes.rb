@@ -24,16 +24,17 @@ Rails.application.routes.draw do
   end
 
   get '/applicants/:id/room_select' => 'applicants#room_select', as: :room_select
-  get '/food_plans/today_food' => "food_plans#today_food", as: :today_food
   get '/applicants/:id/preference' => 'applicants#preference', as: :edit_preference
-  get '/dormer_list'=> 'applicants#dormer_list', as: :dormer_list
-    get '/applicants/:id/show_applicant'=> 'applicants#show_applicant', as: :show_applicant
+  get '/applicants/:id/show_applicant'=> 'applicants#show_applicant', as: :show_applicant
   get '/applicants/:id/show_dormer'=> 'applicants#show_dormer', as: :show_dormer
+  get '/applicants/:id/show_dormer/add_violation' => 'applicants#add_violation', as: :add_violation
+  get '/applicants/:applicant_id/food_plans/:id/meal_select' => 'food_plans#meal_select', as: :meal_select
+  get '/dormer_list'=> 'applicants#dormer_list', as: :dormer_list
+  post '/applicants/:id/create_account' => 'applicants#create_account', as: :create_account
   post '/applicants/:id' => 'applicants#update_preference', as: :update_preference
   post '/applicants/:id/approve' => 'applicants#approve', as: :approve
+  get '/food_plans/today_food' => "food_plans#today_food", as: :today_food
   post '/food_plans/food_email' => 'food_plans#food_email', as: :food_email
-  post '/applicants/:id/create_account' => 'applicants#create_account', as: :create_account
-  get '/applicants/:applicant_id/food_plans/:id/meal_select' => 'food_plans#meal_select', as: :meal_select
   root 'submissions#new'
   namespace :api do 
     namespace :v1 do
