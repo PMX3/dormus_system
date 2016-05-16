@@ -1,41 +1,144 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Meals</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Breakfast meal</th>
-      <th>Breakfast drink</th>
-      <th>Lunch meal</th>
-      <th>Lunch drink</th>
-      <th>Dinner meal</th>
-      <th>Dinner drink</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!DOCTYPE html>
+<html>
+<head>
+<% @date1 = Date.today  %> 
+  <title>DORMUS</title>
+  <!--<link rel="shortcut icon" href="/assets/h-logo2.ico" />-->
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+</head>
 
-  <tbody>
-    <% @meals.each do |meal| %>
-      <tr>
-        <td><%= meal.name %></td>
-        <td><%= meal.breakfast_meal %></td>
-        <td><%= meal.breakfast_drink %></td>
-        <td><%= meal.lunch_meal %></td>
-        <td><%= meal.lunch_drink %></td>
-        <td><%= meal.dinner_meal %></td>
-        <td><%= meal.dinner_drink %></td>
-        <td><%= meal.price %></td>
-        <td><%= link_to 'Show', meal %></td>
-        <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-        <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<body>
+  <div class="default_bg container-fluid">
+    <div class="card">
+      <div class="card_header">
+      <!-- Tab for switching between views-->
+      <center>Meal Plans</center>
+      <span style="">
+
+      <a style="float:left;color:white!important;margin-top:-20px;font-size:20px;padding-left:35px;font-weight:700;" data-toggle="modal" data-target="#myModal">
+        +
+
+      </a>
+      <%=link_to "View Today's Plans", today_food_path, :style=>"color:white!important;float:right;padding-right:53px;margin-top:-20px;"%></span>
+      </div>
+
+    <div class="container-fluid p1_abox">
+    <!-- Display of today's meal-->
+
+        <div id="tab-1" class="tab-content row fp-row">
+          <% @meals.each do |meal| %>
+          <div class="col-md-3">
+              <div class="fp-card">
+              <span class="fpmeal"><%= meal.name %></span>
+              <br><br>
+              <span class="fp-header">Breakfast</span><br><br>
+              <span><%= meal.breakfast_meal %></span><br>
+              <span><%= meal.breakfast_drink %></span><br>
+              <br>
+              <span class="fp-header">Lunch</span><br>
+              <br>
+              <span><%= meal.lunch_meal %></span><br>
+              <span><%= meal.lunch_drink %></span><br>
+              <br>
+              <span class="fp-header">Dinner</span><br>
+              <br>
+              <span><%= meal.dinner_meal %></span><br>
+              <span><%= meal.dinner_drink %></span><br>
+              <br><br>
+              <span><%= meal.price %></span>
+              <br>
+
+              </div>
+          </div>
+      
     <% end %>
-  </tbody>
-</table>
 
-<br>
+        
+        </div>
+        
+    </div>
 
-<%= link_to 'New Meal', new_meal_path %>
+
+
+    </div>
+
+
+  </div>
+    <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg" style="margin-top:22vh;">
+
+    <!-- Modal content-->
+    <div class="modal-content"style="background-color:#efefef;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center>
+        <b style="font-size:18px;">Add New Meal</b>
+        </center>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@meal) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+  <center>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+      <%= f.input :name,:style=>"display: block;" %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+      <b>Breakfast</b>
+        <%= f.input_field :breakfast_meal,:style=>"display: block;" %><br>
+      <%= f.input_field :breakfast_drink,:style=>"display: block;" %>
+      </div>
+      <div class="col-md-4">
+      <b>Lunch</b>
+        <%= f.input_field :lunch_meal,:style=>"display: block;" %><br>
+      <%= f.input_field :lunch_drink,:style=>"display: block;" %>
+      </div>
+      <div class="col-md-4">
+      <b>Dinner</b>
+      <%= f.input_field :dinner_meal,:style=>"display: block;" %><br>
+      <%= f.input_field :dinner_drink,:style=>"display: block;" %>
+      </div>
+      <br>
+      <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+      <br>
+      <%= f.input :price, :style=>"display:block;" %>
+      </div>
+      </div>
+    </div>
+    </center>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.min.js"></script>
+
+</html>
+
+
+
+
+
+
+
