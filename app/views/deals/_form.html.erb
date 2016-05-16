@@ -25,12 +25,12 @@
     <%= f.text_field :amount_paid, :class=>"ffield" %>
   </div>
   <div class="field">
-    <%= f.label :deal_timestamp, :style=>"margin-right: 123px;" %>
-    <%= f.datetime_select :deal_timestamp, {}, disabled: true %>
+    <%= f.label :deal_timestamp, :style=>"margin-right: 130px;" %>
+    <%= f.datetime_select :deal_timestamp %>
   </div>
   <div class="field">
     <%= f.label :payment_for %>
-    <%= f.collection_select :payment_for, Applicant.order(:last_name), :full_name, :full_name, {}, :class=>"ffield" %>
+    <%= f.collection_select :payment_for, Applicant.order(:last_name), :id, :full_name, {}, :class=>"ffield" %>
   </div>
   <br><br><br>
   <div class="aactions">

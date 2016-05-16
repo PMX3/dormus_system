@@ -34,6 +34,7 @@ class DeviseCreateApplicants < ActiveRecord::Migration
       t.integer :violation
       t.boolean :door_log
       t.integer :room_id
+      t.integer :statement_of_account_id
 
       ## Recoverable
       t.string   :reset_password_token

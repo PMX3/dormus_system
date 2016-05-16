@@ -10,6 +10,7 @@ class CreateStatementOfAccounts < ActiveRecord::Migration
       t.decimal :personal_meal_plan_fees
       t.decimal :personal_total_due
       t.date :due_date
+      t.integer :applicant_id
 
       t.timestamps null: false
     end
