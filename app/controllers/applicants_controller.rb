@@ -70,6 +70,9 @@ def room_select
   redirect_to applicants_path
 end
 
+def add_violation
+  @applicant = Applicant.ind
+end
   # PATCH/PUT /applicants/1
   # PATCH/PUT /applicants/1.json
   def update
