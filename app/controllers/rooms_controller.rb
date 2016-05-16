@@ -1,10 +1,24 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
+  autocomplete :applicant, :first_name, :extra_data => [:last_name], :display_value => :to_s, :full => true
+
   # GET /rooms
   # GET /rooms.json
   def index
     @rooms = Room.all
+  end
+
+  def update_dormers
+    @applicant = Applicant.find(params[:applicant_id])
+    if params[:category] == "add"
+      @applicant.update(room_id: params[:room].to_i,room_number: Room.find(params[:room].to_i))
+    else
+      if @applicant.room_id == params[:room].to_i
+        @applicant.update(room_id: nil, room_number: nil)       
+      end
+    end
+    redirect_to rooms_path
   end
 
   # GET /rooms/1

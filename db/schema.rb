@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160514100843) do
     t.integer  "room_number"
     t.integer  "violation"
     t.boolean  "door_log"
+    t.integer  "room_id"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
