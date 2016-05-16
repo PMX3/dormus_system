@@ -24,6 +24,6 @@ class UserMailer < ApplicationMailer
   def food_email (food)
     @food_plans = food
     
-    mail(to: 'dormcaterer@yahoo.com', subject: 'DORMUS Food Orders for #{Date.today}')
+    mail(to: 'dormcaterer@yahoo.com', subject: 'DORMUS Food Orders for'+' '+Date.today.to_s)
   end
 end

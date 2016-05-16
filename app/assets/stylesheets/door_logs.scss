@@ -1,3 +1,13 @@
 // Place all the styles related to the Door_logs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hr-doorlog{
+  border: 0;
+    height: 2px!important;
+    background: #d9d9d9;
+    margin-top:0px;
+}
+.doorlog-col{
+	padding-top:14px;
+}

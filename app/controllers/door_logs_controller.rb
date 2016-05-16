@@ -5,6 +5,7 @@ class DoorLogsController < ApplicationController
   # GET /door_logs.json
   def index
     @door_logs = DoorLog.all
+    
   end
 
   # GET /door_logs/1

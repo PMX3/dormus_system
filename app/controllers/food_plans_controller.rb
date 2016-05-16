@@ -1,6 +1,6 @@
 class FoodPlansController < ApplicationController
   before_action :set_food_plan, only: [:show, :edit, :update, :destroy]
-  before_action :set_applicant,except: [:today_food]
+  before_action :set_applicant,except: [:today_food,:food_email]
 
   # GET /food_plans
   # GET /food_plans.json
@@ -34,10 +34,11 @@ class FoodPlansController < ApplicationController
     @meals=Meal.all
   end
 
-  def self.food_email
+  def food_email
     @food_plans = FoodPlan.where(food_plan_date: Date.today).order('meal ASC')
 
     UserMailer.food_email(@food_plans).deliver_now
+    redirect_to today_food_path
   end
   # POST /food_plans
   # POST /food_plans.json

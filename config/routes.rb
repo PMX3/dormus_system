@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/applicants/:id/show_dormer'=> 'applicants#show_dormer', as: :show_dormer
   post '/applicants/:id' => 'applicants#update_preference', as: :update_preference
   post '/applicants/:id/approve' => 'applicants#approve', as: :approve
+  post '/food_plans/food_email' => 'food_plans#food_email', as: :food_email
   post '/applicants/:id/create_account' => 'applicants#create_account', as: :create_account
   get '/applicants/:applicant_id/food_plans/:id/meal_select' => 'food_plans#meal_select', as: :meal_select
   root 'submissions#new'

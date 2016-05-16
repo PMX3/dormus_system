@@ -7,26 +7,29 @@
   <div class="default_bg container-fluid">
 
     <div class="card">
-      <div class="card_header" style="padding-left:3vw;">
+      <div class="card_header" style="padding-left:3vw;padding-right:3vw;">
       <div class="row">
         <div class="col-md-1">
           
         </div>
-        <div class="col-md-2">
-           Applicant
+        <div class="col-md-3">
+           <center>Dormer</center>
         </div>
         <div class="col-md-2">
-          Requested Room
-        </div>
-        <div class="col-md-2">
-          Given
-        </div>
-        <div class="col-md-2">
-          Status
+          <center>Room</center>
         </div>
         <div class="col-md-3">
-          Actions
+          <center>
+          Balance Due
+          </center>
         </div>
+        <div class="col-md-3">
+          <center>
+          Laundry Service
+          </center>
+        </div>
+
+
         </div>
         
       </div>
@@ -34,15 +37,39 @@
         
       <br><br><br><br>
       <br><br><br>
-      <div class="scrollbox"style="padding-left:3vw;">
+      <div class="scrollbox"style="padding-left:3vw;padding-right:3vw;">
       <% @applicants.each do |applicant| %>
-      <%if applicant.door_log==true%>
-      <%= image_tag('/assets/in.png',:style=>"height:100px;") %>
-      <%else%>
-      <%= image_tag('/assets/out.png',:style=>"height:100px;") %>
-      <%end%> | <%=applicant.first_name%> <%=applicant.last_name%><br>
+      <div class="row">
+        <%if applicant.image_path.exists?%>
 
-      <%end%>
+          <div class="col-md-1"><div style="width:45px;height:45px;margin-top:0px;background-image:url(<%=applicant.image_path.url%>);background-size:cover;border-radius:22.5px;margin-left:15px;"></div>
+      <%if applicant.door_log==true%>
+      <%= image_tag('/assets/in.png',:style=>"height:22px;margin-left:62px;margin-top:-39px;") %>
+      <%else%>
+      <%= image_tag('/assets/out.png',:style=>"height:22px;margin-left:62px;margin-top:-39px;") %>
+      <%end%> 
+          </div>
+        <%else%>
+        <div class="col-md-1"><div style="width:45px;height:45px;margin-top:0px;background-image:url(/assets/filler-img.png);background-size:cover;border-radius:22.5px;margin-left:15px;"></div>
+              <%if applicant.door_log==true%>
+      <%= image_tag('/assets/in.png',:style=>"height:22px;margin-left:62px;margin-top:-39px;") %>
+      <%else%>
+      <%= image_tag('/assets/out.png',:style=>"height:22px;margin-left:62px;margin-top:-39px;") %>
+      <%end%> 
+        </div>
+        <%end%>
+
+      <div class="col-md-3" style="padding-top:15px;"> <center><%=applicant.first_name%> <%=applicant.last_name%></center></div>
+
+         <div class="col-md-2" style="padding-top:15px;"> <center><%=applicant.room_number%></center></div>
+          <div class="col-md-3" style="padding-top:15px;"> <center>Balance Due</center></div>
+          <div class="col-md-3" style="padding-top:15px;"> <center><%=applicant.room_number%></center></div>
+
+      </div>
+<hr class="hr-dormer">
+<%end%>
+      </div>
+      
 
     </div>
 

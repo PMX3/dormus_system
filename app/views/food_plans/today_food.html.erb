@@ -22,7 +22,7 @@
                           <form>
 
 <button class="choosebtnprint"  onclick="printDiv('printableArea')" value="print a div!">Print Form</button>
-
+<%=link_to "Send to Caterer",food_email_path , :controller=> "food_plans",:action=>:food_email, method: 'post',:class=>"choosebtnprint", :style=>"margin-right:15px;"%>
 
 </form>
         </div>

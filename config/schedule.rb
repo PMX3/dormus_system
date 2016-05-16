@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every :day, :at => '12:48pm' do
-  runner "FoodPlan.food_email"
+every :day, :at => '12:01am' do
+  runner "FoodPlan.food_email",:environment => "development"
 end
