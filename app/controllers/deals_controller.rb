@@ -31,7 +31,8 @@ class DealsController < ApplicationController
         if @deal.deal_type == "Others"
           @deal.update(deal_type: params[:others]) 
         end
-        format.html { redirect_to @deal, notice: 'Deal was successfully created.' }
+        @deal.statement_of_account = Applicant.find(@deal.payment_for).statement_of_account
+        format.html { redirect_to deals_path, notice: 'Deal was successfully created.' }
         format.json { render :show, status: :created, location: @deal }
       else
         format.html { render :new }

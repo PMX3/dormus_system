@@ -12,7 +12,7 @@
       <br><br><br><br><br>
         <% @deals.each do |deal| %>
           <div class="col-md-2"><%= deal.id %></div>
-          <div class="col-md-3"><%= deal.payment_for %></div>
+          <div class="col-md-3"><%= deal.statement_of_account.applicant.first_name %></div>
           <div class="col-md-3"><%= deal.deal_type %></div>
           <div class="col-md-1"><%= deal.amount_due %></div>
           <div class="col-md-1"><%= deal.amount_paid %></div>
