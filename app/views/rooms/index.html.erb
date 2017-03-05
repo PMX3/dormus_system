@@ -49,7 +49,11 @@
         </div>
         <div class="col-md-2">
         <center>
-          
+          <%i=1%>
+          <%until i > room.room_capacity  do%>
+            <%=i%><br>
+          <%i +=1%>
+          <%end%>
           </center>
         </div>
         <div class="col-md-3">
@@ -68,16 +72,17 @@
   
         </div>
         <div class="col-md-1">
-          <center>
+        <%modalid=roomid%>
+          <% room.applicants.each do |a| %>
+             <a style="" data-toggle="modal" data-target="#remove<%=modalid%><%=a.id%>">-</a><br>
+          <% end %>
+          
+          <% spaceleft=room.room_capacity-room.applicants.count %>
+          <%(0...spaceleft).each do%>
 
-            <%if room.applicants.count!=0 %>
-             <a style="" data-toggle="modal" data-target="#remove<%=room.id%>">-</a>
-             <%end%>
-             <%if room.applicants.count!=room.room_capacity %>
-            <a style="" data-toggle="modal" data-target="#add<%=room.id%>">+</a>
-
-            <% end%>
-          </center>
+                  <a style="" data-toggle="modal" data-target="#add<%=modalid%>">+</a>
+            <br>
+          <% end %>
         </div>
         <div class="col-md-3">
         <center><%= room.applicants.count %>/<%= room.room_capacity %>
@@ -121,7 +126,6 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap.min.js"></script>
 <% @rooms.each do |room| %>
-
 <!--add to room-->
 <div id="add<%= room.id%>" class="modal fade" role="dialog" style="">
   <div class="modal-dialog modal-lg" style="margin-top:22vh; width:40vw;">
@@ -159,8 +163,8 @@
 <% end %>
 <!--remove from room-->
 <% @rooms.each do |room| %>
-
-<div id="remove<%=room.id%>" class="modal fade" role="dialog" style="">
+<% room.applicants.each do |a| %>
+<div id="remove<%=room.id%><%=a.id%>" class="modal fade" role="dialog" style="">
   <div class="modal-dialog modal-lg" style="margin-top:22vh; width:40vw;">
 
     <!-- Modal content-->
@@ -193,5 +197,7 @@
 
   </div>
 </div>
+
+<% end %>
 <% end %>
 </html>
