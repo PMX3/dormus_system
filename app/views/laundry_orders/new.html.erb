@@ -41,7 +41,7 @@
 	            </div>
 			</div>
 		</div>
-		<%= button_tag "Avail", class: "btn submit" %>
+		<%= link_to button_tag("Avail", class: "btn submit"), show_dormer_path(current_applicant.id) %>
 		<p class="total" id="total">Php 0</p>
 		<p class="total">Payment Due:</p>
 	</div>

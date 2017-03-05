@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     resources :food_plans
   end
 
+  resources :applicants do
+    resources :laundry_orders
+  end
+
   get '/applicants/:id/room_select' => 'applicants#room_select', as: :room_select
   get '/applicants/:id/preference' => 'applicants#preference', as: :edit_preference
   get '/applicants/:id/show_applicant'=> 'applicants#show_applicant', as: :show_applicant

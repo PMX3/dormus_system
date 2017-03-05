@@ -108,7 +108,7 @@
             </div>
             <div class="field">
               <%= f.label :birthday,:class=>"fslabel" %>
-              <%= f.date_select :birthday,:class=>"fselect"  %>
+              <%= f.date_select :birthday,:start_year=>1980, :end_year=>2004,:class=>"fselect"  %>
             </div>
             <div class="field">
               <%= f.label :school,:class=>"flabel" %>

@@ -57,6 +57,7 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
 						<ul class="dropdown-menu" style="background-color:white">
+							<li><center><%= link_to "Meal Plan Menu", meals_path %></center></li>
 							<li><center><%= link_to "Meal Plans", today_food_path %></center></li>
 							<li><center><%= link_to "Laundry" %></center></li>
 							<li><center><%= link_to "Door Log", door_logs_path %></center></li>
@@ -79,10 +80,11 @@
 			<% elsif applicant_signed_in? %>
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a href="">Meal Plans</a>
+						<a href=""><%= link_to "Meal Plans", applicant_food_plans_path(current_applicant)%></a>
 					</li>
 					<li>
-						<a href="">Laundry Services</a>
+						<a href=""><%= link_to "Laundry Services", new_applicant_laundry_order_path(current_applicant)%></a>
+
 					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_applicant.first_name %> <%= current_applicant.last_name %><span class="caret"></span></a>
