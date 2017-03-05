@@ -26,7 +26,7 @@ gem 'tzinfo-data'
 gem 'paperclip'
 gem "simple_calendar", "~> 2.0"
 # gem 'whenever', :require => false
-gem 'jquery-ui-rails'
+gem "jquery-rails", "~> 2.3.0"
 gem 'rails4-autocomplete'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
