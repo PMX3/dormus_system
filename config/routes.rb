@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'applicant#sign_in'
   resources :dormer_notifications
   resources :notifications
   resources :door_logs
@@ -40,7 +41,6 @@ Rails.application.routes.draw do
   get '/food_plans/today_food' => "food_plans#today_food", as: :today_food
   get '/rooms/:id/room_status'=>"rooms#room_status", as: :room_status
   post '/food_plans/food_email' => 'food_plans#food_email', as: :food_email
-  root 'applicant#sign_in'
   namespace :api do 
     namespace :v1 do
       get '/applicants'=> 'applicants#index'
