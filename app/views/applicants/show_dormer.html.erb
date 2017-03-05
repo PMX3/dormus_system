@@ -36,7 +36,7 @@
                 <br><br>
                 <span class="sb1">Room no:</span>&nbsp<%=@applicant.room_number%>
                 <br><br>
-                <span class="sb1">Bed no:</span>&nbsp
+                <span class="sb1">Bed no:</span>&nbsp <%=@applicant.bed_number%>
                 <br><br>
                 <span class="sb1">Violations:</span>&nbsp
               </center>
@@ -98,39 +98,24 @@
               <div class="container-fluid">
                 <center>Rent</center>
                 <p>
-                  Amount Due:<br>
-                  Due Date: <%= @applicant.statement_of_account.due_date %><br>
-                  Deposit:  <%= @applicant.statement_of_account.deposit %><br>
+                  
                 </p>
               </div>
             </div>
             <div class="col-md-6">
               <center>Rent</center>
               <p>
-                  Electricity Dues: <%= @applicant.statement_of_account.electric_due %> <br>
-                  Water Dues: <%= @applicant.statement_of_account.water_due %> <br>
+         
               </p>
             </div>
             <div class="col-md-12">
               <p>Transactions</p>
-              <% @applicant.statement_of_account.deals.each do |deal| %>
-              <div class="col-md-3"><%= deal.statement_of_account.applicant.last_name %>, <%= deal.statement_of_account.applicant.first_name %></div>
-              <div class="col-md-3"><%= deal.deal_type %></div>
-              <div class="col-md-2"><%= deal.amount_due %></div>
-              <div class="col-md-2"><%= deal.amount_paid %></div>
-              <div class="col-md-2"><%= deal.deal_timestamp %></div>
-            <% end %>
+              
             </div>
           </div>
           <div class="col-md-4">
             <center>To Pay: (Personal)</center>
             <p>
-              Laundry Fees: <%= @applicant.statement_of_account.personal_laundry_fees %> <br>
-              Meal Plan Fees: <%= @applicant.statement_of_account.personal_meal_plan_fees %> <br>
-              Room Fee: <%= @applicant.statement_of_account.room_total_due %> <br>
-              Others (see clerk): <%= @applicant.statement_of_account.personal_other_fees %> <br>
-              <br><br>
-              Total Dues: <%= @applicant.statement_of_account.personal_total_due %>
 
             </p>
           </div>

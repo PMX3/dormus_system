@@ -17,9 +17,9 @@ class RoomsController < ApplicationController
       if params[:category] == "add"
         @applicant.update(room_id: params[:room].to_i,room_number: Room.find(params[:room].to_i))
       else
-        if @applicant.room_id == params[:room].to_i
+        
           @applicant.update(room_id: nil, room_number: nil)       
-        end
+        
       end
       redirect_to rooms_path
     end

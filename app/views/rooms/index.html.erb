@@ -9,24 +9,24 @@
     <div class="card">
       <div class="card_header" style="padding-left:3vw;">
       <div class="row">
+        <div class="col-md-3">
+          <center>
+          </center>
+        </div>
         <div class="col-md-2">
+           <center>Bed Number
+           </center>
+        </div>
+        <div class="col-md-3">
+          <center>Tenants
+          </center>
+        </div>
+        <div class="col-md-1">
           <center>
           </center>
         </div>
         <div class="col-md-3">
-           <center>Dormers
-           </center>
-        </div>
-        <div class="col-md-2">
           <center>Status
-          </center>
-        </div>
-        <div class="col-md-2">
-          <center>Room Utility Balance
-          </center>
-        </div>
-        <div class="col-md-3">
-          <center>Actions
           </center>
         </div>
 
@@ -41,21 +41,47 @@
       
     <% @rooms.each do |room| %>
       <div class="row">
-        <div class="col-md-2">
-          <center><b><%= room.room_number %></b>
+        <div class="col-md-3">
+          <center><b style="font-size:34px;"><%= room.room_number %></b>
           <br>
           <%= room.room_type %>
           </center>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
         <center>
+          
+          </center>
+        </div>
+        <div class="col-md-3">
+          <center>
+          <%roomid=room.id%>
           <% room.applicants.each do |a| %>
             <%= a.first_name %> <%= a.last_name %><br>
           <% end %>
+                    <% spaceleft=room.room_capacity-room.applicants.count %>
+          <%(0...spaceleft).each do%>
+
+              -
+            <br>
+          <% end %>
           </center>
+  
         </div>
-        <div class="col-md-2">
-          <center><%= room.applicants.count %>/<%= room.room_capacity %>
+        <div class="col-md-1">
+        <%modalid=roomid%>
+          <% room.applicants.each do |a| %>
+             <a style="" data-toggle="modal" data-target="#remove<%=modalid%><%=a.id%>">-</a><br>
+          <% end %>
+          
+          <% spaceleft=room.room_capacity-room.applicants.count %>
+          <%(0...spaceleft).each do%>
+
+                  <a style="" data-toggle="modal" data-target="#add<%=modalid%>">+</a>
+            <br>
+          <% end %>
+        </div>
+        <div class="col-md-3">
+        <center><%= room.applicants.count %>/<%= room.room_capacity %>
           <br>
           <%if room.applicants.count>=1%>
           <%= select_tag :room_status, options_for_select(["Available", "Not Available"]),  {:onchange=>"window.location='#{room_status_path(room.id)}?room_status=' + this.value",:disabled=>true}%><br>
@@ -69,29 +95,6 @@
           <%end%>
 
           </center>
-        </div>
-        <div class="col-md-2">
-          
-        </div>
-        <div class="col-md-3">
-          <div>
-            <%= form_tag '/rooms/update_dormers' do %>
-              <%= autocomplete_field_tag 'applicant', '', autocomplete_applicant_first_name_rooms_path, :size => 75, :class=>"form-control", :id_element => "#add_applicant_id#{room.id}", :placeholder => "Add Dormer to Room #{room.room_number}" %>
-              <%= hidden_field_tag 'applicant_id', '',:id => "add_applicant_id#{room.id}" %>
-              <%= hidden_field_tag 'category', '',:value => "add" %>
-              <%= hidden_field_tag 'room', '',:value =>"#{room.id}" %>
-              <%= submit_tag "", style: "display:none"; %>
-            <% end %>
-          </div>
-          <div>
-            <%= form_tag '/rooms/update_dormers' do %>
-              <%= autocomplete_field_tag 'applicant', '', autocomplete_applicant_first_name_rooms_path, :size => 75, :class=>"form-control", :id_element => "#delete_applicant_id#{room.id}", :placeholder => "Delete Dormer from Room #{room.room_number}" %>
-              <%= hidden_field_tag 'applicant_id', '',:id => "delete_applicant_id#{room.id}" %>
-              <%= hidden_field_tag 'category', '',:value => "delete" %>
-              <%= hidden_field_tag 'room', '',:value =>"#{room.id}" %>
-              <%= submit_tag "", style: "display:none"; %>
-            <% end %>
-          </div>
       
 
 
@@ -118,23 +121,80 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap.min.js"></script>
-
-
-</html>
-
 <% @rooms.each do |room| %>
-      <tr>
-        <td><%= room.room_number %></td>
-        <td><%= room.room_type %></td>
-        <td><%= room.room_capacity %></td>
-        <td><%= room.room_price %></td>
-        <td><%= room.occupant_count %></td>
-        <td><%= room.room_status %></td>
-        <td><%= room.floor_area %></td>
-        <td><%= room.bed_count %></td>
-        <td><%= room.bathroom_count %></td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+<!--add to room-->
+<div id="add<%= room.id%>" class="modal fade" role="dialog" style="">
+  <div class="modal-dialog modal-lg" style="margin-top:22vh; width:40vw;">
+
+    <!-- Modal content-->
+    <div class="modal-content"style="background-color:#efefef;height:32vh;">
+      <div class="modal-header">
+        <center>
+        Add Tenant
+        </center>
+      </div>
+      <div class="modal-body" style="padding-top:30px;">
+        <div class="col-md-4">
+          <b style="font-size:34px;"><%= room.room_number %></b>
+        </div>
+        <div class="col-md-8">
+            <div>
+            <%= form_tag '/rooms/update_dormers' do %>
+              <%= autocomplete_field_tag 'applicant', '', autocomplete_applicant_first_name_rooms_path, :size => 75, :class=>"form-control", :id_element => "#add_applicant_id#{room.id}", :placeholder => "Add Dormer to Room #{room.room_number}" %>
+              <%= hidden_field_tag 'applicant_id', '',:id => "add_applicant_id#{room.id}" %>
+              <%= hidden_field_tag 'category', '',:value => "add" %>
+              <%= hidden_field_tag 'room', '',:value =>"#{room.id}" %>
+              <br>
+              <%= submit_tag "Apply", :class=>"btn sendbtn3" %>
+              <button type="button" class="btn sendbtn4" data-dismiss="modal">Cancel</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<% end %>
+<!--remove from room-->
+<% @rooms.each do |room| %>
+<% room.applicants.each do |a| %>
+<div id="remove<%=room.id%><%=a.id%>" class="modal fade" role="dialog" style="">
+  <div class="modal-dialog modal-lg" style="margin-top:22vh; width:40vw;">
+
+    <!-- Modal content-->
+    <div class="modal-content"style="background-color:#efefef;height:32vh;">
+      <div class="modal-header">
+        <center>
+        Remove
+        </center>
+      </div>
+      <div class="modal-body" style="padding-top:30px;">
+        <div class="col-md-4">
+          <b style="font-size:34px;"><%= room.room_number %></b>
+        </div>
+        <div class="col-md-8">
+          <div>
+          <%=collection_select(:post, :applicant_id, Applicant.where(room_id: "#{a.room_id}"), :applicant_id, :applicant_id, {selected: a.room_id}, { :class=>"csel",:onchange=>"window.location='#{update_dormers_path(@applicant.id)}"})%>
+            <%= form_tag '/rooms/update_dormers' do %>
+              <%= autocomplete_field_tag 'applicant', '', autocomplete_applicant_first_name_rooms_path, :size => 75, :class=>"form-control", :id_element => "#{a.id}", :value=> "#{a.last_name}, #{a.first_name}" %>
+              <%= hidden_field_tag 'applicant_id', '',:id => "#{a.id}" %>
+              <%= hidden_field_tag 'category', '',:value => "delete" %>
+              <%= hidden_field_tag 'room', '',:value =>"#{room.id}" %>
+              <br>
+              <%= submit_tag "Apply", :class=>"btn sendbtn3" %>
+              <button type="button" class="btn sendbtn4" data-dismiss="modal">Cancel</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<% end %>
+<% end %>
+</html>
