@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<% @date1 = Date.today  %> 
+  <title>DORMUS</title>
+  <!--<link rel="shortcut icon" href="/assets/h-logo2.ico" />-->
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="default_bg container-fluid">
+    <div class="card">
+      <div class="card_header">
+
+      <center>
+          <span class="appli_title">Transaction</span>
+        </center>
+      </div>
+  
+    <div class="container-fluid p1_abox">
+    <!-- Display of today's meal-->
+
+
+        <div class="col-md-3">
+          <div class="fp-tab">
+          <%= link_to 'New Announcement', new_announcement_path %>
+            <center>
+            <br>
+            Today
+            <br>
+            <%= @date1.strftime("%B %e, %A")%><br><br>
+            <%@announcements.each do |a|%>
+            <%if a.announcement_date==Date.today%>
+              <%=a.announcement_title%>
+            <%end%>
+            <%end%>
+            </center>
+          </div>
+        </div>
+        <div class="col-md-9" style="padding-top:7px;">
+           <%= week_calendar number_of_weeks: 4, events: @announcements do |date, announcements| %>
+               <%= date.day %>
+               <% announcements.each do |announcement| %>
+                  <div>
+                   <%= announcement.announcement_title %>
+                 </div>
+                <% end %>
+
+
+            <%end%>
+
+
+        </div>
+
+        
+    </div>
+
+
+
+    </div>
+
+
+  </div>
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.min.js"></script>
+<script>
+  $(document).ready(function() {
+
+    $(".tabs-menu a").click(function(event) {
+        event.preventDefault();
+        $(this).parent().addClass("current");
+        $(this).parent().siblings().removeClass("current");
+        var tab = $(this).attr("href");
+        $(".tab-content").not(tab).css("display", "none");
+        $(tab).fadeIn();
+    });
+});
+
+</script>
+<!--
+<script type="text/javascript">
+    $(document).ready(function(){
+        if ($('.linkx').length) {
+    $('.linkplus').hide();
+}
+    });   
+</script>-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.linkx').prev().remove();
+        });
+    </script>
+</html>
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Announcements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Announcement title</th>
+      <th>Announcement text</th>
+      <th>Announcement date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @announcements.each do |announcement| %>
+      <tr>
+        <td><%= announcement.announcement_title %></td>
+        <td><%= announcement.announcement_text %></td>
+        <td><%= announcement.announcement_date %></td>
+        <td><%= link_to 'Show', announcement %></td>
+        <td><%= link_to 'Edit', edit_announcement_path(announcement) %></td>
+        <td><%= link_to 'Destroy', announcement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Announcement', new_announcement_path %>

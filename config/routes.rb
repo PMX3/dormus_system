@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :announcements
   resources :dormer_notifications
   resources :notifications
   resources :door_logs
