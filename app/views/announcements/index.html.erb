@@ -15,7 +15,7 @@
       <div class="card_header">
 
       <center>
-          <span class="appli_title">Transaction</span>
+          <span class="appli_title"><%= @date1.strftime("%B")%></span>
         </center>
       </div>
   
@@ -25,15 +25,17 @@
 
         <div class="col-md-3">
           <div class="fp-tab">
-          <%= link_to 'New Announcement', new_announcement_path %>
+          
             <center>
             <br>
             Today
             <br>
             <%= @date1.strftime("%B %e, %A")%><br><br>
             <%@announcements.each do |a|%>
+
             <%if a.announcement_date==Date.today%>
               <%=a.announcement_title%>
+              <br>
             <%end%>
             <%end%>
             </center>
@@ -41,10 +43,11 @@
         </div>
         <div class="col-md-9" style="padding-top:7px;">
            <%= week_calendar number_of_weeks: 4, events: @announcements do |date, announcements| %>
-               <%= date.day %>
+               <%= date.day %><%= link_to '+', new_announcement_path,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;",:class=>"linkplus" %>
                <% announcements.each do |announcement| %>
                   <div>
-                   <%= announcement.announcement_title %>
+
+                   <%= announcement.announcement_title %> <%= link_to '-', announcement,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;",:class=>"linkplus", method: :delete, data: { confirm: 'Are you sure?' } %>
                  </div>
                 <% end %>
 
