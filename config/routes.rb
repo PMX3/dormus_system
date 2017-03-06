@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'applicant#sign_in'
+  
   resources :dormer_notifications
   resources :notifications
   resources :door_logs
@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   resources :rooms do
     get :autocomplete_applicant_first_name, :on => :collection
   end
+
+devise_scope :applicant do
+  root to: "devise/sessions#new"
+end
 
   post '/rooms/update_dormers' => "rooms#update_dormers"
   resources :submissions
@@ -41,6 +45,9 @@ Rails.application.routes.draw do
   get '/food_plans/today_food' => "food_plans#today_food", as: :today_food
   get '/rooms/:id/room_status'=>"rooms#room_status", as: :room_status
   post '/food_plans/food_email' => 'food_plans#food_email', as: :food_email
+ 
+
+
   namespace :api do 
     namespace :v1 do
       get '/applicants'=> 'applicants#index'
