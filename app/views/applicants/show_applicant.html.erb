@@ -113,13 +113,13 @@
           <hr class="hr-sh">
      
 <%if @applicant.stage=="Pending"%>
-        <%=link_to "Approve", approve_path(@applicant.id), :controller=> "applicants",:action=>:approve, method: 'post',:class=>"choosebtn1 btn" %>
-         <%= link_to 'Reject', @applicant,:class=>"choosebtn2 btn", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%=link_to "Accept", approve_path(@applicant.id), :controller=> "applicants",:action=>:approve, method: 'post',:class=>"choosebtn1 btn" %>
+         <%= link_to 'Delete', @applicant,:class=>"choosebtn2 btn", method: :delete, data: { confirm: 'Are you sure?' } %>
         <%elsif @applicant.stage!="Dormer" %>
         <%=link_to "Create Account", create_account_path(@applicant.id),:class=>"choosebtn3 btn", :controller=> "applicants",:action=>:create_account, method: 'post' %>
-         <%= link_to 'Reject', @applicant,:class=>"choosebtn4 btn", method: :delete, data: { confirm: 'Are you sure?' } %>
+         <%= link_to 'Delete', @applicant,:class=>"choosebtn4 btn", method: :delete, data: { confirm: 'Are you sure?' } %>
          <%else%>
-         <%= link_to 'Reject', @applicant,:class=>"choosebtn5 btn", method: :delete, data: { confirm: 'Are you sure?' } %>
+         <%= link_to 'Delete', @applicant,:class=>"choosebtn5 btn", method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end%>
        
           </div>
