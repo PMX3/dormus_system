@@ -43,11 +43,14 @@
         </div>
         <div class="col-md-9" style="padding-top:7px;">
            <%= week_calendar number_of_weeks: 4, events: @announcements do |date, announcements| %>
-               <%= date.day %><%= link_to '+', new_announcement_path,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;",:class=>"linkplus" %>
+               <%= date.day %>
+               <% if admin_signed_in? %><%= link_to '+', new_announcement_path,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;",:class=>"linkplus" %>
+               <%end%>
                <% announcements.each do |announcement| %>
                   <div>
 
-                   <%= announcement.announcement_title %> <%= link_to '-', announcement,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;",:class=>"linkplus", method: :delete, data: { confirm: 'Are you sure?' } %>
+                   <%= announcement.announcement_title %> <% if admin_signed_in? %><%= link_to '-', announcement,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;",:class=>"linkplus", method: :delete, data: { confirm: 'Are you sure?' } %>
+                   <%end%>
                  </div>
                 <% end %>
 

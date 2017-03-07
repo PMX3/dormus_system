@@ -49,9 +49,11 @@
         </div>
         <div class="col-md-2">
         <center>
+          <%letters = ('A'..'Z').to_a%>
           <%i=1%>
           <%until i > room.room_capacity  do%>
-            <%=i%><br>
+
+            <%=letters.shift%><br>
           <%i +=1%>
           <%end%>
           </center>

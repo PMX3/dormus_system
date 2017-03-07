@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306174304) do
+ActiveRecord::Schema.define(version: 20170307142353) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20170306174304) do
     t.string   "guardian_email"
     t.string   "room_type"
     t.string   "stage"
-    t.integer  "room_number"
+    t.string   "room_number"
     t.integer  "violation"
     t.boolean  "door_log"
     t.integer  "room_id"
@@ -198,7 +198,7 @@ ActiveRecord::Schema.define(version: 20170306174304) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer  "room_number"
+    t.string   "room_number"
     t.string   "room_type"
     t.integer  "room_capacity"
     t.decimal  "room_price"
