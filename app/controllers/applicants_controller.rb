@@ -21,7 +21,7 @@ class ApplicantsController < ApplicationController
   end
 
   def update_preference
-    @applicant.update(room_type: params[:room_type])
+    @applicant.update(room_type: "any")
     redirect_to applicant_path(@applicant)
   end
 

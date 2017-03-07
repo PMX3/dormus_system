@@ -13,7 +13,10 @@ class Applicant < ActiveRecord::Base
   has_many :laundry_order
 	has_attached_file :image_path
 	validates_attachment_content_type :image_path, content_type: /\Aimage\/.*\Z/
-
+  before_save :default_values
+  def default_values
+    self.room_type ||= 'any' # note self.status = 'P' if self.status.nil? might be safer (per @frontendbeauty)
+  end
   def full_name
     "#{last_name}, #{first_name}"
   end

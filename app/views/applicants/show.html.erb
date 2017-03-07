@@ -8,20 +8,22 @@
 <body>
   <div class="default_bg container-fluid">
 
-    <div class="card">
+    <div class="card" style="width:40%; margin-top:5vh;margin-left:30%;">
       <div class="card_header">
         <center>
-          <span class="p1_title">DORMUS Application Process</span>
+          <span class="appli_title">Thank you!</span>
         </center>
       </div>
       <div class="container-fluid p1_abox" style="">
-        <div class="col-md-4">
+      <div class="col-md-1">
+      </div>
+        <div class="col-md-10">
          <%= link_to edit_applicant_path(params[:id]), :style=>"text-decoration: none;" do %>
-          <div class="p1_sbox sbox1">
+          <div class="p1_sbox sbox1" style="height:57vh;margin-top:20px;">
             <center>
-              <h3>Step 1</h3>
+              <h3>Forgot Something?</h3>
               <div class="p1_writeup">
-                Edit your tenant application form and information sheet
+                Edit your tenant information sheet here.
                 
               </div>
 
@@ -33,59 +35,8 @@
           </div>
           <% end %>
         </div>
-        <div class="col-md-4">
-          <%= link_to edit_preference_path(params[:id]), :style=>"text-decoration: none;" do%>
-          <div class="p1_sbox">
-            <center>
-              <h3>Step 2</h3>
-              <div class="p1_writeup">
-                <% if @applicant.room_type.present? %>
-                   
-                  Edit room
-                <% else %>
-                  Select a room
-                <% end %>
-              </div>
-              <img id="step2" src="/assets/step2.png">
-            </center>
-            <% if @applicant.room_type.present? %>
-            <br>
-            <center><%= @applicant.room_type %></center>
-            <img class="check4" src="/assets/check.png">
 
-            <%end%>
-          </div>
-          <%end%>
-        </div>
-        <div class="col-md-4">
-          <% if @applicant.room_type.present? %>
-          <a href="http://mydorm.ph/" class="email-link">
-          <div class="p1_sbox">
-            <center>
-              <h3>Step 3</h3>
-              <div class="p1_writeup">
-                Wait for email confirmation!
-                <br>
-                (Within the day)
-              </div>
-              <img id="step3" src="/assets/step3.png">
-            </center>
-          </div>
-          </a>
-          <%else%>
-          <div class="p1_sbox1">
-            <center>
-              <h3>Step 3</h3>
-              <div class="p1_writeup">
-                Wait for email confirmation!
-                <br>
-                (Within the day)
-              </div>
-              <img id="step3" src="/assets/step3.png">
-            </center>
-          </div>
-          <%end%>
-        </div>
+
       </div>
 
 
