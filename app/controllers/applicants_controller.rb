@@ -21,7 +21,7 @@ class ApplicantsController < ApplicationController
   end
 
   def update_preference
-    @applicant.update(room_type: "any")
+    @applicant.update(room_type: "Any")
     redirect_to applicant_path(@applicant)
   end
 
@@ -101,7 +101,7 @@ end
   def destroy
     #send email here
     # Tell the UserMailer to send a welcome email after save
-    UserMailer.rejection_email(@applicant).deliver_now
+    #UserMailer.rejection_email(@applicant).deliver_now
     @applicant.destroy
     respond_to do |format|
       format.html { redirect_to applicants_url, notice: 'Applicant was successfully destroyed.' }
