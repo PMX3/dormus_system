@@ -70,6 +70,6 @@ class AnnouncementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def announcement_params
-      params.require(:announcement).permit(:announcement_title, :announcement_text, :announcement_date)
+      params.require(:announcement).permit(:announcement_title, :announcement_text, :announcement_date, :image)
     end
 end

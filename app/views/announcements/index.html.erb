@@ -11,7 +11,7 @@
 
 <body>
   <div class="default_bg container-fluid">
-    <div class="card">
+    <div class="card" style="overflow-y:auto;">
       <div class="card_header">
 
       <center>
@@ -24,17 +24,22 @@
 
 
         <div class="col-md-3">
-          <div class="fp-tab">
+          <div class="postertab">
           
             <center>
             <br>
-            Today
+            <b>Today</b>
             <br>
             <%= @date1.strftime("%B %e, %A")%><br><br>
             <%@announcements.each do |a|%>
 
             <%if a.announcement_date==Date.today%>
               <%=a.announcement_title%>
+              <%if a.image.exists?%>
+              <div style="background-image:url(<%=a.image.url(:large)%>); height:33vh;width:22vh;background-size:cover;">
+                
+              </div>
+              <%end%>
               <br>
             <%end%>
             <%end%>
@@ -50,7 +55,14 @@
                <% announcements.each do |announcement| %>
                   <div>
 
-                   <%= announcement.announcement_title %> <% if admin_signed_in? %><%= link_to '-', announcement,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;",:class=>"linkplus", method: :delete, data: { confirm: 'Are you sure?' } %>
+                   <%= announcement.announcement_title %> <br><% if admin_signed_in? %>
+                   <%= link_to edit_announcement_path(announcement.id), :style=> "visibility:visible;" do%>
+                   <div class="" style="background-image:url(/assets/pencil.png);background-size:cover; height:2.2vh;width:2.2vh;float: left"></div>
+                   <%end%>
+                    <%= link_to announcement,:style=>"color:black;visibility:visible;font-weight:700;font-size:17px;",:class=>"linkplus", method: :delete, data: { confirm: 'Are you sure?' } do%>
+                   <div class="" style="background-image:url(/assets/trash.png);background-size:cover; height:2.2vh;width:2.2vh;float: left;margin-left:10px;"></div>
+                   <%end%>
+                   <br>
                    <%end%>
                  </div>
                 <% end %>
@@ -146,7 +158,7 @@
   <div class="modal-dialog modal-lg" style="margin-top:22vh; width:40vw;">
 
     <!-- Modal content-->
-    <div class="modal-content"style="background-color:#efefef;height:52vh;">
+    <div class="modal-content"style="background-color:#efefef;height:50vh;">
       <div class="modal-header">
         <center>
         Add Announcement
@@ -154,23 +166,38 @@
       </div>
       <div class="modal-body" style="padding-top:30px;">
         <div class="col-md-4">
-          <b style="font-size:34px;">
+        <center>
+          <b style="font-size:30px;">
             
-            eeekk
-          </b>
+            <%= @date1.strftime("%B")%> 
+            </b>
+            <br>
+            <b style="font-size:70px;"><%=date.day%></b>
+            </center>
+          
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" style="">
             <div>
+            <%day=date.day.to_s%>
+            <%month=@date1.strftime("%B")%>
+            <%year=@date1.strftime("%Y")%>
+            <%str = day<<" "<<month<<" "<<year%>
+<%date = Date.parse str%>
+
+            
 <%= simple_form_for(@announcement,html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-  <%= f.file_field :image_path, style: '', class:'form-control', accept: 'image/*', onchange: 'previewImage()' %>
+  <div class="form-inputs" style="">
+  <%= f.file_field :image %>
+  <br>
     <%= f.input :announcement_title %>
     <%= f.input :announcement_text %>
-    <%= f.input :announcement_date %>
+    <div style="display:none;">
+    <%= f.input :announcement_date, :selected=>date, :style=>"display:none;"%>
+    </div>
   </div>
-
+  <br>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
@@ -185,3 +212,7 @@
   </div>
 </div>
 <%end%>
+
+
+
+<!-- DO MODAL FOR EDIT-->
