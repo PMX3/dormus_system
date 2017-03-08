@@ -44,7 +44,8 @@
         <div class="col-md-9" style="padding-top:7px;">
            <%= week_calendar number_of_weeks: 4, events: @announcements do |date, announcements| %>
                <%= date.day %>
-               <% if admin_signed_in? %><%= link_to '+', new_announcement_path,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;",:class=>"linkplus" %>
+               <% if admin_signed_in? %>
+                     <a style="color:black;visibility:visible;float:right;font-weight:700;font-size:17px;" class="linkplus" data-toggle="modal" data-target="#modal<%=date.day%>">+</a>
                <%end%>
                <% announcements.each do |announcement| %>
                   <div>
@@ -137,3 +138,50 @@
 <br>
 
 <%= link_to 'New Announcement', new_announcement_path %>
+
+<%= link_to '+', new_announcement_path,:style=>"color:black;visibility:visible;float:right;font-weight:700;font-size:17px;",:class=>"linkplus" %>
+
+<%= week_calendar number_of_weeks: 4, events: @announcements do |date, announcements| %>
+<div id="modal<%=date.day%>" class="modal fade" role="dialog" style="">
+  <div class="modal-dialog modal-lg" style="margin-top:22vh; width:40vw;">
+
+    <!-- Modal content-->
+    <div class="modal-content"style="background-color:#efefef;height:52vh;">
+      <div class="modal-header">
+        <center>
+        Add Announcement
+        </center>
+      </div>
+      <div class="modal-body" style="padding-top:30px;">
+        <div class="col-md-4">
+          <b style="font-size:34px;">
+            
+            eeekk
+          </b>
+        </div>
+        <div class="col-md-8">
+            <div>
+<%= simple_form_for(@announcement,html: { multipart: true }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  <%= f.file_field :image_path, style: '', class:'form-control', accept: 'image/*', onchange: 'previewImage()' %>
+    <%= f.input :announcement_title %>
+    <%= f.input :announcement_text %>
+    <%= f.input :announcement_date %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<%end%>
