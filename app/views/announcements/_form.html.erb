@@ -1,7 +1,8 @@
-<%= simple_form_for(@announcement) do |f| %>
+<%= simple_form_for(@announcement,html: { multipart: true }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+  <%= f.file_field :image %>
     <%= f.input :announcement_title %>
     <%= f.input :announcement_text %>
     <%= f.input :announcement_date %>

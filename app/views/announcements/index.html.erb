@@ -19,7 +19,7 @@
         </center>
       </div>
   
-    <div class="container-fluid p1_abox">
+    <div class="container-fluid p1_abox" style="">
     <!-- Display of today's meal-->
 
 
@@ -36,9 +36,14 @@
             <%if a.announcement_date==Date.today%>
               <%=a.announcement_title%>
               <%if a.image.exists?%>
+              <a style="" class="linkplus" data-toggle="modal" data-target="#modal<%=a.announcement_title%>">
               <div style="background-image:url(<%=a.image.url(:large)%>); height:33vh;width:22vh;background-size:cover;">
-                
-              </div>
+                </div>
+                </a>
+                 <div style="padding-left:20px;padding-right:20px; padding-top:10px; font-size:12px;">
+                 <%= a.announcement_text %>
+                 </div>
+              
               <%end%>
               <br>
             <%end%>
@@ -46,7 +51,7 @@
             </center>
           </div>
         </div>
-        <div class="col-md-9" style="padding-top:7px;">
+        <div class="col-md-9" style="padding-top:2px;">
            <%= week_calendar number_of_weeks: 4, events: @announcements do |date, announcements| %>
                <%= date.day %>
                <% if admin_signed_in? %>
@@ -77,7 +82,7 @@
     </div>
 
 
-
+    
     </div>
 
 
@@ -216,3 +221,31 @@
 
 
 <!-- DO MODAL FOR EDIT-->
+
+
+<!--Image view-->
+<%@announcements.each do |a|%>
+<div id="modal<%=a.announcement_title%>" class="modal fade" role="dialog" style="">
+  <div class="modal-dialog modal-lg" style="margin-top:2vh; width:40vw;">
+
+    <!-- Modal content-->
+    <div class="modal-content"style="background-color:#efefef;height:90vh;">
+      <div class="modal-header">
+        <center>
+        <%=a.announcement_title%>
+        </center>
+      </div>
+      <div class="modal-body" style="">
+        <center>
+          <div style="background-image:url(<%=a.image.url%>); height:75vh;width:55vh;background-size:cover;">
+                </div>
+
+                </center>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<%end%>
+                <!---->
