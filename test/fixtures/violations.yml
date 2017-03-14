@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  violation_type: MyString
+  violation_points: 1
+  violation_description: MyText
+
+two:
+  violation_type: MyString
+  violation_points: 1
+  violation_description: MyText

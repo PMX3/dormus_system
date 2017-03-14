@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Washlists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reference no</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @washlists.each do |washlist| %>
+      <tr>
+        <td><%= washlist.reference_no %></td>
+        <td><%= link_to 'Show', washlist %></td>
+        <td><%= link_to 'Edit', edit_washlist_path(washlist) %></td>
+        <td><%= link_to 'Destroy', washlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Washlist', new_washlist_path %>

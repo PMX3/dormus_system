@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item name:</strong>
+  <%= @washitem.item_name %>
+</p>
+
+<p>
+  <strong>Item description:</strong>
+  <%= @washitem.item_description %>
+</p>
+
+<%= link_to 'Edit', edit_washitem_path(@washitem) %> |
+<%= link_to 'Back', washitems_path %>

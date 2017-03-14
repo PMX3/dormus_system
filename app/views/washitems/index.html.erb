@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Washitems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item name</th>
+      <th>Item description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @washitems.each do |washitem| %>
+      <tr>
+        <td><%= washitem.item_name %></td>
+        <td><%= washitem.item_description %></td>
+        <td><%= link_to 'Show', washitem %></td>
+        <td><%= link_to 'Edit', edit_washitem_path(washitem) %></td>
+        <td><%= link_to 'Destroy', washitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Washitem', new_washitem_path %>

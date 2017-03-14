@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :washitems
+  resources :washlists
+  resources :violations
   resources :announcements
   resources :dormer_notifications
   resources :notifications
@@ -27,6 +30,7 @@ end
 
   resources :applicants do
     resources :food_plans
+    resources :violations
   end
 
   resources :applicants do

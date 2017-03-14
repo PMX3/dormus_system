@@ -81,7 +81,7 @@
             </div>
             <div class="field">
               <%= f.label :gender,:class=>"flabel" %>
-              <%= f.text_field :gender,:class=>"ffield"  %>
+              <%= f.select(:gender, ['Male', 'Female'], {}, { :class => 'ffield' }) %>
             </div>
             <div class="field">
               <%= f.label :civil_status,:class=>"flabel" %>

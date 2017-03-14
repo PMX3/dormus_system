@@ -37,6 +37,8 @@ class ApplicantsController < ApplicationController
   def show_dormer
     @applicant = Applicant.find(params[:id])
     @door_logs = DoorLog.where(dormer_id: params[:id] )
+    @violations = Violation.where(tenant_id: params[:id])
+    @violation=Violation.new
   end
   
   # GET /applicants/1/edit
@@ -77,6 +79,7 @@ end
 
 def add_violation
   @applicant = Applicant.find(params[:id])
+  @applicant.violation|= 0
   @applicant.violation += Integer(params[:v])
   @applicant.save  
   redirect_to show_dormer_path
