@@ -10,6 +10,8 @@ class WashlistsController < ApplicationController
   # GET /washlists/1
   # GET /washlists/1.json
   def show
+      @washitems=Washitem.where(washlist_id: params[:id])
+    @washitem = Washitem.new
   end
 
   # GET /washlists/new

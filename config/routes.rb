@@ -35,6 +35,10 @@ end
     
   end
 
+  resources :washlists do
+    resources :washitems
+  end
+
   resources :applicants do
     resources :laundry_orders
   end

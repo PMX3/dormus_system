@@ -1,9 +1,61 @@
-<p id="notice"><%= notice %></p>
+<body>
+  <div class="default_bg container-fluid">
+  <div class="washcard">
+      <div class="card_header" style="">
+      <center>Laundry Order</center>
+      </div>
+      <div class="container-fluid appli_abox ">
+      <br>
+      	<div class="col-md-6 row" style="padding-left:20px;">
+      		
+				<p class="violations-header">Reference no:
+				  <%= @washlist.reference_no %>
+				</p>
+				<div class="p1_sboxa sbox1" style="height:40vh;padding-top: 10px;padding-left:20px; overflow-y:scroll;overflow-x:hidden;">
+			 <div class="row">
+			
+			      <div class="col-md-4">Item name</div>
+			      <div class="col-md-4">Item description</div>
+			      <div class="col-md-4">Action</div>
+			  
+			  </div>
 
-<p>
-  <strong>Reference no:</strong>
-  <%= @washlist.reference_no %>
-</p>
+			  
+			    <% @washitems.each do |washitem| %>
+			     <div class="row">
+			        <div class="col-md-4"><%= washitem.item_name %></div>
+			        <div class="col-md-4"><%= washitem.item_description %></div>
+			        <div class="col-md-4"><%= link_to 'Delete', washitem, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+			      </div>
+			    <% end %>
+			    </div>
+      	</div>
+      	<div class="col-md-6 row" style="padding-left:40px;">
+      		<%= simple_form_for(@washitem) do |f| %>
+				  <%= f.error_notification %>
 
-<%= link_to 'Edit', edit_washlist_path(@washlist) %> |
+				  <div class="form-inputs">
+				    <%= f.input :item_name %>
+				    <%= f.input :item_description %>
+				    
+				    <%= f.input :washlist_id , input_html: {value: @washlist.id,:style=>"visibility:hidden;" }, label: false%>
+				  </div>
+
+				  <div class="form-actions">
+				    <%= f.submit "Add Item", :class=>"btn vsendbtn1" %>
+				  </div>
+				<% end %>
+      	</div>
+			
+				      </div>
+				   </div>
+				  </div>
+				</body>
+
+
+
+
+
+<!--<%= link_to 'Edit', edit_washlist_path(@washlist) %> |-->
 <%= link_to 'Back', washlists_path %>
+

@@ -1,3 +1,4 @@
+
 <html>
 <head>
   <title>DORMUS</title>
@@ -437,23 +438,23 @@
         </div>
         <div class="col-md-6">
         <br><br><br><br> 
-<% if admin_signed_in? %>
-  <%= simple_form_for(@violation) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs"><%= f.label :violation_type,:class=>"" %>
-    <%= f.select(:violation_type, ['Major', 'Minor'], {}, { :class => '' }) %><br><br>
-    <%= f.input :tenant_id %>
-    <%= f.input :violation_description %>
-  </div>
-
-  <div class="form-actions">
-  <br>
-    <%= f.button :submit, :class=>"btn vsendbtn1" %>
-  </div>
-<% end %>
-  <% else %>
-        <% end %>
+        <b>Major Violations</b>
+        <ul>
+          <li>Drinking alcohol or possession and use of prohibited drugs</li>
+          <li>Tampering with fire safety devices </li>
+          <li>Accessing fire-escape passageway outside of emergency situations</li>
+        </ul>
+        <b>Minor Violations</b>
+        <ul>
+          <li>Accepting visitors inside rooms</li>
+          <li>Intrustion to gender-segregated wings</li>
+          <li>Vandalism</li>
+          <li>Disturbance to peace and quiet during quiet times</li>
+          <li>Littering, improper waste disposal</li>
+          <li>Washing/Hanging of clothes within premises</li>
+          <li>Keeping of pets and live animals</li>
+          <li>Bringing in of laboratory specimens soaked in formalin</li>
+        </ul>
         </div>
       
        </div>
@@ -747,3 +748,4 @@ $(document).ready(function(){
 });
 </script>
 </html>
+
