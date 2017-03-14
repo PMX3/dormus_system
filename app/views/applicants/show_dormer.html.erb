@@ -173,7 +173,7 @@
             <br>
             <p class="violations-header">Violations: <%=vcount%>/6</p>
             
-<div class="p1_sboxa sbox1" style="height:40vh;padding-top: 10px;padding-left:10px;overflow-y:scroll;">
+<div class="p1_sboxa sbox1" style="height:40vh;padding-top: 10px;padding-left:10px;overflow-y:scroll;overflow-x:hidden;">
            <div style="">
   <div class="row">
 
@@ -456,6 +456,43 @@
         <% end %>
         </div>
       
+       </div>
+       <div id="tab-5" class="tab-content row" style="padding-left:3vw;padding-right:3vw;">
+       <br><br><br>
+       <div class="col-md-8">
+       <p class="violations-header">Laundry Orders</p>
+<div class="p1_sboxa sbox1" style="height:40vh;padding-top: 10px;padding-left:20px; overflow-y:scroll;overflow-x:hidden;">
+  <div class="row">
+    <div class="col-md-4"><b>Reference No</b></div>
+    <div class="col-md-5"><b>Date Sent</b></div>
+    <div class="col-md-3"><b>Actions</b></div>
+  </div>
+   <% @washlists.each do |washlist| %>
+      <div class="row">
+        <div class="col-md-4"><%= washlist.reference_no %></div>
+        <div class="col-md-5"><%= washlist.created_at %></div>
+        <div class="col-md-3"><%= link_to 'Show', washlist %> | <%= link_to 'Delete', washlist, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
+      </div class="row">
+    <% end %>
+</div>
+
+</div>
+<div class="col-md-4">
+<center>
+         <%= simple_form_for(@washlist) do |f| %>
+  <%= f.error_notification %>
+<p class="violations-header">Reference Number:<br><br> <%=DateTime.now.strftime("%y%m%d%H%M%S#{@applicant.id}")%></p>
+  <div class="form-inputs">
+    <%= f.input :reference_no , input_html: {value: DateTime.now.strftime("%y%m%d%H%M%S#{@applicant.id}"),:style=>"visibility:hidden" }, label: false%>
+    <%= f.input :tenant_id , input_html: {value: @applicant.id,:style=>"visibility:hidden;" }, label: false%>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Add Order", :class=>"btn vsendbtnlaundry" %>
+  </div>
+<% end %>
+</center>
+</div>
        </div>
      </div>
    </div>

@@ -39,6 +39,8 @@ class ApplicantsController < ApplicationController
     @door_logs = DoorLog.where(dormer_id: params[:id] )
     @violations = Violation.where(tenant_id: params[:id])
     @violation=Violation.new
+    @washlist=Washlist.new
+    @washlists=Washlist.where(tenant_id: params[:id])
   end
   
   # GET /applicants/1/edit

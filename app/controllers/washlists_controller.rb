@@ -69,6 +69,6 @@ class WashlistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def washlist_params
-      params.require(:washlist).permit(:reference_no)
+      params.require(:washlist).permit(:reference_no,:tenant_id)
     end
 end

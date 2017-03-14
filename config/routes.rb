@@ -31,6 +31,8 @@ end
   resources :applicants do
     resources :food_plans
     resources :violations
+    resources :washlists
+    
   end
 
   resources :applicants do

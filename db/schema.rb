@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314023100) do
+ActiveRecord::Schema.define(version: 20170314141244) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -244,6 +244,21 @@ ActiveRecord::Schema.define(version: 20170314023100) do
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.integer  "tenant_id"
+  end
+
+  create_table "washitems", force: :cascade do |t|
+    t.string   "item_name"
+    t.text     "item_description"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "washlists", force: :cascade do |t|
+    t.integer  "reference_no", limit: 8
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "tenant_id"
+    t.integer  "washlist_id"
   end
 
 end

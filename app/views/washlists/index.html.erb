@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Reference no</th>
+      <th>Tenant ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
     <% @washlists.each do |washlist| %>
       <tr>
         <td><%= washlist.reference_no %></td>
+        <td><%= washlist.tenant_id %></td>
         <td><%= link_to 'Show', washlist %></td>
         <td><%= link_to 'Edit', edit_washlist_path(washlist) %></td>
         <td><%= link_to 'Destroy', washlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
