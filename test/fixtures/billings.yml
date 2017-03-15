@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tenant_id: 1
+  total_amount: 9.99
+  due_date: 2017-03-15
+  bill_type: 1
+  description: MyText
+  datetime_paid: 2017-03-15 07:06:35
+  amount_paid: 9.99
+  outstanding_balance: 9.99
+
+two:
+  tenant_id: 1
+  total_amount: 9.99
+  due_date: 2017-03-15
+  bill_type: 1
+  description: MyText
+  datetime_paid: 2017-03-15 07:06:35
+  amount_paid: 9.99
+  outstanding_balance: 9.99

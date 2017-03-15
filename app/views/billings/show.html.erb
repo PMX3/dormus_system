@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tenant:</strong>
+  <%= @billing.tenant_id %>
+</p>
+
+<p>
+  <strong>Total amount:</strong>
+  <%= @billing.total_amount %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @billing.due_date %>
+</p>
+
+<p>
+  <strong>Bill type:</strong>
+  <%= @billing.bill_type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @billing.description %>
+</p>
+
+<p>
+  <strong>Datetime paid:</strong>
+  <%= @billing.datetime_paid %>
+</p>
+
+<p>
+  <strong>Amount paid:</strong>
+  <%= @billing.amount_paid %>
+</p>
+
+<p>
+  <strong>Outstanding balance:</strong>
+  <%= @billing.outstanding_balance %>
+</p>
+
+<%= link_to 'Edit', edit_billing_path(@billing) %> |
+<%= link_to 'Back', billings_path %>

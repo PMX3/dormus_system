@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>DORMUS</title>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
@@ -66,7 +67,7 @@
 						<ul class="dropdown-menu" style="background-color:white">
 							<li><center><%= link_to "View Transactions", deals_path %></center></li>
 							<li><center><%= link_to "Add Transactions", new_deal_path %></center></li>
-							<li><center><%= link_to "Utility" %></center></li>
+							<li><center><%= link_to 'Utility', new_billing_path %></center></li>
 							<li></li>
 						</ul>
 					</li>
@@ -81,7 +82,7 @@
 					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_applicant.first_name %> <%= current_applicant.last_name %><span class="caret"></span></a>
-						<ul class="dropdown-menu" style="background-color:white">
+						<ul class="dropdown-menu" style="background-color:white">  <li><center><%= link_to "Profile", root_path %></center></li>
 							<li><center><%= link_to "Edit Profile", edit_applicant_path(current_applicant) %></center></li>
 							<li><center><%= link_to "Logout", destroy_applicant_session_path, method: :delete %></center></li>
 							<li></li>

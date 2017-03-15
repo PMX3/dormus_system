@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :billings
   resources :washitems
   resources :washlists
   resources :violations

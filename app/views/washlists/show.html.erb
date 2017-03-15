@@ -15,8 +15,8 @@
 			 <div class="row">
 			
 			      <div class="col-md-4">Item name</div>
-			      <div class="col-md-4">Item description</div>
-			      <div class="col-md-4">Action</div>
+			      <div class="col-md-5">Item description</div>
+			      <div class="col-md-3">Action</div>
 			  
 			  </div>
 
@@ -24,8 +24,8 @@
 			    <% @washitems.each do |washitem| %>
 			     <div class="row">
 			        <div class="col-md-4"><%= washitem.item_name %></div>
-			        <div class="col-md-4"><%= washitem.item_description %></div>
-			        <div class="col-md-4"><%= link_to 'Delete', washitem, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+			        <div class="col-md-5"><%= washitem.item_description %></div>
+			        <div class="col-md-3"><%= link_to 'Delete', washitem, method: :delete, data: { confirm: 'Are you sure?' } %></div>
 			      </div>
 			    <% end %>
 			    </div>
@@ -38,7 +38,7 @@
 				    <%= f.input :item_name %>
 				    <%= f.input :item_description %>
 				    
-				    <%= f.input :washlist_id , input_html: {value: @washlist.id,:style=>"visibility:hidden;" }, label: false%>
+				    <!--NOT WORKING BROKEN SCHMEA--><%= f.input :laundryorder_id , input_html: {value: @washlist.id,:style=>"visibility:hidden;" }, label: false%>
 				  </div>
 
 				  <div class="form-actions">

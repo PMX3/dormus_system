@@ -1,0 +1,159 @@
+<body>
+  <div class="default_bg container-fluid">
+
+    <div class="card">
+      <div class="card_header" style="padding-left:3vw;">
+      	<ul class="tabs-menu">
+          <li class="current"><a href="#tab-1">Water</a></li>
+          <li><a href="#tab-2">Electricity</a></li>
+          <li><a href="#tab-3">Others</a></li>
+        </ul>
+        
+      </div>
+      <div class="container-fluid p1_abox">
+        <div id="tab-1" class="row tab-content">
+              <br><br><br><br>
+      
+				      <div class="scrollbox"style="padding-left:3vw;margin-top:15px;">
+				      <%date=DateTime.now+30%>
+				    <% @rooms.each do |room| %>
+				    <%= simple_form_for(@billing) do |f| %>
+
+				      <div class="row">
+				        <div class="col-md-3">
+				          <center><b style="font-size:34px;"><%= room.room_number %></b>
+				          <br>
+				          <%= room.room_type %>
+				          </center>
+				        </div>
+				        <div class="col-md-2">
+				        	<%= f.input :total_amount %>
+				        </div>
+				        <div class="col-md-3" style="padding-left:50px;">
+				        <%=f.label :due_date%>
+				 		 <%= f.input :due_date,:label=>false, :selected=>date %>
+				        </div>
+				        <div class="col-md-2">
+				        	<% @date1 = Date.today  %>
+				        	<b>Date of Billing</b><br>
+				        	<%= @date1.strftime("%B %e, %Y")%> 
+				        </div>
+				        <div class="col-md-2">
+
+				        	<%= f.button :submit %>
+				        </div>
+				      </div>
+				      <hr class="hr-rooms">
+						<% end %>
+				    <% end %>
+				    </div>
+
+        </div>
+         <div id="tab-2" class="row tab-content">
+              <br><br><br><br>
+				      <div class="scrollbox"style="padding-left:3vw;margin-top:15px;">
+				      <%date=DateTime.now+30%>
+				    <% @rooms.each do |room| %>
+				    <%= simple_form_for(@billing) do |f| %>
+
+				      <div class="row">
+				        <div class="col-md-3">
+				          <center><b style="font-size:34px;"><%= room.room_number %></b>
+				          <br>
+				          <%= room.room_type %>
+				          </center>
+				        </div>
+				        <div class="col-md-2">
+				        	<%= f.input :total_amount %>
+				        </div>
+				        <div class="col-md-3" style="padding-left:50px;">
+				        <%=f.label :due_date%>
+				 		 <%= f.input :due_date,:label=>false, :selected=>date %>
+				        </div>
+				        <div class="col-md-2">
+				        	<% @date1 = Date.today  %>
+				        	<b>Date of Billing</b><br>
+				        	<%= @date1.strftime("%B %e, %Y")%> 
+				        </div>
+				        <div class="col-md-2">
+
+				        	<%= f.button :submit %>
+				        </div>
+				      </div>
+				      <hr class="hr-rooms">
+						<% end %>
+				    <% end %>
+				    </div>
+
+         </div>
+         <div id="tab-3" class="row tab-content">
+              <br><br><br><br>
+				      <div class="scrollbox"style="padding-left:3vw;margin-top:15px;">
+				      <%date=DateTime.now+30%>
+				    <% @rooms.each do |room| %>
+				    <%= simple_form_for(@billing) do |f| %>
+
+				      <div class="row">
+				        <div class="col-md-3">
+				          <center><b style="font-size:34px;"><%= room.room_number %></b>
+				          <br>
+				          <%= room.room_type %>
+				          </center>
+				        </div>
+				        <div class="col-md-2">
+				        	<%= f.input :total_amount %>
+				        </div>
+				        <div class="col-md-3" style="padding-left:50px;">
+				        <%=f.label :due_date%>
+				 		 <%= f.input :due_date,:label=>false, :selected=>date %>
+				        </div>
+				        <div class="col-md-2">
+				        	<% @date1 = Date.today  %>
+				        	<b>Date of Billing</b><br>
+				        	<%= @date1.strftime("%B %e, %Y")%> 
+				        </div>
+				        <div class="col-md-2">
+
+				        	<%= f.button :submit %>
+				        </div>
+				      </div>
+				      <hr class="hr-rooms">
+						<% end %>
+				    <% end %>
+				    </div>
+
+         </div>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+</body>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+
+  $(".tabs-menu a").click(function(event) {
+    event.preventDefault();
+    $(this).parent().addClass("current");
+    $(this).parent().siblings().removeClass("current");
+    var tab = $(this).attr("href");
+    $(".tab-content").not(tab).css("display", "none");
+    $(tab).fadeIn();
+  });
+});
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.linkx').prev().remove();
+});
+</script>

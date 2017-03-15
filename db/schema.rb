@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314221140) do
+ActiveRecord::Schema.define(version: 20170314230635) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -96,6 +96,19 @@ ActiveRecord::Schema.define(version: 20170314221140) do
 
   add_index "applicants", ["email"], name: "index_applicants_on_email", unique: true
   add_index "applicants", ["reset_password_token"], name: "index_applicants_on_reset_password_token", unique: true
+
+  create_table "billings", force: :cascade do |t|
+    t.integer  "tenant_id"
+    t.decimal  "total_amount"
+    t.date     "due_date"
+    t.integer  "bill_type"
+    t.text     "description"
+    t.datetime "datetime_paid"
+    t.decimal  "amount_paid"
+    t.decimal  "outstanding_balance"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
   create_table "deals", force: :cascade do |t|
     t.string   "deal_type"
@@ -235,7 +248,6 @@ ActiveRecord::Schema.define(version: 20170314221140) do
     t.datetime "date_sent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "test_id"
   end
 
   create_table "violations", force: :cascade do |t|
@@ -252,7 +264,6 @@ ActiveRecord::Schema.define(version: 20170314221140) do
     t.text     "item_description"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "washlist_id"
     t.integer  "laundryorder_id"
   end
 

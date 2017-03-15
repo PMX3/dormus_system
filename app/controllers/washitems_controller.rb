@@ -69,6 +69,6 @@ class WashitemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def washitem_params
-      params.require(:washitem).permit(:item_name, :item_description)
+      params.require(:washitem).permit(:item_name, :item_description,:laundryorder_id)
     end
 end
