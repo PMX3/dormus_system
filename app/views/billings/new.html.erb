@@ -94,25 +94,28 @@
 				    <%= simple_form_for(@billing) do |f| %>
 
 				      <div class="row">
-				        <div class="col-md-3">
+				        <div class="col-md-2">
 				          <center><b style="font-size:34px;"><%= room.room_number %></b>
 				          <br>
 				          <%= room.room_type %>
 				          </center>
 				        </div>
+				        <div class="col-md-2" style="">
+				 		 <%= f.input :description %>
+				        </div>
 				        <div class="col-md-2">
 				        	<%= f.input :total_amount %>
 				        </div>
-				        <div class="col-md-3" style="padding-left:50px;">
+				        <div class="col-md-3" style="padding-left:10px;">
 				        <%=f.label :due_date%>
 				 		 <%= f.input :due_date,:label=>false, :selected=>date %>
 				        </div>
-				        <div class="col-md-2">
+				        <div class="col-md-1">
 				        	<% @date1 = Date.today  %>
 				        	<b>Date of Billing</b><br>
 				        	<%= @date1.strftime("%B %e, %Y")%> 
 				        </div>
-				        <div class="col-md-2">
+				        <div class="col-md-1">
 
 				        	<%= f.button :submit %>
 				        </div>

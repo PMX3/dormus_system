@@ -41,6 +41,8 @@ class ApplicantsController < ApplicationController
     @violation=Violation.new
     @washlist=Washlist.new
     @washlists=Washlist.where(tenant_id: params[:id])
+    @billings=Billing.where(tenant_id: params[:id])
+    @deals=Deal.where(tenant_id: params[:id])
   end
   
   # GET /applicants/1/edit
@@ -55,7 +57,7 @@ class ApplicantsController < ApplicationController
 
 def approve
   @applicant = Applicant.find(params[:id])
-  UserMailer.approval_email(@applicant).deliver_now
+  #UserMailer.approval_email(@applicant).deliver_now
   @applicant.update_attribute(:stage,"Pay Deposit")
   redirect_to applicants_path
 end
@@ -65,8 +67,8 @@ def create_account
   room = Room.where(room_number: @applicant.room_number).first
   @applicant.update(:stage=>"Dormer", :password=>"123456"+@applicant.room_number.to_s, :password_confirmation=>"123456"+@applicant.room_number.to_s, room_id: room.id)
   @parent = Parent.create!(:name=>@applicant.guardian_name, :email=>@applicant.guardian_email, :address=>@applicant.guardian_address, :contact_number=>@applicant.guardian_contact_number, :applicant_id=>@applicant.id,:password=>"123456"+@applicant.room_number.to_s, :password_confirmation=>"123456"+@applicant.room_number.to_s)
-  UserMailer.account_email(@applicant).deliver_now
-  UserMailer.parent_email(@parent).deliver_now
+  #UserMailer.account_email(@applicant).deliver_now
+  #UserMailer.parent_email(@parent).deliver_now
   @statement_of_account = StatementOfAccount.new
   @applicant.statement_of_account = @statement_of_account
   @statement_of_account.update(:applicant_id=>@applicant.id)

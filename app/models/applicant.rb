@@ -13,6 +13,7 @@ class Applicant < ActiveRecord::Base
   has_many :laundry_order
   has_many :violations
   has_many :washlists
+  has_many :deals
 	has_attached_file :image_path
 	validates_attachment_content_type :image_path, content_type: /\Aimage\/.*\Z/
   before_save :default_values

@@ -223,6 +223,34 @@
         </div>
       
        </div>
+       <div id="tab-5" class="tab-content">
+       <br><br><br>
+       <div class="col-md-8">
+       <p class="violations-header">Laundry Orders</p>
+<div class="p1_sboxa sbox1" style="height:40vh;padding-top: 10px;padding-left:20px; overflow-y:scroll;overflow-x:hidden;">
+  <div class="row">
+    <div class="col-md-4"><b>Reference No</b></div>
+    <div class="col-md-5"><b>Date Sent</b></div>
+    <div class="col-md-3"><b>Actions</b></div>
+  </div>
+   <% @washlists.each do |washlist| %>
+      <div class="row">
+        <div class="col-md-4"><%= washlist.reference_no %></div>
+        <div class="col-md-5"><%= washlist.created_at %></div>
+        <div class="col-md-3"><%= link_to 'Show', washlist %> | <%= link_to 'Delete', washlist, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
+      </div class="row">
+    <% end %>
+</div>
+
+</div>
+<div class="col-md-4">
+<center>
+
+</center>
+</div>
+         
+       </div>
      </div>
    </div>
  </div>
@@ -235,6 +263,36 @@
 
     <div class="smallcard">
       <div class="card_header"><center>Notifications</center></div>
+      <div style="margin-top:75px;">
+       <% @violations.each do |violation| %>
+       <%if DateTime.now.to_i-violation.created_at.to_i<=345600%>
+       <hr class="hr-dormer">
+       <div class="row" style="padding-left:30px;padding-right:30px;margin-top:2px;padding-bottom:20px;">
+       A violation has been added
+to your profile. <span style="float:right;margin-right:15px;"><%=violation.created_at.strftime("%b %e, %Y")%></span>
+      </div>
+        <%end%>
+       <%end%>
+       <% @deals.each do |d|%>
+       <%if DateTime.now.to_i-d.created_at.to_i<=345600%>
+       <hr class="hr-dormer">
+       <div class="row" style="padding-left:30px;padding-right:30px;margin-top:2px;padding-bottom:20px;">
+       Your transaction has been recorded.<span style="float:right;margin-right:15px;"><%=d.created_at.strftime("%b %e, %Y")%></span>
+</div>
+       <%end%>
+       <%end%>
+
+              <% @billings.each do |b|%>
+       <%if DateTime.now.to_i-b.created_at.to_i<=345600%>
+       <hr class="hr-dormer">
+       <div class="row" style="padding-left:30px;padding-right:30px;margin-top:2px;padding-bottom:20px;">
+       Utility Bills have been
+released!<span style="float:right;margin-right:15px;"><%=b.created_at.strftime("%b %e, %Y")%></span>
+</div>
+       <%end%>
+       <%end%>
+
+       </div>
     </div>
     <div class="bigcard">
       <div class="card_header">
@@ -328,7 +386,23 @@
         <br><br>
             <p class="violations-header">Transactions:</p>
           <div class="p1_sboxa sbox1" style="height:40vh;padding-top: 10px;padding-left:10px;overflow-y:scroll;overflow-x:hidden;">
-
+<div class="row">
+        <div class="col-md-2">Ref #</div>
+        <div class="col-md-3">Type</div>
+        <div class="col-md-2">Amount Due</div>
+        <div class="col-md-2">Amount Paid</div>
+        <div class="col-md-3">Date</div>
+    </div>
+   
+        <% @deals.each do |deal| %>
+        <div class="row">
+          <div class="col-md-2"><%= deal.id %></div>
+          <div class="col-md-3"><%= deal.deal_type %></div>
+          <div class="col-md-2"><%= deal.amount_due %></div>
+          <div class="col-md-2"><%= deal.amount_paid %></div>
+          <div class="col-md-3"><%= deal.deal_timestamp %></div>
+          </div>
+        <% end %>
           </div>
         </div>
         <div class="col-md-6">
@@ -576,7 +650,26 @@
         <br><br>
             <p class="violations-header">Transactions:</p>
           <div class="p1_sboxa sbox1" style="height:40vh;padding-top: 10px;padding-left:10px;overflow-y:scroll;overflow-x:hidden;">
-
+                  <div class="row">
+        <div class="col-md-2">Transaction #</div>
+        <div class="col-md-3">Payment For</div>
+        <div class="col-md-3">Transaction Type</div>
+        <div class="col-md-1">Amount Due</div>
+        <div class="col-md-1">Amount Paid</div>
+        <div class="col-md-2">Date of Billing</div>
+    </div>
+   
+        <% @deals.each do |deal| %>
+        <div class="row">
+          <div class="col-md-2"><%= deal.id %></div>
+          <div class="col-md-3"><%= deal.statement_of_account.applicant.last_name %>, <%= deal.statement_of_account.applicant.first_name %></div>
+          <div class="col-md-3"><%= deal.deal_type %></div>
+          <div class="col-md-1"><%= deal.amount_due %></div>
+          <div class="col-md-1"><%= deal.amount_paid %></div>
+          <div class="col-md-2"><%= deal.deal_timestamp %></div>
+          </div>
+        <% end %>
+      
           </div>
         </div>
         <div class="col-md-6">
@@ -687,6 +780,29 @@
         <% end %>
         </div>
       
+       </div>
+       <div id="tab-5" class="tab-content">
+         <br><br><br>
+       <div class="col-md-8">
+       <p class="violations-header">Laundry Orders</p>
+<div class="p1_sboxa sbox1" style="height:40vh;padding-top: 10px;padding-left:20px; overflow-y:scroll;overflow-x:hidden;">
+  <div class="row">
+    <div class="col-md-4"><b>Reference No</b></div>
+    <div class="col-md-5"><b>Date Sent</b></div>
+    <div class="col-md-3"><b>Actions</b></div>
+  </div>
+   <% @washlists.each do |washlist| %>
+      <div class="row">
+        <div class="col-md-4"><%= washlist.reference_no %></div>
+        <div class="col-md-5"><%= washlist.created_at %></div>
+        <div class="col-md-3"><%= link_to 'Show', washlist %> | <%= link_to 'Delete', washlist, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
+      </div class="row">
+    <% end %>
+</div>
+
+</div>
+
        </div>
      </div>
    </div>

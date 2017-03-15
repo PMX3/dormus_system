@@ -33,6 +33,8 @@ end
     resources :food_plans
     resources :violations
     resources :washlists
+    resources :billings
+    resources :deals
     
   end
 

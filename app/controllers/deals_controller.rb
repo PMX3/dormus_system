@@ -33,6 +33,7 @@ class DealsController < ApplicationController
         end
         @applicant = Applicant.find(@deal.payment_for)
         @deal.update(:statement_of_account_id=>@applicant.statement_of_account.id)
+        @deal.update(:tenant_id=>@applicant.id)
         format.html { redirect_to deals_path, notice: 'Deal was successfully created.' }
         format.json { render :show, status: :created, location: @deal }
       else
@@ -74,6 +75,6 @@ class DealsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def deal_params
-      params.require(:deal).permit(:deal_type, :amount_due, :amount_paid, :deal_timestamp, :payment_for)
+      params.require(:deal).permit(:deal_type, :amount_due, :amount_paid, :deal_timestamp, :payment_for,:tenant_id)
     end
 end
