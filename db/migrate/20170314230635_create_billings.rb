@@ -7,8 +7,7 @@ class CreateBillings < ActiveRecord::Migration
       t.integer :bill_type
       t.text :description
       t.datetime :datetime_paid
-      t.decimal :amount_paid
-      t.decimal :outstanding_balance
+      t.boolean :paid, default: false
 
       t.timestamps null: false
     end

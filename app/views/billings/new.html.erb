@@ -13,7 +13,6 @@
       <div class="container-fluid p1_abox">
         <div id="tab-1" class="row tab-content">
               <br><br><br><br>
-      
 				      <div class="scrollbox"style="padding-left:3vw;margin-top:15px;">
 				      <%date=DateTime.now+30%>
 				    <% @rooms.each do |room| %>
@@ -26,6 +25,9 @@
 				          <%= room.room_type %>
 				          </center>
 				        </div>
+
+				        <%= f.hidden_field :tenant_id, value: room.id %>
+				        <%= f.hidden_field :bill_type, value: 1 %>
 				        <div class="col-md-2">
 				        	<%= f.input :total_amount %>
 				        </div>

@@ -10,6 +10,7 @@ class BillingsController < ApplicationController
   # GET /billings/1
   # GET /billings/1.json
   def show
+
   end
 
   # GET /billings/new
@@ -25,6 +26,7 @@ class BillingsController < ApplicationController
   # POST /billings
   # POST /billings.json
   def create
+    raise params.inspect
     @billing = Billing.new(billing_params)
 
     respond_to do |format|
