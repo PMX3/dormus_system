@@ -63,6 +63,7 @@ def approve
 end
 
 def create_account
+
   @applicant = Applicant.find(params[:id])
   room = Room.where(room_number: @applicant.room_number).first
   @applicant.update(:stage=>"Dormer", :password=>"123456"+@applicant.room_number.to_s, :password_confirmation=>"123456"+@applicant.room_number.to_s, room_id: room.id)

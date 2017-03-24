@@ -4,6 +4,7 @@ class Applicant < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable#, :validatable
   validates :email, uniqueness: true
+  validates :contact_number, numericality: true
   validates_format_of :email,:with => Devise::email_regexp
 	belongs_to :submission
   belongs_to :room
