@@ -5,7 +5,7 @@ class DoorLogsController < ApplicationController
   # GET /door_logs.json
   def index
     @door_logs = DoorLog.all
-    
+    @door_logs = DoorLog.paginate(:page => params[:page])
   end
 
   # GET /door_logs/1

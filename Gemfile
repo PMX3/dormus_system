@@ -33,8 +33,7 @@ gem 'sass-rails', '~> 5.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem "browser", require: "browser/browser"
-
+gem 'will_paginate', '~> 3.1.1'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
