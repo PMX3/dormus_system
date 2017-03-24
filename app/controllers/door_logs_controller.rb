@@ -5,7 +5,10 @@ class DoorLogsController < ApplicationController
   # GET /door_logs.json
   def index
     @door_logs = DoorLog.all
-    
+    respond_to do |format|
+      format.html
+      format.csv{send_data @door_logs.to_csv}
+    end
   end
 
   # GET /door_logs/1
