@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315011328) do
+ActiveRecord::Schema.define(version: 20170324013058) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20170315011328) do
     t.integer  "image_path_file_size"
     t.datetime "image_path_updated_at"
     t.integer  "bed_number"
+    t.date     "lease_end"
   end
 
   add_index "applicants", ["email"], name: "index_applicants_on_email", unique: true
