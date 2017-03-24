@@ -68,11 +68,11 @@
             </div>
             <div class="field">
               <%= f.label :middle_initial,:class=>"flabel" %>
-              <%= f.text_field :middle_initial,:class=>"ffield"  %>
+              <%= f.text_field :middle_initial,:class=>"ffield" %>
             </div>
             <div class="field">
               <%= f.label :nickname,:class=>"flabel" %>
-              <%= f.text_field :nickname,:class=>"ffield"  %>
+              <%= f.text_field :nickname,:class=>"ffield", :placeholder=>"ex. Enzo" %>
             </div>
             <div class="field">
               <%= f.label :gender,:class=>"flabel" %>
@@ -88,7 +88,7 @@
             </div>
             <div class="field">
               <%= f.label :contact_number,:class=>"flabel" %>
-              <%= f.text_field :contact_number,:class=>"ffield"  %>
+              <%= f.text_field :contact_number,:class=>"ffield",:required=>"true", :type=>"integer", :step=>"1" %>
             </div>
             <div class="field">
               <%= f.label :landline_number,:class=>"flabel" %>
