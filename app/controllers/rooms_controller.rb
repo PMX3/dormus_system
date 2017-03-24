@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @rooms = Room.all
+    @applicants = Applicant.where(room_id: nil)
   end
 
   def update_dormers
@@ -18,7 +19,7 @@ class RoomsController < ApplicationController
         @applicant.update(room_id: params[:room].to_i,room_number: Room.find(params[:room].to_i))
       else
         
-          @applicant.update(room_id: nil, room_number: nil)       
+          @applicant.update(room_id: nil, room_number: nil, bed_number: nil)       
         
       end
       redirect_to rooms_path

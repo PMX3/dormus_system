@@ -145,8 +145,11 @@
         <div class="col-md-8">
             <div>
             <%= form_tag '/rooms/update_dormers' do %>
-              <%= autocomplete_field_tag 'applicant', '', autocomplete_applicant_first_name_rooms_path, :size => 75, :class=>"form-control", :id_element => "#add_applicant_id#{room.id}", :placeholder => "Add Dormer to Room #{room.room_number}" %>
-              <%= hidden_field_tag 'applicant_id', '',:id => "add_applicant_id#{room.id}" %>
+
+    
+              <%= select_tag :applicant_id, options_for_select(@applicants.collect{ |u| [u.full_name,u.id]}) %>
+
+
               <%= hidden_field_tag 'category', '',:value => "add" %>
               <%= hidden_field_tag 'room', '',:value =>"#{room.id}" %>
               <br>
@@ -182,8 +185,8 @@
         <div class="col-md-8">
           <div>
             <%= form_tag '/rooms/update_dormers' do %>
-              <%= autocomplete_field_tag 'applicant', '', autocomplete_applicant_first_name_rooms_path, :size => 75, :class=>"form-control", :id_element => "#delete_applicant_id#{room.id}", :placeholder => "Delete Dormer from Room #{room.room_number}" %>
-              <%= hidden_field_tag 'applicant_id', '',:id => "delete_applicant_id#{room.id}" %>
+              Remove <%=a.first_name%> <%=a.last_name%>?
+              <%= hidden_field_tag 'applicant_id', '',:value => a.id %>
               <%= hidden_field_tag 'category', '',:value => "delete" %>
               <%= hidden_field_tag 'room', '',:value =>"#{room.id}" %>
               <br>
