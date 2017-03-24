@@ -14,7 +14,7 @@ module Api
 			def update
 				applicant=Applicant.find(params[:id])
 				
-				door_log = params[:door] == "true" ? true : false
+				door_log = params[:door] == "33" ? true : false
 				applicant.update(:door_log=>door_log)
 				if door_log==true
 					dir="in"
