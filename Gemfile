@@ -34,7 +34,7 @@ gem 'sass-rails', '~> 5.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem "browser", require: "browser/browser"
-gem 'filterrific'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
