@@ -22,7 +22,7 @@ module Api
 					dir="out"
 				end
 				entertime=params[:time]
-				DoorLog.create(:time_enter=>DateTime.parse(entertime),:direction=>dir,:dormer_id=>params[:id])
+				DoorLog.create(:time_enter=>DateTime.parse(entertime),:direction=>dir,:dormer_id=>applicant.id)
 				render json: {applicant: applicant}
 			end
 		end
