@@ -127,7 +127,7 @@ Applicant.create!(first_name: 'Regina Ann' , last_name: 'Gonsalves' , email: 're
 Applicant.create!(first_name: 'Iva Nathalia' , last_name: 'Popa' , email: 'nathaliapopa@gmail.com' ,stage:'Pending',room_type: 'Any', guardian_email: 'agnespopa@gmail.com')
 Applicant.create!(first_name: 'Janina Patricia' , last_name: 'Pablo' , email: 'jappbl@gmail.com' ,stage:'Pending',room_type: 'Any', guardian_email: 'jenvpablo@yahoo.com')
 Applicant.create!(first_name: 'Alyanna Rose' , last_name: 'Zavalla' , email: 'alyannarosez@yahoo.com' ,stage:'Pending',room_type: 'Any', guardian_email: 'zavalla_rose@yahoo.com')
-Applicant.create!(first_name: 'Marinela' , last_name: 'Qui�ones' , email: 'marinelaquinones@yahoo.com' ,stage:'Pending',room_type: 'Any', guardian_email: 'armiequinones@gmail.com')
+Applicant.create!(first_name: 'Marinela' , last_name: 'Quinones' , email: 'marinelaquinones@yahoo.com' ,stage:'Pending',room_type: 'Any', guardian_email: 'armiequinones@gmail.com')
 Applicant.create!(first_name: 'Adriele Nicole' , last_name: 'Nicerio' , email: 'rely10142000@yahoo.com' ,stage:'Pending',room_type: 'Any', guardian_email: 'rely10142000@yahoo.com')
 Applicant.create!(first_name: 'Gwyn Louise' , last_name: 'Nalica' , email: 'glfnalica@gmail.com' ,stage:'Pending',room_type: 'Any', guardian_email: 'jafnalica@gmail.com')
 Applicant.create!(first_name: 'Aura Justice' , last_name: 'Pinero' , email: 'aurajusticepinero@yahoo.com' ,stage:'Pending',room_type: 'Any', guardian_email: 'rpinero@monderissin.com')
