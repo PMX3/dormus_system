@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :washlists
   resources :violations
   resources :announcements
+  resources :applicants
   resources :dormer_notifications
   resources :notifications
   resources :door_logs
