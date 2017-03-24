@@ -36,7 +36,10 @@
               <img id="img-icon" src="/assets/img-icon.png"><center>
               <div class="img-upload">
                 <%= f.label "Upload Image", style: "position: relative; z-index: 0;font-family:'Open Sans';font-weight:400;margin-top:1px;" %>
+                <% if admin_signed_in? %> <!--ADMIN-->
+                <%else%>
                 <%= f.file_field :image_path, style: 'position: relative; top: -30px; opacity: 0; z-index: 1;', class:'form-control', accept: 'image/*', onchange: 'previewImage()' %>
+                <%end%>
                 <script type="text/javascript">
                 function previewImage() {
                   var toHide = document.querySelector('#img-icon');
@@ -62,6 +65,120 @@
             <div class="img-base">
             </div>
           </div>
+          <% if admin_signed_in? %> <!--ADMIN-->
+            <div class="col-md-6 appli_rbox">
+            <div class="field">
+            <%= f.label :lease_end,:class=>"fslabel" %>
+              <%= f.date_select :lease_end,:class=>"fselect" %>
+            </div>
+            <div class="field">
+              <%= f.label :last_name,:class=>"flabel" %>
+              <%= f.text_field :last_name,:class=>"ffield",:required=>"true" , :disabled => true%>
+            </div>
+            <div class="field">
+              <%= f.label :first_name,:class=>"flabel" %>
+              <%= f.text_field :first_name,:class=>"ffield",:required=>"true" , :disabled => true%>
+            </div>
+            <div class="field">
+              <%= f.label :middle_initial,:class=>"flabel" %>
+              <%= f.text_field :middle_initial,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :nickname,:class=>"flabel" %>
+              <%= f.text_field :nickname,:class=>"ffield"  , :disabled => true%>
+            </div>
+            <div class="field">
+              <%= f.label :gender,:class=>"flabel" %>
+              <%= f.select(:gender, ['Male', 'Female'], {}, { :class => 'ffield', :disabled => true }) %>
+            </div>
+            <div class="field">
+              <%= f.label :civil_status,:class=>"flabel" %>
+              <%= f.text_field :civil_status,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :address,:class=>"flabel" %>
+              <%= f.text_area :address,:class=>"ffield"  , :disabled => true%>
+            </div>
+            <div class="field">
+              <%= f.label :contact_number,:class=>"flabel" , :disabled => true%>
+              <%= f.text_field :contact_number,:class=>"ffield" , :disabled => true %>
+            </div>
+            <div class="field">
+              <%= f.label :landline_number,:class=>"flabel" %>
+              <%= f.text_field :landline_number,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :email,:class=>"flabel" %>
+              <%= f.text_field :email,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :nationality,:class=>"flabel" %>
+              <%= f.text_field :nationality,:class=>"ffield" , :disabled => true %>
+            </div>
+            <div class="field">
+              <%= f.label :religion,:class=>"flabel" %>
+              <%= f.text_field :religion,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :birthday,:class=>"fslabel" %>
+              <%= f.date_select :birthday,:class=>"fselect", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :school,:class=>"flabel" %>
+              <%= f.text_field :school,:class=>"ffield"  , :disabled => true%>
+            </div>
+            <div class="field">
+              <%= f.label :school_address,:class=>"flabel" %>
+              <%= f.text_area :school_address,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :major,:class=>"flabel" %>
+              <%= f.text_field :major,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :year,:class=>"flabel" %>
+              <%= f.number_field :year,:class=>"ffield"  , :disabled => true%>
+            </div>
+            <div class="field">
+              <%= f.label :medical_information,:class=>"flabel" %>
+              <%= f.text_area :medical_information,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :personal_information,:class=>"flabel" %>
+              <%= f.text_area :personal_information,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :guardian_name,:class=>"flabel" %>
+              <%= f.text_field :guardian_name,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :guardian_contact_number,:class=>"flabel" %>
+              <%= f.text_field :guardian_contact_number,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :guardian_address,:class=>"flabel" %>
+              <%= f.text_area :guardian_address,:class=>"ffield", :disabled => true  %>
+            </div>
+            <div class="field">
+              <%= f.label :guardian_email,:class=>"flabel" %>
+              <%if @applicant.stage=="Dormer"%>
+              <%= f.text_field :guardian_email,:class=>"ffield", :disabled => true  %>
+              <%else%>
+              <%= f.text_field :guardian_email,:class=>"ffield"  %>
+              <%end%>
+            </div>
+            <div class="actions">
+              <%= f.submit 'Submit Form', :class=> "btn sendbtn" %>
+            </div>
+            <%if @applicant.stage=="Dormer"%>
+
+            <%= link_to 'Back', show_dormer_path, :class=>"btn sendbtn1" %>
+            <%else%>
+            <%= link_to 'Back ', root_path, :class=>"btn sendbtn1" %>
+            <%end%>
+          </div>
+          <%else%>
+
           <div class="col-md-6 appli_rbox">
             <div class="field">
               <%= f.label :last_name,:class=>"flabel" %>
@@ -163,12 +280,13 @@
               <%= f.submit 'Submit Form', :class=> "btn sendbtn" %>
             </div>
             <%if @applicant.stage=="Dormer"%>
-            <%= link_to "Change your password", edit_applicant_registration_path %>
+
             <%= link_to 'Back', show_dormer_path, :class=>"btn sendbtn1" %>
             <%else%>
             <%= link_to 'Back ', root_path, :class=>"btn sendbtn1" %>
             <%end%>
           </div>
+          <%end%>
         </div>
       </div>
     </div>

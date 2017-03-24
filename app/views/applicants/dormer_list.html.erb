@@ -7,7 +7,7 @@
   <div class="default_bg container-fluid">
 
     <div class="card">
-    
+
       <div class="card_header" style="padding-left:3vw;padding-right:3vw;">
       <div class="row">
         <div class="col-md-2">
@@ -31,7 +31,7 @@
         </div>
         <div class="col-md-3">
           <center>
-          Laundry Service
+          Actions
           </center>
         </div>
 
@@ -66,7 +66,7 @@
         </div>
         <%end%>
 
-      <div class="col-md-2" style="padding-top:15px;"> <center><%=link_to "#{name}",show_dormer_path(applicant.id)%></center></div>
+      <div class="col-md-2" style="padding-top:15px;"> <center><%=name%></center></div>
 
          <div class="col-md-1" style="padding-top:15px;"> <center><%if applicant.room_id==nil%>
 
@@ -87,7 +87,9 @@
           <%end%>
 
           </center></div>
-          <div class="col-md-3" style="padding-top:15px;"> <center>N</center></div>
+          <div class="col-md-3" style="padding-top:15px;"> <center>
+            <%=link_to "View",show_dormer_path(applicant.id)%> | <%= link_to 'Delete', applicant, method: :delete, data: { confirm: 'Are you sure?' } %> | <%=link_to "Edit",edit_applicant_path(applicant)%>
+          </center></div>
 
       </div>
 <hr class="hr-dormer">
