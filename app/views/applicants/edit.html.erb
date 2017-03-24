@@ -163,6 +163,7 @@
               <%= f.submit 'Submit Form', :class=> "btn sendbtn" %>
             </div>
             <%if @applicant.stage=="Dormer"%>
+            <%= link_to "Change your password", edit_applicant_registration_path %>
             <%= link_to 'Back', show_dormer_path, :class=>"btn sendbtn1" %>
             <%else%>
             <%= link_to 'Back ', root_path, :class=>"btn sendbtn1" %>

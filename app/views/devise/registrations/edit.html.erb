@@ -1,10 +1,23 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
 
+<section id="jumbotron-landing" class="container-fluid row">
+  <div class="col-md-4 jumbotron-left-div" style="padding-top:7%;">
+    
+  </div>
+  <div class="col-md-8">
+    <div class="col-md-1"></div>
+    <center>
+      <div class="col-md-10">
+        <div class="sign_up_form-home">
+         <div class="card-home log_form">
+           <div class="header-home">
+             <h2 class=" signin-text" style="font-size:5vh; font-weight:bold;">Edit Password</h2>
+           </div>
+           <br>
+           <div class="card-home-inner signin-text" style="padding-bottom:5vh;">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, :class=>"card-home-label signin-text" %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
@@ -13,27 +26,44 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password,"New Password", :class=>"card-home-label signin-text" %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, :class=>"card-home-label signin-text" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password, :class=>"card-home-label signin-text" %><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-
+<br>
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Change Password",:class=>"btn sign-in-home btncont-home signin-text" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<%= link_to "Back", :back, :style=>"color:white;" %>
+        </div>
+      </div>
+    </div>
+  </center>
+</div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

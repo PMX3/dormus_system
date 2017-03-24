@@ -105,10 +105,9 @@ ActiveRecord::Schema.define(version: 20170324013058) do
     t.integer  "bill_type"
     t.text     "description"
     t.datetime "datetime_paid"
-    t.decimal  "amount_paid"
-    t.decimal  "outstanding_balance"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.boolean  "paid",          default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "deals", force: :cascade do |t|
