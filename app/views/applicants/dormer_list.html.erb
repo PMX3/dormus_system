@@ -77,7 +77,7 @@
           <div class="col-md-2" style="padding-top:15px;"> <center>0.00</center></div>
           <div class="col-md-2" style="padding-top:15px;"> <center>
           <%if applicant.lease_end!=nil%>
-          <%if DateTime.now <applicant.lease_end%>
+          <%if Date.today <applicant.lease_end%>
           <%=applicant.lease_end%>
           <%else%>
           <span style="color:#9d9d9d;">
