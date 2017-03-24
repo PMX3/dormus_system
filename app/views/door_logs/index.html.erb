@@ -29,7 +29,7 @@
       <div class="container-fluid p1_mbox"style="height:60vh; overflow-y:scroll;margin-top:100px;">
        
 
-    <% @door_logs.each do |door_log| %>
+    <% @door_logs.sort{|a,b| a.time_enter <=> b.time_enter}.each do |door_log| %>
       <div class="row" style="padding-left:6vw;padding-right:0vw;height:60px;">
         <div class="col-md-1">
         <%if door_log.direction=="in"%>
