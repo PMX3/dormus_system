@@ -68,6 +68,11 @@
           <% if admin_signed_in? %> <!--ADMIN-->
             <div class="col-md-6 appli_rbox">
             <div class="field">
+            <%= f.label :card_id,:class=>"fslabel" %>
+              <%= f.text_field :card_id,:class=>"ffield" %>
+              
+            </div>
+            <div class="field">
             <%= f.label :lease_end,:class=>"fslabel" %>
               <%= f.date_select :lease_end,:class=>"fselect" %>
               

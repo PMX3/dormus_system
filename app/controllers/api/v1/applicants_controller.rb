@@ -12,7 +12,7 @@ module Api
 
 			end
 			def update
-				applicant=Applicant.find(params[:id])
+				applicant=Applicant.find_by_card_id(params[:id])
 				
 				door_log = params[:door] == "33" ? true : false
 				applicant.update(:door_log=>door_log)
