@@ -1,39 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Billings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tenant</th>
-      <th>Total amount</th>
-      <th>Due date</th>
-      <th>Bill type</th>
-      <th>Description</th>
-      <th>Datetime paid</th>
-
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="default_bg container-fluid">
+  <div class="card">
+    <div class="card_header">
+        <div class="col-md-2"><center>Tenant</center></div>
+        <div class="col-md-3"><center>Bill Type/Description</center></div>
+        <div class="col-md-3"><center>Total amount</center></div>
+        <div class="col-md-2"><center>Due date</center></div>
+        <div class="col-md-2"><center>Date paid</center></div>
+    </div>
+    <div class="container-fluid">
+      <br><br><br><br><br><br><br>
     <% @billings.each do |billing| %>
-      <tr>
-        <td><%= billing.tenant_id %></td>
-        <td><%= billing.total_amount %></td>
-        <td><%= billing.due_date %></td>
-        <td><%= billing.bill_type %></td>
-        <td><%= billing.description %></td>
-        <td><%= billing.datetime_paid %></td>
-
-        <td><%= link_to 'Show', billing %></td>
-        <td><%= link_to 'Edit', edit_billing_path(billing) %></td>
-        <td><%= link_to 'Destroy', billing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="row">
+        <div class="col-md-2"><center><%= billing.tenant_id %></center></div>
+        <div class="col-md-3">
+        <center><%= billing.bill_type %><%= billing.description %></center></div>
+        <div class="col-md-3"><center><%= billing.total_amount %></center></div>
+        <div class="col-md-2"><center><%= billing.due_date %></center></div>
+        <div class="col-md-2"><center><%= billing.datetime_paid %></center></div>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Billing', new_billing_path %>
+      </div>
+  </div>
+</div>

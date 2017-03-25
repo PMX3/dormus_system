@@ -5,6 +5,18 @@
   <!--<link rel="shortcut icon" href="/assets/h-logo2.ico" />-->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
 </head>
+<%water=0%>
+<%meralco=0%>
+<%otherpay=0%>
+        <%@billings.each do |b|%>
+          <%if b.bill_type==1%>
+          <%water+=b.total_amount%>
+          <%elsif b.bill_type==2%>
+          <%meralco+=b.total_amount%>
+          <%else%>
+          <%otherpay+=b.total_amount%>
+          <%end%>
+        <%end%>
   <%vcount=0%>
   <% @violations.each do |violation| %>
     <%if violation.violation_type=="Major"%>
@@ -114,11 +126,11 @@
         <div class="col-md-6">
           <br><br>
             <p class="violations-header">Dues:</p><br>
-            <b>Meralco Bill:</b><br><br>
+            <b>Meralco Bill:<%=meralco%></b><br><br>
 
-            <b>Water Bill:</b><br><br>
+            <b>Water Bill: <%=water%></b><br><br>
 
-            <b>Others (See Clerk):</b>
+            <b>Others (See Clerk): <%=otherpay%></b>
         </div>
        </div>
 
@@ -406,13 +418,15 @@ released!<span style="float:right;margin-right:15px;"><%=b.created_at.strftime("
           </div>
         </div>
         <div class="col-md-6">
+
+
           <br><br>
             <p class="violations-header">Dues:</p><br>
-            <b>Meralco Bill:</b><br><br>
+            <b>Meralco Bill:<%=meralco%> </b><br><br>
 
-            <b>Water Bill:</b><br><br>
+            <b>Water Bill:<%=water%></b><br><br>
 
-            <b>Others (See Clerk):</b>
+            <b>Others (See Clerk):<%=otherpay%></b>
         </div>
        </div>
 
@@ -675,11 +689,11 @@ released!<span style="float:right;margin-right:15px;"><%=b.created_at.strftime("
         <div class="col-md-6">
           <br><br>
             <p class="violations-header">Dues:</p><br>
-            <b>Meralco Bill:</b><br><br>
+            <b>Meralco Bill: <%=meralco%></b><br><br>
 
-            <b>Water Bill:</b><br><br>
+            <b>Water Bill: <%=water%></b><br><br>
 
-            <b>Others (See Clerk):</b>
+            <b>Others (See Clerk): <%=otherpay%></b>
         </div>
        </div>
 
