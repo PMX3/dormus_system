@@ -2,21 +2,24 @@
   <div class="card">
     <div class="card_header">
         <div class="col-md-2"><center>Tenant</center></div>
-        <div class="col-md-3"><center>Bill Type/Description</center></div>
-        <div class="col-md-3"><center>Total amount</center></div>
+        <div class="col-md-2"><center>Bill Type/Description</center></div>
+        <div class="col-md-2"><center>Total amount</center></div>
         <div class="col-md-2"><center>Due date</center></div>
         <div class="col-md-2"><center>Date paid</center></div>
+        <div class="col-md-2"><center>Actions</center></div>
     </div>
     <div class="container-fluid">
       <br><br><br><br><br><br><br>
     <% @billings.each do |billing| %>
     <div class="row">
         <div class="col-md-2"><center><%= billing.tenant_id %></center></div>
-        <div class="col-md-3">
+        <div class="col-md-2">
         <center><%= billing.bill_type %><%= billing.description %></center></div>
-        <div class="col-md-3"><center><%= billing.total_amount %></center></div>
+        <div class="col-md-2"><center><%= billing.total_amount %></center></div>
         <div class="col-md-2"><center><%= billing.due_date %></center></div>
         <div class="col-md-2"><center><%= billing.datetime_paid %></center></div>
+        <div class="col-md-2"><center>
+        <%= link_to 'Delete', billing, method: :delete, data: { confirm: 'Are you sure?' } %></center> </div>
     </div>
     <% end %>
       </div>
