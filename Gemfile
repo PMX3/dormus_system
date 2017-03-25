@@ -23,6 +23,7 @@ gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 #gem "therubyracer"
 gem 'tzinfo-data'
+gem 'aws-sdk'
 gem 'paperclip'
 gem "simple_calendar", "~> 2.0"
 # gem 'whenever', :require => false

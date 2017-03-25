@@ -55,7 +55,16 @@ Rails.application.configure do
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
-
+# config/environments/production.rb
+config.paperclip_defaults = {
+  storage: :s3,
+  s3_credentials: {
+    bucket: ENV.fetch('dormus'),
+    access_key_id: ENV.fetch('AKIAJY7UX4GWNQEXHEYA'),
+    secret_access_key: ENV.fetch('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'),
+    s3_region: ENV.fetch('Singapore'),
+  }
+}
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
