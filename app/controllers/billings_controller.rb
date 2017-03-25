@@ -26,17 +26,33 @@ class BillingsController < ApplicationController
   # POST /billings
   # POST /billings.json
   def create
-    raise params.inspect
-    @billing = Billing.new(billing_params)
-
-    respond_to do |format|
-      if @billing.save
-        format.html { redirect_to @billing, notice: 'Billing was successfully created.' }
-        format.json { render :show, status: :created, location: @billing }
-      else
-        format.html { render :new }
-        format.json { render json: @billing.errors, status: :unprocessable_entity }
+    @room=Room.find(params[:id])
+    tenant_ids=Array.new
+    @room.applicants.each do |a|
+      tenant_ids<<a.id
+    end
+    #raise params.inspect
+    @billing = Billing.new(tenant_id: tenant_ids[0], bill_type: billing_params[:bill_type],total_amount: billing_params[:total_amount],due_date: billing_params[:due_date],description: billing_params[:description])
+    if tenant_ids.length>1
+      respond_to do |format|
+        if @billing.save
+          tenant_ids.drop(1).each do |tenant_id|
+            Billing.create(tenant_id: tenant_id, bill_type: billing_params[:bill_type],total_amount: billing_params[:total_amount],due_date: billing_params[:due_date],description: billing_params[:description])
+          format.html { redirect_to @billing, notice: 'Billing was successfully created.' }
+          format.json { render :show, status: :created, location: @billing }
+          end
+        else
+          format.html { render :new }
+          format.json { render json: @billing.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      respond_to do |format|
+        if @billing.save
+        format.html { redirect_to @billing, notice: 'Billing was successfully created.' }
+          format.json { render :show, status: :created, location: @billing }
+          end
+        end
     end
   end
 

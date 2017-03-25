@@ -11,8 +11,7 @@
       <th>Bill type</th>
       <th>Description</th>
       <th>Datetime paid</th>
-      <th>Amount paid</th>
-      <th>Outstanding balance</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,8 +25,7 @@
         <td><%= billing.bill_type %></td>
         <td><%= billing.description %></td>
         <td><%= billing.datetime_paid %></td>
-        <td><%= billing.amount_paid %></td>
-        <td><%= billing.outstanding_balance %></td>
+
         <td><%= link_to 'Show', billing %></td>
         <td><%= link_to 'Edit', edit_billing_path(billing) %></td>
         <td><%= link_to 'Destroy', billing, method: :delete, data: { confirm: 'Are you sure?' } %></td>

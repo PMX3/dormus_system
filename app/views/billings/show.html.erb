@@ -30,15 +30,7 @@
   <%= @billing.datetime_paid %>
 </p>
 
-<p>
-  <strong>Amount paid:</strong>
-  <%= @billing.amount_paid %>
-</p>
 
-<p>
-  <strong>Outstanding balance:</strong>
-  <%= @billing.outstanding_balance %>
-</p>
 
 <%= link_to 'Edit', edit_billing_path(@billing) %> |
 <%= link_to 'Back', billings_path %>

@@ -15,6 +15,7 @@
               <br><br><br><br>
 				      <div class="scrollbox"style="padding-left:3vw;margin-top:15px;">
 				      <%date=DateTime.now+30%>
+
 				    <% @rooms.each do |room| %>
 				    <%= simple_form_for(@billing) do |f| %>
 
@@ -26,14 +27,16 @@
 				          </center>
 				        </div>
 
-				        <%= f.hidden_field :tenant_id, value: room.id %>
+				        
+				         <%= hidden_field_tag :id, '',:value => room.id %>
 				        <%= f.hidden_field :bill_type, value: 1 %>
+				        <%= f.hidden_field :due_date, value: date %>
 				        <div class="col-md-2">
 				        	<%= f.input :total_amount %>
 				        </div>
 				        <div class="col-md-3" style="padding-left:50px;">
 				        <%=f.label :due_date%>
-				 		 <%= f.input :due_date,:label=>false, :selected=>date %>
+				 		 <%= f.input :due_date,:label=>false, :selected=>date, :disabled => true  %>
 				        </div>
 				        <div class="col-md-2">
 				        	<% @date1 = Date.today  %>
@@ -69,8 +72,11 @@
 				        	<%= f.input :total_amount %>
 				        </div>
 				        <div class="col-md-3" style="padding-left:50px;">
+				         <%= f.hidden_field :due_date, value: date %>
+				         <%= f.hidden_field :bill_type, value: 2 %>
 				        <%=f.label :due_date%>
-				 		 <%= f.input :due_date,:label=>false, :selected=>date %>
+				 		 <%= f.input :due_date,:label=>false, :selected=>date, :disabled => true  %>
+				 		 <%= hidden_field_tag :id, '',:value => room.id %>
 				        </div>
 				        <div class="col-md-2">
 				        	<% @date1 = Date.today  %>
@@ -102,6 +108,8 @@
 				          <%= room.room_type %>
 				          </center>
 				        </div>
+				        <%= hidden_field_tag :id, '',:value => room.id %>
+				        <%= f.hidden_field :due_date, value: date %>
 				        <div class="col-md-2" style="">
 				 		 <%= f.input :description %>
 				        </div>
@@ -110,7 +118,7 @@
 				        </div>
 				        <div class="col-md-3" style="padding-left:10px;">
 				        <%=f.label :due_date%>
-				 		 <%= f.input :due_date,:label=>false, :selected=>date %>
+				 		 <%= f.input :due_date,:label=>false, :selected=>date, :disabled => true  %>
 				        </div>
 				        <div class="col-md-1">
 				        	<% @date1 = Date.today  %>
