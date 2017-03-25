@@ -36,10 +36,9 @@
               <img id="img-icon" src="/assets/img-icon.png"><center>
               <div class="img-upload">
                 <%= f.label "Upload Image", style: "position: relative; z-index: 0;font-family:'Open Sans';font-weight:400;margin-top:1px;" %>
-                <% if admin_signed_in? %> <!--ADMIN-->
-                <%else%>
+                
                 <%= f.file_field :image_path, style: 'position: relative; top: -30px; opacity: 0; z-index: 1;', class:'form-control', accept: 'image/*', onchange: 'previewImage()' %>
-                <%end%>
+                
                 <script type="text/javascript">
                 function previewImage() {
                   var toHide = document.querySelector('#img-icon');
