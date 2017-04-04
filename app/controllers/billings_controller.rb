@@ -5,6 +5,10 @@ class BillingsController < ApplicationController
   # GET /billings.json
   def index
     @billings = Billing.all
+    respond_to do |format|
+      format.html
+      format.csv{send_data @door_logs.to_csv}
+    end
     @applicants=Applicant.all
   end
 
