@@ -310,7 +310,7 @@ released!<span style="float:right;margin-right:15px;"><%=b.created_at.strftime("
 
        </div>
     </div>
-    
+
     <div class="bigcard">
       <div class="card_header">
         <!-- Tab for switching between views-->
@@ -399,30 +399,49 @@ released!<span style="float:right;margin-right:15px;"><%=b.created_at.strftime("
          </div>
        </div>
        <div id="tab-2" class="tab-content row">
-        <div class="col-md-6" style="padding-left:30px;">
+        <div class="col-md-8" style="padding-left:30px;">
         <br><br>
             <p class="violations-header">Transactions:</p>
           <div class="p1_sboxa sbox1" style="height:40vh;padding-top: 10px;padding-left:10px;overflow-y:scroll;overflow-x:hidden;">
 <div class="row">
-        <div class="col-md-2">Ref #</div>
-        <div class="col-md-3">Type</div>
-        <div class="col-md-2">Amount Due</div>
-        <div class="col-md-2">Amount Paid</div>
-        <div class="col-md-3">Date</div>
+        <div class="col-md-3">Date Billed</div>
+        <div class="col-md-2">Type</div>
+        <div class="col-md-2">Amount</div>
+        <div class="col-md-2">Status</div>
+        <div class="col-md-2">Date Due</div>
     </div>
    
-        <% @deals.each do |deal| %>
+        <% @billings.each do |deal| %>
         <div class="row">
-          <div class="col-md-2"><%= deal.id %></div>
-          <div class="col-md-3"><%= deal.deal_type %></div>
-          <div class="col-md-2"><%= deal.amount_due %></div>
-          <div class="col-md-2"><%= deal.amount_paid %></div>
-          <div class="col-md-3"><%= deal.deal_timestamp %></div>
+          <div class="col-md-3"><%= deal.created_at.strftime("%Y-%m-%d") %></div>
+          <div class="col-md-2"><%if deal.bill_type ==1 %>
+        Water
+        <%elsif deal.bill_type==2%>
+          Electricity
+        <%else%>
+        <%= deal.description %>
+        <%end%></div>
+          <div class="col-md-2"><%= deal.total_amount %></div>
+          <div class="col-md-2">
+             <%if deal.datetime_paid!=nil%>
+         Paid
+        <%else%>
+        Unpaid
+        <%end%>
+
+          </div>
+          <div class="col-md-3">
+           <%= deal.due_date %>
+        
+
+
+
+          </div>
           </div>
         <% end %>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
 
 
           <br><br>
