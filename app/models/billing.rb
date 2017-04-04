@@ -26,7 +26,6 @@ class Billing < ActiveRecord::Base
 		@applicants.each do |appli|
 				"#{appli.first_name} #{appli.last_name}"
 
-			end
 		end
 	end
 end
