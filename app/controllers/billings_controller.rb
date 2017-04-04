@@ -4,8 +4,13 @@ class BillingsController < ApplicationController
   # GET /billings
   # GET /billings.json
   def index
-    @billings = Billing.all
     @applicants=Applicant.all
+    @billings = Billing.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @billings.to_csv, filename: "billings-#{Date.today}.csv" }
+    end
+    
   end
 
   # GET /billings/1
