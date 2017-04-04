@@ -126,11 +126,11 @@
         <div class="col-md-6">
           <br><br>
             <p class="violations-header">Dues:</p><br>
-            <b>Meralco Bill:<%=meralco%></b><br><br>
+            <b>Meralco Bill: Php <%='%.2f'%[meralco.round(2)]%></b><br><br>
 
-            <b>Water Bill: <%=water%></b><br><br>
+            <b>Water Bill: Php <%='%.2f'%[water.round(2)]%></b><br><br>
 
-            <b>Others (See Clerk): <%=otherpay%></b>
+            <b>Others (See Clerk): Php <%='%.2f'%[otherpay.round(2)]%></b>
         </div>
        </div>
 
@@ -275,14 +275,18 @@
 
     <div class="smallcard">
       <div class="card_header"><center>Notifications</center></div>
-      <div style="margin-top:75px;">
+      <div style="height: 70vh;margin-top:75px;overflow-y:scroll; overflow-x:hidden;">
        <% @violations.each do |violation| %>
        <%if DateTime.now.to_i-violation.created_at.to_i<=345600%>
        <hr class="hr-dormer">
+       
        <div class="row" style="padding-left:30px;padding-right:30px;margin-top:2px;padding-bottom:20px;">
        A violation has been added
 to your profile. <span style="float:right;margin-right:15px;"><%=violation.created_at.strftime("%b %e, %Y")%></span>
       </div>
+
+
+
         <%end%>
        <%end%>
        <% @deals.each do |d|%>
@@ -422,11 +426,11 @@ released!<span style="float:right;margin-right:15px;"><%=b.created_at.strftime("
 
           <br><br>
             <p class="violations-header">Dues:</p><br>
-            <b>Meralco Bill:<%=meralco%> </b><br><br>
+            <b>Meralco Bill: Php <%='%.2f'%[meralco.round(2)]%> </b><br><br>
 
-            <b>Water Bill:<%=water%></b><br><br>
+            <b>Water Bill: Php <%='%.2f'%[water.round(2)]%></b><br><br>
 
-            <b>Others (See Clerk):<%=otherpay%></b>
+            <b>Others (See Clerk):Php <%='%.2f'%[otherpay.round(2)]%></b>
         </div>
        </div>
 
@@ -689,11 +693,11 @@ released!<span style="float:right;margin-right:15px;"><%=b.created_at.strftime("
         <div class="col-md-6">
           <br><br>
             <p class="violations-header">Dues:</p><br>
-            <b>Meralco Bill: <%=meralco%></b><br><br>
+            <b>Meralco Bill: Php <%='%.2f'%[meralco.round(2)]%></b><br><br>
 
-            <b>Water Bill: <%=water%></b><br><br>
+            <b>Water Bill: Php <%='%.2f'%[water.round(2)]%></b><br><br>
 
-            <b>Others (See Clerk): <%=otherpay%></b>
+            <b>Others (See Clerk): Php <%='%.2f'%[otherpay.round(2)]%></b>
         </div>
        </div>
 
