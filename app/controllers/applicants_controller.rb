@@ -9,7 +9,7 @@ class ApplicantsController < ApplicationController
   end
 
   def dormer_list
-    @applicants = Applicant.where(stage: "Dormer")
+    @applicants = Applicant.where(stage: "Dormer").sort_by &:room_id
     @billings = Billing.all
   end
   # GET /applicants/1
