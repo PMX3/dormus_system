@@ -3,10 +3,10 @@
     <div class="card_header">
         <div class="col-md-3"><center>Tenant</center></div>
         <div class="col-md-2"><center>Bill Type/Description</center></div>
-        <div class="col-md-1"><center>Total amount</center></div>
+        <div class="col-md-2"><center>Total amount</center></div>
         <div class="col-md-2"><center>Due date</center></div>
         <div class="col-md-2"><center>Date paid</center></div>
-        <div class="col-md-2"><center>Actions</center></div>
+        <div class="col-md-1">Actions</div>
     </div>
     <div class="container-fluid p1_abox" style="">
       
@@ -33,7 +33,7 @@
         <%end%>
         
         </center></div>
-        <div class="col-md-1"><center><%= billing.total_amount %></center></div>
+        <div class="col-md-2"><center>Php <%= '%.2f'%[billing.total_amount.round(2)] %></center></div>
         <div class="col-md-2"><center><%= billing.due_date %></center></div>
         <div class="col-md-2"><center>
         <%if billing.datetime_paid!=nil%>
@@ -42,7 +42,7 @@
         <%end%>
 
         </center></div>
-        <div class="col-md-2"><center>
+        <div class="col-md-1"><center>
         <%= link_to 'Delete', billing, method: :delete, data: { confirm: 'Are you sure?' } %></center> </div>
     </div>
     <% end %>

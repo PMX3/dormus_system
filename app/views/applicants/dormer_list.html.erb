@@ -79,7 +79,7 @@
             <%@billings.where(tenant_id: applicant.id,datetime_paid: nil).each do |b|%>
             <%duetotal=duetotal+b.total_amount%>
             <%end%>
-            <%=duetotal%>
+            Php <%='%.2f'%[duetotal.round(2)]%>
 
 
 
