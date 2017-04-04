@@ -22,9 +22,7 @@ class Billing < ActiveRecord::Base
 	end
 
 	def tenant
-		@applicants=Applicant.where(id: tenant_id)
-		@applicants.each do |appli|
-				"#{appli.first_name} #{appli.last_name}"
+		Applicant.where(id: tenant_id).first_name
 
 		end
 	end
