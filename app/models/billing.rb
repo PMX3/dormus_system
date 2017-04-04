@@ -22,9 +22,9 @@ class Billing < ActiveRecord::Base
 	end
 
 	def tenant
-		apname=Applicants.where(id: tenant_id)
+		@apname=Applicants.where(id: tenant_id)
 
-				"#{apname[first_name]}"
+				"#{@apname[first_name]}"
 
 
 	end
