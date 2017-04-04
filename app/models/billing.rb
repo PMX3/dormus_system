@@ -1,4 +1,5 @@
 class Billing < ActiveRecord::Base
+	@applicant=Applicant.where(id: tenant_id)
 	def self.to_csv
 		attributes=%w{tenant bill_type_dec total_amount created_at datetime_paid paid }
 		CSV.generate(headers:true) do |csv|
@@ -22,7 +23,8 @@ class Billing < ActiveRecord::Base
 	end
 
 	def tenant
-		Applicant.where(id: tenant_id).first_name
+
+				"#{@applicant.first_name} #{@applicant.last_name}"
 
 	end
 end
