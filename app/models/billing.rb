@@ -24,6 +24,5 @@ class Billing < ActiveRecord::Base
 	def tenant
 		Applicant.where(id: tenant_id).first_name
 
-		end
 	end
 end
