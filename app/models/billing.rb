@@ -1,6 +1,6 @@
 class Billing < ActiveRecord::Base
 	def self.to_csv
-		attributes=%w{tenant_id bill_type_dec total_amount created_at datetime_paid paid }
+		attributes=%w{tenant bill_type_dec total_amount created_at datetime_paid paid }
 		CSV.generate(headers:true) do |csv|
 			csv<<attributes
 			all.each do |bill|
@@ -18,6 +18,16 @@ class Billing < ActiveRecord::Base
 			end
 		else
 			"#{description}"
+		end
+	end
+
+	def tenant
+		@applicants=Applicants.all 
+		@applicants.each do |appli|
+			if appli.id==tenant_id
+				"#{appli.first_name} #{appli.last_name}"
+
+			end
 		end
 	end
 end
