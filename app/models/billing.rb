@@ -24,7 +24,7 @@ class Billing < ActiveRecord::Base
 	def tenant
 		apname=Applicants.where(id: tenant_id).first_name
 
-				"#{appli.first_name} #{appli.last_name}"
+				"#{apname}"
 
 
 	end
