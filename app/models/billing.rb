@@ -24,7 +24,7 @@ class Billing < ActiveRecord::Base
 	def tenant
 		@applicants=Applicant.where(id: tenant_id)
 		@applicants.each do |appli|
-				"#{appli.first_name}"
+				puts "#{appli.first_name}"
 
 		end
 	end
