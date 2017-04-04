@@ -8,8 +8,11 @@
         <div class="col-md-2"><center>Date paid</center></div>
         <div class="col-md-2"><center>Actions</center></div>
     </div>
-    <div class="container-fluid">
-      <br><br><br><br><br><br><br>
+    <div class="container-fluid p1_abox" style="">
+      
+      <br><br><br><br>
+      <br><br><br>
+      <div class="scrollbox"style="padding-left:3vw;padding-right:3vw;">
     <% @billings.each do |billing| %>
     <div class="row">
         <div class="col-md-3"><center>
@@ -43,6 +46,7 @@
         <%= link_to 'Delete', billing, method: :delete, data: { confirm: 'Are you sure?' } %></center> </div>
     </div>
     <% end %>
+    </div>
       </div>
   </div>
 </div>

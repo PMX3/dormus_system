@@ -30,16 +30,19 @@ redirect_to dormer_list_path
   def create
     @room=Room.find(params[:id])
     tenant_ids=Array.new
+    tcount=tenant_ids.count
     @room.applicants.each do |a|
       tenant_ids<<a.id
     end
     #raise params.inspect
-    @billing = Billing.new(tenant_id: tenant_ids[0], bill_type: billing_params[:bill_type],total_amount: billing_params[:total_amount],due_date: billing_params[:due_date],description: billing_params[:description])
+    bills=billing_params[:total_amount].to_f/(tenant_ids.count)
+    @billing = Billing.new(tenant_id: tenant_ids[0], bill_type: billing_params[:bill_type],total_amount: bills,due_date: billing_params[:due_date],description: billing_params[:description])
     if tenant_ids.length>1
+
       respond_to do |format|
         if @billing.save
           tenant_ids.drop(1).each do |tenant_id|
-            Billing.create(tenant_id: tenant_id, bill_type: billing_params[:bill_type],total_amount: billing_params[:total_amount],due_date: billing_params[:due_date],description: billing_params[:description])
+            Billing.create(tenant_id: tenant_id, bill_type: billing_params[:bill_type],total_amount: bills,due_date: billing_params[:due_date],description: billing_params[:description])
           format.html { redirect_to @billing, notice: 'Billing was successfully created.' }
           format.json { render :show, status: :created, location: @billing }
           end
