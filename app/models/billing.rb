@@ -24,7 +24,7 @@ class Billing < ActiveRecord::Base
 	def tenant
 		@applicants=Applicants.all 
 		@applicants.each do |appli|
-			if appli.id==tenant_id
+			if appli.id==this.tenant_id
 				"#{appli.first_name} #{appli.last_name}"
 
 			end
