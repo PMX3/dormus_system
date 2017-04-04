@@ -274,8 +274,8 @@
   <div class="default_bg container-fluid padd-box">
 
     <div class="smallcard">
-      <div class="card_header"><center>Notifications</center></div>
-      <div style="height: 70vh;margin-top:75px;overflow-y:scroll; overflow-x:hidden;">
+      <div class="card_header1" ><center>Notifications</center></div>
+      <div style="height: 67vh;margin-top:75px;overflow-y:scroll; overflow-x:hidden;">
        <% @violations.each do |violation| %>
        <%if DateTime.now.to_i-violation.created_at.to_i<=345600%>
        <hr class="hr-dormer">
