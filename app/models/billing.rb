@@ -4,7 +4,7 @@ class Billing < ActiveRecord::Base
 		CSV.generate(headers:true) do |csv|
 			csv<<attributes
 			all.each do |bill|
-				csv <<bill.attributes.map{|attr| user.send(attr)}
+				csv <<bill.attributes.map{|attr| bill.send(attr)}
 			end
 		end
 	end
