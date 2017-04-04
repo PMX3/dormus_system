@@ -1,0 +1,52 @@
+<html>
+<head>
+<%date=DateTime.now%>
+  <!--<link rel="shortcut icon" href="/assets/h-logo2.ico" />-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="default_bg container-fluid" style="overflow-y:auto;"><div class="row">
+ <% @billings.each do |billing| %>
+  <div class="col-md-3" style="">
+      <div class="tinycard">
+        <div class="card_header" style="padding-left:3vw;padding-right:3vw;">
+        <center>
+          <%if billing.bill_type ==1 %>
+        Water Bill - <%=billing.created_at.strftime("%b %e, %Y")%>
+        <%elsif billing.bill_type==2%>
+          Electricity Bill - <%=billing.created_at.strftime("%B %e, %Y")%>
+        <%else%>
+        <%= billing.description %> - <%=billing.created_at.strftime("%b %e, %Y")%>
+        <%end%>
+
+        </center>
+        </div>
+        <div class="tinycard-content"><!--content-->
+          <br><br><br>
+        <b>Due Date:</b> <%=billing.due_date.strftime("%b %e, %Y")%>
+        <br><br>
+        <b>Amount Due:</b> Php <%=billing.total_amount%>
+        <br><br>
+        <%= simple_form_for(billing) do |f| %>
+        <%= f.hidden_field :datetime_paid, value: date %>
+        <%= f.submit "Paid" %>
+        <%end%>
+        </div>
+
+</div>
+      </div>
+        <%end%>
+        </div>
+   
+
+
+
+    </div>
+
+  </div>
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.min.js"></script>
+</html>

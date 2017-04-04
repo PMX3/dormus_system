@@ -10,11 +10,12 @@ class ApplicantsController < ApplicationController
 
   def dormer_list
     @applicants = Applicant.where(stage: "Dormer")
-
+    @billings = Billing.all
   end
   # GET /applicants/1
   # GET /applicants/1.json
   def show
+
   end
 
   def preference
@@ -47,6 +48,7 @@ class ApplicantsController < ApplicationController
   
   # GET /applicants/1/edit
   def edit
+
   end
 
   # POST /applicants
@@ -82,6 +84,10 @@ def room_select
   redirect_to applicants_path
 end
 
+def pay_bills
+  @billings = Billing.where(tenant_id: params[:id],datetime_paid: nil)
+end
+
 def add_violation
   @applicant = Applicant.find(params[:id])
   @applicant.violation|= 0
@@ -95,7 +101,11 @@ end
   def update
     respond_to do |format|
       if @applicant.update(applicant_params)
+        if admin_signed_in?
+        format.html { redirect_to dormer_list_path, notice: 'Applicant was successfully updated.' }
+        else
         format.html { redirect_to @applicant, notice: 'Applicant was successfully updated.' }
+        end
         format.json { render :show, status: :ok, location: @applicant }
       else
         format.html { render :edit }

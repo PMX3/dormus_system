@@ -59,7 +59,7 @@ end
   get '/food_plans/today_food' => "food_plans#today_food", as: :today_food
   get '/rooms/:id/room_status'=>"rooms#room_status", as: :room_status
   post '/food_plans/food_email' => 'food_plans#food_email', as: :food_email
- 
+  get '/applicants/:id/pay_bills'=>'applicants#pay_bills', as: :pay_bills
 
 
   namespace :api do 

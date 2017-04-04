@@ -11,6 +11,6 @@ class DoorLog < ActiveRecord::Base
 	end
 
 	def limitrecords
-		DoorLog.first.destroy if DoorLog.count > 2300
+		DoorLog.first.destroy if DoorLog.count > 3300
 	end
 end

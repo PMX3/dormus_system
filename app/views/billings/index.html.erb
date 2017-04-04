@@ -1,9 +1,9 @@
 <div class="default_bg container-fluid">
   <div class="card">
     <div class="card_header">
-        <div class="col-md-2"><center>Tenant</center></div>
+        <div class="col-md-3"><center>Tenant</center></div>
         <div class="col-md-2"><center>Bill Type/Description</center></div>
-        <div class="col-md-2"><center>Total amount</center></div>
+        <div class="col-md-1"><center>Total amount</center></div>
         <div class="col-md-2"><center>Due date</center></div>
         <div class="col-md-2"><center>Date paid</center></div>
         <div class="col-md-2"><center>Actions</center></div>
@@ -12,12 +12,33 @@
       <br><br><br><br><br><br><br>
     <% @billings.each do |billing| %>
     <div class="row">
-        <div class="col-md-2"><center><%= billing.tenant_id %></center></div>
+        <div class="col-md-3"><center>
+        <%@applicants.each do |a|%>
+          <%if a.id==billing.tenant_id%>
+          <%=a.first_name%> &nbsp <%=a.last_name%>
+          <%end%>
+        <%end%>
+        </center></div>
         <div class="col-md-2">
-        <center><%= billing.bill_type %><%= billing.description %></center></div>
-        <div class="col-md-2"><center><%= billing.total_amount %></center></div>
+        <center>
+        <%if billing.bill_type ==1 %>
+        Water Bill
+        <%elsif billing.bill_type==2%>
+          Electricity Bill
+        <%else%>
+        <%= billing.description %>
+        <%end%>
+        
+        </center></div>
+        <div class="col-md-1"><center><%= billing.total_amount %></center></div>
         <div class="col-md-2"><center><%= billing.due_date %></center></div>
-        <div class="col-md-2"><center><%= billing.datetime_paid %></center></div>
+        <div class="col-md-2"><center>
+        <%if billing.datetime_paid!=nil%>
+         <%= billing.datetime_paid.strftime("%Y-%m-%d") %>
+        <%else%>
+        <%end%>
+
+        </center></div>
         <div class="col-md-2"><center>
         <%= link_to 'Delete', billing, method: :delete, data: { confirm: 'Are you sure?' } %></center> </div>
     </div>

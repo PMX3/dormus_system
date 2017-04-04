@@ -5,12 +5,13 @@ class BillingsController < ApplicationController
   # GET /billings.json
   def index
     @billings = Billing.all
+    @applicants=Applicant.all
   end
 
   # GET /billings/1
   # GET /billings/1.json
   def show
-
+redirect_to dormer_list_path
   end
 
   # GET /billings/new
@@ -22,6 +23,7 @@ class BillingsController < ApplicationController
   # GET /billings/1/edit
   def edit
   end
+
 
   # POST /billings
   # POST /billings.json
@@ -49,7 +51,7 @@ class BillingsController < ApplicationController
     else
       respond_to do |format|
         if @billing.save
-        format.html { redirect_to @billing, notice: 'Billing was successfully created.' }
+        format.html { redirect_to :back, notice: 'Billing was successfully created.' }
           format.json { render :show, status: :created, location: @billing }
           end
         end

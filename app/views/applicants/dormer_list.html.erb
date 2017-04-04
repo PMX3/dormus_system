@@ -74,7 +74,16 @@
          <%=applicant.room.room_number%>
          <%end%>
          </center></div>
-          <div class="col-md-2" style="padding-top:15px;"> <center>0.00</center></div>
+          <div class="col-md-2" style="padding-top:15px;"> <center>
+            <%duetotal=0%>
+            <%@billings.where(tenant_id: applicant.id,datetime_paid: nil).each do |b|%>
+            <%duetotal=duetotal+b.total_amount%>
+            <%end%>
+            <%=duetotal%>
+
+
+
+          </center></div>
           <div class="col-md-2" style="padding-top:15px;"> <center>
           <%if applicant.lease_end!=nil%>
           <%if Date.today <applicant.lease_end%>
@@ -88,7 +97,9 @@
 
           </center></div>
           <div class="col-md-3" style="padding-top:15px;"> <center>
-            <%=link_to "View",show_dormer_path(applicant.id)%> | <%= link_to 'Delete', applicant, method: :delete, data: { confirm: 'Are you sure?' } %> | <%=link_to "Edit",edit_applicant_path(applicant)%>
+
+            <%=link_to "View",show_dormer_path(applicant.id)%> | <%=link_to "Edit",edit_applicant_path(applicant)%> | <%= link_to 'Delete', applicant, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+            <%=link_to "Pay Bill",pay_bills_path(applicant)%>
           </center></div>
 
       </div>
