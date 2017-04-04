@@ -28,7 +28,7 @@ class ViolationsController < ApplicationController
 
     respond_to do |format|
       if @violation.save
-        format.html { redirect_to @violation, notice: 'Violation was successfully created.' }
+        format.html { redirect_to :back, notice: 'Violation was successfully created.' }
         format.json { render :show, status: :created, location: @violation }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class ViolationsController < ApplicationController
   def destroy
     @violation.destroy
     respond_to do |format|
-      format.html { redirect_to violations_url, notice: 'Violation was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Violation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -7,6 +7,7 @@
           <li class="current"><a href="#tab-1">Water</a></li>
           <li><a href="#tab-2">Electricity</a></li>
           <li><a href="#tab-3">Others</a></li>
+          <li><a href="#tab-4">Personal</a></li>
         </ul>
         
       </div>
@@ -135,6 +136,47 @@
 				    <% end %>
 				    </div>
 
+         </div>
+
+
+         <div id="tab-4" class="row tab-content">
+         <br><br><br><br>
+				      <div class="scrollbox"style="padding-left:3vw;margin-top:15px;">
+				          <%= simple_form_for(@billing) do |f| %>
+
+				      <div class="row">
+				        <div class="col-md-3">
+				          <center>
+				          <%= f.label "Billing for" %>
+				          <br>
+
+				          <%= f.collection_select :tenant_id, Applicant.where(stage: "Dormer").order(:last_name), :id, :full_name, {}, :class=>"" %>
+				          </center>
+				        </div>
+
+				        <%= hidden_field_tag :id, '',:value => 1 %>
+				        <%= f.hidden_field :due_date, value: date %>
+				        <div class="col-md-2" style="">
+				 		 <%= f.input :description %>
+				        </div>
+				        <div class="col-md-2">
+				        	<%= f.input :total_amount %>
+				        </div>
+				        <div class="col-md-3" style="padding-left:10px;">
+				        <%=f.label :due_date%>
+				 		 <%= f.input :due_date,:label=>false, :selected=>date, :disabled => true  %>
+				        </div>
+				        <div class="col-md-2">
+				        	<% @date1 = Date.today  %>
+				        	<b>Date of Billing</b><br>
+				        	<%= @date1.strftime("%B %e, %Y")%> 
+				        	<br><br>
+				        	<%= f.button :submit %>
+				        </div>
+
+				      </div>
+				      <%end%>
+				      </div>
          </div>
 
       </div>
