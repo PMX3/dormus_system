@@ -21,6 +21,7 @@ redirect_to dormer_list_path
 
   # GET /billings/new
   def new
+    @applicants=Applicant.all
     @billing = Billing.new
     @rooms=Room.all
   end

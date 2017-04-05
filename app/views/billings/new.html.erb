@@ -1,4 +1,9 @@
 <body>
+<%arr=Array.new%>
+<% @applicants.each do |appli|%>
+	<%arr<<appli.room_id%>
+<%end%>
+<%arr=arr.uniq%>
   <div class="default_bg container-fluid">
 
     <div class="card">
@@ -15,9 +20,10 @@
         <div id="tab-1" class="row tab-content">
               <br><br><br><br>
 				      <div class="scrollbox"style="padding-left:3vw;margin-top:15px;">
-				      <%date=DateTime.now+30%>
+				      <%date=DateTime.now+14%>
 
 				    <% @rooms.each do |room| %>
+				    <%if arr.include? room.id%>
 				    <%= simple_form_for(@billing) do |f| %>
 
 				      <div class="row">
@@ -51,6 +57,8 @@
 				      </div>
 				      <hr class="hr-rooms">
 						<% end %>
+						<%else%>
+						<%end%>
 				    <% end %>
 				    </div>
 
@@ -58,8 +66,9 @@
          <div id="tab-2" class="row tab-content">
               <br><br><br><br>
 				      <div class="scrollbox"style="padding-left:3vw;margin-top:15px;">
-				      <%date=DateTime.now+30%>
+				      <%date=DateTime.now+14%>
 				    <% @rooms.each do |room| %>
+				    <%if arr.include? room.id%>
 				    <%= simple_form_for(@billing) do |f| %>
 
 				      <div class="row">
@@ -91,6 +100,8 @@
 				      </div>
 				      <hr class="hr-rooms">
 						<% end %>
+						<%else%>
+						<%end%>
 				    <% end %>
 				    </div>
 
@@ -98,8 +109,9 @@
          <div id="tab-3" class="row tab-content">
               <br><br><br><br>
 				      <div class="scrollbox"style="padding-left:3vw;margin-top:15px;">
-				      <%date=DateTime.now+30%>
+				      <%date=DateTime.now+14%>
 				    <% @rooms.each do |room| %>
+				    <%if arr.include? room.id%>
 				    <%= simple_form_for(@billing) do |f| %>
 
 				      <div class="row">
@@ -133,6 +145,8 @@
 				      </div>
 				      <hr class="hr-rooms">
 						<% end %>
+						<%else%>
+						<%end%>
 				    <% end %>
 				    </div>
 
