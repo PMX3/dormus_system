@@ -4,7 +4,7 @@ class ApplicantsController < ApplicationController
   # GET /applicants
   # GET /applicants.json
   def index
-    @applicants = Applicant.where.not(stage: "Dormer")
+    @applicants = Applicant.where.not(stage: "Dormer").sort_by &:stage
     @rooms=Room.all
   end
 
