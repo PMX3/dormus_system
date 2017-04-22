@@ -1,4 +1,5 @@
 class Billing < ActiveRecord::Base
+	scope :reversed, -> { order 'datetime_paid DESC', 'total_amount DESC' }
 	def self.to_csv
 		attributes=%w{tenant_id bill_type_dec total_amount created_at datetime_paid paid }
 		CSV.generate(headers:true) do |csv|

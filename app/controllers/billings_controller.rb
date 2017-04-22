@@ -1,11 +1,12 @@
 class BillingsController < ApplicationController
   before_action :set_billing, only: [:show, :edit, :update, :destroy]
 
+
   # GET /billings
   # GET /billings.json
   def index
     @applicants=Applicant.all
-    @billings = Billing.all
+    @billings = Billing.reversed.all
     respond_to do |format|
       format.html
       format.csv { send_data @billings.to_csv, filename: "billings-#{Date.today}.csv" }
